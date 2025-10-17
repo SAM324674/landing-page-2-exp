@@ -11,7 +11,7 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem, 
-} from '@/components/carousel';
+} from '@/components/ui/carousel';
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
 

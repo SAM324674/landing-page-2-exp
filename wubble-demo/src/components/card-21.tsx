@@ -8,7 +8,7 @@ interface DestinationCardProps extends React.HTMLAttributes<HTMLDivElement> {
    // e.g., "150 50% 25%" for a deep green
 }
 
-const BlogCard = React.forwardRef<HTMLDivElement, DestinationCardProps>(
+const FeaturesCard = React.forwardRef<HTMLDivElement, DestinationCardProps>(
   ({ className, imageUrl, ...props }, ref) => {
     return (
       // The 'group' class enables hover effects on child elements
@@ -67,6 +67,6 @@ const BlogCard = React.forwardRef<HTMLDivElement, DestinationCardProps>(
     );
   }
 );
-BlogCard.displayName = "BlogCard";
+FeaturesCard.displayName = "Features";
 
-export { BlogCard };
+export { FeaturesCard };

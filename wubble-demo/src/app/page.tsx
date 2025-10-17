@@ -5,13 +5,19 @@ import { AnimatedGroup } from "@/components/ui/animated-group";
 import { MusicCard } from "@/components/card-6";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/tabs";
 import { Footer7 } from "@/components/footer-7";
-import { BlogCard } from "@/components/card-21";
+import { FeaturesCard } from "@/components/card-21";
 import PricingSection from "@/components/pricing-section";
 // import { Accordion } from "@/components/ui/accordion";
 import { Accordion, AccordionContent, AccordionItem } from "@/components/ui/accordion";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
 
 import { Plus } from "lucide-react";
+import ClientCompany from "@/components/LandingPage/ClientCompany";
+import FeatureSection from "@/components/LandingPage/FeatureSection";
+import FeaturesCarousel from "@/components/LandingPage/FeaturesCarousel";
+import { Button } from "@/components/ui/button";
+import ShaderCanvas from "@/components/kaleidoscopic-orb-mesh-1";
+import LiquidCrystalBackground from "@/components/liquid-neon-shader";
 const transitionVariants = {
   item: {
     hidden: {
@@ -82,14 +88,30 @@ const items = [
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen font-sans">
+    <div className="flex flex-col min-h-screen font-sans text-white">
       {/* Header */}
       <Header />
 
       {/* Main content */}
-      <main className="flex-1 w-full flex flex-col items-center space-y-32">
+      <main className="flex-1 w-full flex flex-col items-center space-y-[5.3rem]">
         {/* Hero Section */}
-        <HeroSection />
+        <div className="relative min-w-screen border h-[40rem] ">
+          <div className="absolute w-full border h-full ">
+            <LiquidCrystalBackground
+              speed={0.6}
+              radii={[0.25, 0.18, 0.3]}
+              smoothK={[0.2, 0.3]}
+            />
+          </div>
+          <div className="bg-gradient-to-b from-black to-[#100f10] w-full absolute h-[4rem]  top-[39rem] z-10"/>
+        </div>
+        <AnimatedGroup>
+
+          <div className="w-full absolute top-0 left-0 bg-black/50 backdrop-blur-sm h-[40rem]">
+            <HeroSection />
+          </div>
+        </AnimatedGroup>
+
 
         {/* Prompt Input */}
         <AnimatedGroup
@@ -101,10 +123,32 @@ export default function Home() {
             },
             ...transitionVariants,
           }}
-          className="w-full border flex justify-center"
+          className="relative z-50 w-full flex justify-center -mt-[13rem]"
         >
           <PromptInputBox />
         </AnimatedGroup>
+
+        {/* Client Companies */}
+        <AnimatedGroup
+          variants={{
+            container: {
+              visible: {
+                transition: { staggerChildren: 0.05, delayChildren: 0.75 },
+              },
+            },
+            ...transitionVariants,
+          }}
+          className="w-full ">
+          <ClientCompany />
+        </AnimatedGroup>
+
+        {/* Used By Millions of Creators */}
+        <div className=" w-full overflow-hidden flex flex-col justify-center items-center space-y-10">
+          <h1 className="text-white text-4xl font-bold">Used By millions of the best creators</h1>
+          <FeaturesCarousel />
+          <Button className="bg-gradient-to-l from-[#6a5ae7] to-[#d622ef] rounded-full">Get Started</Button>
+        </div>
+
 
         {/* Music Section */}
         <section className="flex flex-col items-center w-full space-y-12">
@@ -116,14 +160,16 @@ export default function Home() {
             </p>
           </div>
 
-          <Tabs defaultValue="gaming" className="w-full max-w-6xl">
-            <TabsList className="flex justify-center flex-wrap gap-2 mb-6" shape="pill">
-              <TabsTrigger value="gaming">Gaming</TabsTrigger>
-              <TabsTrigger value="Podcast">Podcast</TabsTrigger>
-              <TabsTrigger value="Content">Content</TabsTrigger>
-              <TabsTrigger value="Marketing">Marketing</TabsTrigger>
-              <TabsTrigger value="Movies">Movies</TabsTrigger>
-            </TabsList>
+          <Tabs defaultValue="gaming" className="w-full max-w-6xl ">
+            <div className="w-full flex justify-center items-center">
+              <TabsList className="flex justify-center items-center flex-wrap gap-2 mb-6 h-[3rem] bg-gray-700/50  " shape="pill">
+                <TabsTrigger value="gaming" className="text-lg data-[state=active]:text-white data-[state=active]:bg-gradient-to-l data-[state=active]:from-[#6a5ae7]  data-[state=active]:to-[#d622ef] " >Gaming</TabsTrigger>
+                <TabsTrigger value="Podcast" className="text-lg data-[state=active]:text-white data-[state=active]:bg-gradient-to-l data-[state=active]:from-[#6a5ae7] data-[state=active]:to-[#d622ef] ">Podcast</TabsTrigger>
+                <TabsTrigger value="Content" className="text-lg data-[state=active]:text-white data-[state=active]:bg-gradient-to-l data-[state=active]:from-[#6a5ae7] data-[state=active]:to-[#d622ef] ">Content</TabsTrigger>
+                <TabsTrigger value="Marketing" className="text-lg data-[state=active]:text-white data-[state=active]:bg-gradient-to-l  data-[state=active]:from-[#6a5ae7] data-[state=active]:to-[#d622ef] ">Marketing</TabsTrigger>
+                <TabsTrigger value="Movies" className="text-lg data-[state=active]:text-white data-[state=active]:bg-gradient-to-l data-[state=active]:from-[#6a5ae7] data-[state=active]:to-[#d622ef] ">Movies</TabsTrigger>
+              </TabsList>
+            </div>
 
             {["gaming", "Podcast", "Content", "Marketing", "Movies"].map((category) => (
               <TabsContent key={category} value={category}>
@@ -137,13 +183,12 @@ export default function Home() {
           </Tabs>
         </section>
 
-        {/* Blogs Section */}
+        {/* Features Section */}
         <section className="w-full max-w-6xl px-4 space-y-8">
-          <h1 className="text-4xl font-bold text-center">Blogs</h1>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
-            {BlogList.map((blog, index) => (
-              <BlogCard key={index} imageUrl={blog.img} />
-            ))}
+          {/* <h1 className="text-4xl font-bold text-center">Features</h1> */}
+          <div className="">
+            <FeatureSection />
+
           </div>
         </section>
 
@@ -183,7 +228,7 @@ export default function Home() {
       <div className="p-3">
         <Footer7 />
       </div>
-    
+
     </div>
   );
 }

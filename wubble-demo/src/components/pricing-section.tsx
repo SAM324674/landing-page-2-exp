@@ -90,7 +90,7 @@ const PlanCard = ({
   return (
     <div
       className={cn(
-        "flex flex-col relative rounded-2xl border-2 border-blue-500 ring-2 ring-blue-500/20 lg:rounded-3xl transition-all bg-background/50 border border-gray-200 dark:border-gray-700 overflow-hidden",
+        "flex flex-col relative rounded-2xl border-2 ring-2 ring-blue-500/20 lg:rounded-3xl transition-all bg-black/50    border-gray-700 overflow-hidden",
         plan.title === "Mastermind" && "border-blue-500",
         plan.title === "Standard" && "border-2 border-orange-500 ring-2 ring-orange-500/20 dark:border-orange-500 dark:ring-orange-500/20"
       )}
@@ -152,14 +152,14 @@ export default function PricingSection() {
   const [users, setUsers] = useState(1);
 
   return (
-    <section className="py-16 bg-white dark:bg-neutral-950">
+    <section className="py-16 bg-neutral-950 ">
       <div className="max-w-6xl mx-auto px-6">
         {/* Controls */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-10">
-          <div className="flex bg-gray-100 dark:bg-neutral-800 rounded-full">
+          <div className="flex bg-neutral-800 rounded-full">
             <button
               className={`px-4 py-2 rounded-full text-sm font-medium transition ${
-                billing === "annual" ? "bg-black text-white" : "dark:text-gray-200 text-gray-700"
+                billing === "annual" ? "bg-black text-white" : "text-gray-200 "
               }`}
               onClick={() => setBilling("annual")}
             >
@@ -175,7 +175,7 @@ export default function PricingSection() {
             </button>
           </div>
 
-          <div className="flex items-center gap-3 border border-gray-200 dark:border-gray-700 rounded-full px-4 py-2 text-sm font-normal">
+          <div className="flex items-center gap-3 border border-gray-700 rounded-full px-4 py-2 text-sm font-normal">
             <span>Users:</span>
             <button
               className="px-2 text-lg"
