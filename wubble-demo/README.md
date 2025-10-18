@@ -2,7 +2,17 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
-First, run the development server:
+
+# 1. Clone the repo
+git clone https://github.com/wubbletech/landing-page-2-exp.git
+cd landing-page-2-exp.git
+cd wubble-demo
+
+# 2. Install dependencies
+npm install
+
+
+# 5. Start development server
 
 ```bash
 npm run dev

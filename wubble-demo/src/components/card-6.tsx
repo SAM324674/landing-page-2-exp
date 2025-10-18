@@ -45,7 +45,7 @@ const MusicCard = React.forwardRef<HTMLDivElement, MusicCardProps>(
       <motion.div
         ref={ref}
         className={cn(
-          "relative h-64 w-full max-w-xs cursor-pointer overflow-hidden rounded-2xl border bg-card shadow-lg",
+          "relative h-64 w-full max-w-xs cursor-pointer overflow-hidden rounded-2xl  bg-card shadow-lg",
           className
         )}
         variants={cardVariants}

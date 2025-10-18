@@ -95,15 +95,16 @@ export default function Home() {
       {/* Main content */}
       <main className="flex-1 w-full flex flex-col items-center space-y-[5.3rem]">
         {/* Hero Section */}
-        <div className="relative min-w-screen border h-[40rem] ">
-          <div className="absolute w-full border h-full ">
+        <div className="relative w-full h-[40rem]  ">
+          <div className="absolute  w-full h-full ">
             <LiquidCrystalBackground
               speed={0.6}
               radii={[0.25, 0.18, 0.3]}
               smoothK={[0.2, 0.3]}
+              
             />
           </div>
-          <div className="bg-gradient-to-b from-black to-[#100f10] w-full absolute h-[4rem]  top-[39rem] z-10"/>
+          {/* <div className="bg-gradient-to-b  from-10% from-black/80 to-90% to-[#100f10] w-full  backdrop-blur-3xl absolute h-[4rem]  top-[39rem] z-10"/> */}
         </div>
         <AnimatedGroup>
 
@@ -143,7 +144,7 @@ export default function Home() {
         </AnimatedGroup>
 
         {/* Used By Millions of Creators */}
-        <div className=" w-full overflow-hidden flex flex-col justify-center items-center space-y-10">
+        <div className=" w-full overflow-hidden flex flex-col justify-center items-center space-y-10 ">
           <h1 className="text-white text-4xl font-bold">Used By millions of the best creators</h1>
           <FeaturesCarousel />
           <Button className="bg-gradient-to-l from-[#6a5ae7] to-[#d622ef] rounded-full">Get Started</Button>

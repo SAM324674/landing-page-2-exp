@@ -152,7 +152,7 @@ export default function PricingSection() {
   const [users, setUsers] = useState(1);
 
   return (
-    <section className="py-16 bg-neutral-950 ">
+    <section className="py-16 bg-black ">
       <div className="max-w-6xl mx-auto px-6">
         {/* Controls */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-10">

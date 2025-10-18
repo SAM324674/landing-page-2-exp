@@ -181,7 +181,7 @@ const LiquidCrystalBackground: FC<LiquidCrystalProps> = ({
     <div
       role="region"
       aria-label="Liquid crystal shader background"
-      className={`relative w-full h-full overflow-hidden ${className}`}
+      className={`relative w-full h-full  overflow-hidden ${className}`}
     >
       <canvas ref={canvasRef} className="block w-full h-full" />
       {error && (
