@@ -18,6 +18,8 @@ import FeaturesCarousel from "@/components/LandingPage/FeaturesCarousel";
 import { Button } from "@/components/ui/button";
 import ShaderCanvas from "@/components/kaleidoscopic-orb-mesh-1";
 import LiquidCrystalBackground from "@/components/liquid-neon-shader";
+import MusicSectionCarousel from "@/components/MusicSectionCarousel";
+import AuroraWaves from "@/components/aurora-waves";
 const transitionVariants = {
   item: {
     hidden: {
@@ -101,7 +103,7 @@ export default function Home() {
               speed={0.6}
               radii={[0.25, 0.18, 0.3]}
               smoothK={[0.2, 0.3]}
-              
+
             />
           </div>
           {/* <div className="bg-gradient-to-b  from-10% from-black/80 to-90% to-[#100f10] w-full  backdrop-blur-3xl absolute h-[4rem]  top-[39rem] z-10"/> */}
@@ -124,7 +126,7 @@ export default function Home() {
             },
             ...transitionVariants,
           }}
-          className="relative z-50 w-full flex justify-center -mt-[13rem]"
+          className="relative z-30 w-full flex justify-center -mt-[13rem]"
         >
           <PromptInputBox />
         </AnimatedGroup>
@@ -172,7 +174,7 @@ export default function Home() {
               </TabsList>
             </div>
 
-            {["gaming", "Podcast", "Content", "Marketing", "Movies"].map((category) => (
+            {/* {["gaming", "Podcast", "Content", "Marketing", "Movies"].map((category) => (
               <TabsContent key={category} value={category}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
                   {MusicList.map((music, index) => (
@@ -180,8 +182,21 @@ export default function Home() {
                   ))}
                 </div>
               </TabsContent>
-            ))}
+            ))} */}
           </Tabs>
+          <section className=" space-y-5 w-full h-[20rem] px-[10rem]  flex justify-between rounded-md  bg-gradient-to-t from-[#6a5ae7]/50 to-transparent  ">
+           
+            <div className="flex flex-col  space-y-[2rem]">
+              <h1 className="text-4xl font-bold">Wubble Chat Studio</h1>
+              <p className="w-[25rem]">Bring your music ideas to life through conversation. Type your vision, get compositions instantly, and refine them in real time.</p>
+              
+            </div>
+              <Button className="bg-gradient-to-l from-[#6a5ae7] to-[#d622ef] mt-11">Open studio</Button>  
+{/*             
+           <div className="border"> <AuroraWaves /></div> */}
+            {/* <div className="absolute z-0 top-[40rem] w-full"/>   */}
+          </section>
+          <MusicSectionCarousel />
         </section>
 
         {/* Features Section */}
