@@ -1,9 +1,18 @@
 import React from 'react'
 import GalleryHoverCarousel from './gallery-hover-carousel';
+import img from '../../public/Waveform.jpg'
+// interface GalleryHoverCarouselItem {
+//   id: number | string;
+//   title: string;
+//   summary?: string;
 
+//   buttonText?: string;
+//   url: string;
+//   image: string;
+// }
 const DiscoverMore = () => {
   return (
-     <GalleryHoverCarousel heading="Discover More Products" items={discoverMoreProducts}/>
+    <GalleryHoverCarousel heading="Discover More Products" items={discoverMoreProducts} />
   )
 }
 
@@ -13,98 +22,120 @@ export const discoverMoreProducts = [
   {
     id: 1,
     title: "Wubble Studio",
-    description:
+    summary:
       "Your main creation hub — compose, refine, and download your soundtrack in one seamless chat-based workspace.",
     buttonText: "Open Studio",
-     url: "#",
+    url: "#",
+    image: '/Waveform.jpg',
+      Caption: "Reel generator"
   },
   {
     id: 2,
     title: "Wubble Templates",
-    description:
+    summary:
       "Kickstart your project with ready-to-use musical templates — from cinematic scores to upbeat ads, podcasts, and reels.",
     buttonText: "Browse Templates",
-     url: "#",
+    url: "#",
+    image: '/Waveform.jpg',
+    Caption: "Auto - captioning "
   },
   {
     id: 3,
     title: "Wubble Tracks Library",
-    description:
+    summary:
       "Explore a galaxy of royalty-free tracks. Filter by mood, genre, or use case — and customize any track instantly.",
     buttonText: "Explore Library",
-     url: "#",
+    url: "#",
+    image: '/Waveform.jpg',
+     Caption: "A/B Audio tester"
   },
   {
     id: 4,
     title: "Wubble Mixer",
-    description:
+    summary:
       "Fine-tune every beat. Adjust tempo, layer instruments, and perfect transitions — no software installs needed.",
     buttonText: "Launch Mixer",
-     url: "#",
+    url: "#",
+    image: '/Waveform.jpg',
+    Caption: "AI Audio cleaner"
   },
   {
     id: 5,
     title: "Wubble VoiceSync",
-    description:
+    summary:
       "Synchronize vocals or spoken content with your background music. Perfect for creators, brands, and educators.",
     buttonText: "Try VoiceSync",
-     url: "#",
+    url: "#",
+    image: '/Waveform.jpg',
+     Caption: "A/B Audio tester"
   },
   {
     id: 6,
     title: "Wubble Campaigns",
-    description:
+    summary:
       "Tailor music for marketing, ads, and social content. Automate soundtrack generation aligned with your campaign tone.",
     buttonText: "Plan a Campaign",
-     url: "#",
+    url: "#",
+    image: '/Waveform.jpg',
+    Caption: "A/B Audio tester"
+
   },
   {
     id: 7,
     title: "Wubble Teams",
-    description:
+    summary:
       "Collaborate in real-time. Invite teammates, manage projects, and co-compose tracks across borders.",
     buttonText: "Start Team Trial",
-     url: "#",
+    url: "#",
+    image: '/Waveform.jpg',
+     Caption: "AI Audio cleaner"
   },
   {
     id: 8,
     title: "Wubble Learn",
-    description:
+    summary:
       "Master the art of music storytelling. Step-by-step lessons, templates, and case studies from industry creators.",
     buttonText: "Start Learning",
-     url: "#",
+    url: "#",
+    image: '/Waveform.jpg',
+    Caption: "Auto - captioning "
+
   },
   {
     id: 9,
     title: "Wubble Analytics",
-    description:
+    summary:
       "Track how your sound performs across videos, campaigns, and platforms — understand what resonates.",
     buttonText: "View Insights",
-     url: "#",
+    url: "#",
+    image: '/Waveform.jpg'
   },
   {
     id: 10,
     title: "Wubble Integrations",
-    description:
+    summary:
       "Connect your favorite tools — YouTube, Notion, Canva, or Adobe. Import visuals, export sound.",
     buttonText: "Explore Integrations",
-     url: "#",
+    url: "#",
+    image: '/Waveform.jpg'
   },
   {
     id: 11,
     title: "Wubble Licensing Hub",
-    description:
+    summary:
       "Handle your usage rights effortlessly. Access all your royalty-free licenses in one secure dashboard.",
     buttonText: "Open Hub",
-     url: "#",
+    url: "#",
+    image: '/Waveform.jpg'
   },
   {
     id: 12,
     title: "Wubble Mobile",
-    description:
+    summary:
       "Create music on the go. Voice ideas, describe moods, and generate sound from your phone.",
     buttonText: "Get the App",
-     url: "#",
+    url: "#",
+    image: '/Waveform.jpg'
   },
 ];
 

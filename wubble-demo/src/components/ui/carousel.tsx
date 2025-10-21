@@ -129,7 +129,7 @@ function CarouselNavigation({
   return (
     <div
       className={cn(
-        'pointer-events-none absolute left-[-2%]  h-full top-1/2 flex w-[105%] -translate-y-1/2 justify-between items-center px-2',
+        'pointer-events-none absolute left-[0%]  h-full top-1/2 flex w-[100%] -translate-y-1/2 justify-between items-center px-2',
         className
       )}
     >

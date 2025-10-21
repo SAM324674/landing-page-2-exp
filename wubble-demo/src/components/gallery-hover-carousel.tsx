@@ -8,6 +8,7 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
+  CarouselNavigation,
 } from "@/components/ui/carousel";
 import type { CarouselApi } from "@/components/ui/carousel";
 import Image from "next/image";
@@ -19,6 +20,7 @@ interface GalleryHoverCarouselItem {
   summary: string;
   url: string;
   image: string;
+  Caption: string;
 }
 
 export default function GalleryHoverCarousel({
@@ -33,6 +35,7 @@ export default function GalleryHoverCarousel({
       url: "#",
       image:
         "https://pub-940ccf6255b54fa799a9b01050e6c227.r2.dev/dashboard-02.png",
+      Caption: "Reel generator"
     },
     {
       id: "item-2",
@@ -42,6 +45,7 @@ export default function GalleryHoverCarousel({
       url: "#",
       image:
         "https://pub-940ccf6255b54fa799a9b01050e6c227.r2.dev/dashboard-gradient.png",
+      Caption: "Auto - captioning "
     },
     {
       id: "item-3",
@@ -51,6 +55,7 @@ export default function GalleryHoverCarousel({
       url: "#",
       image:
         "https://pub-940ccf6255b54fa799a9b01050e6c227.r2.dev/featured-01.png",
+      Caption: "A/B Audio tester"
     },
     {
       id: "item-4",
@@ -60,6 +65,7 @@ export default function GalleryHoverCarousel({
       url: "#",
       image:
         "https://pub-940ccf6255b54fa799a9b01050e6c227.r2.dev/featured-06.png",
+      Caption: "AI Audio cleaner"
     },
     {
       id: "item-5",
@@ -69,6 +75,7 @@ export default function GalleryHoverCarousel({
       url: "#",
       image:
         "https://pub-940ccf6255b54fa799a9b01050e6c227.r2.dev/Screenshot%202025-08-05%20at%2021-15-55%20Ruixen%20-%20Beautifully%20crafted%20UI%20components%20to%20elevate%20your%20web%20projects.png",
+      Caption: "A/B Audio tester"
     }
   ],
 }: {
@@ -95,16 +102,16 @@ export default function GalleryHoverCarousel({
   }, [carouselApi]);
 
   return (
-    <section className="py-32 bg-background">
+    <section className="py-2 bg-black">
       <div className="container mx-auto px-6">
         <div className="mb-8 flex flex-col justify-between md:mb-14 md:flex-row md:items-end lg:mb-16">
-          <div className="max-w-2xl">
+          {/* <div className="max-w-2xl">
             <h3 className="text-lg sm:text-xl lg:text-3xl font-medium text-gray-900 dark:text-white leading-relaxed">
             {heading}{" "}
             <span className="text-gray-500 dark:text-gray-400 text-sm sm:text-base lg:text-3xl"> Explore our collection of innovative solutions and cutting-edge technologies designed to transform your business.</span>
           </h3>
-          </div>
-          <div className="flex gap-2 mt-4 md:mt-0">
+          </div> */}
+          {/* <div className="flex gap-2 mt-4 md:mt-0">
             <Button
               variant="outline"
               size="icon"
@@ -123,7 +130,7 @@ export default function GalleryHoverCarousel({
             >
               <ChevronRight className="h-4 w-4" />
             </Button>
-          </div>
+          </div> */}
         </div>
 
         <div className="w-full max-w-full">
@@ -134,10 +141,16 @@ export default function GalleryHoverCarousel({
           >
             <CarouselContent className="hide-scrollbar w-full max-w-full md:ml-4 md:-mr-4">
               {items.map((item) => (
-                <CarouselItem key={item.id} className="ml-6 md:max-w-[350px]">
-                  <Link href={item.url} className="group block relative w-full h-[300px] md:h-[350px]">
-                    <Card className="overflow-hidden rounded-xl h-full w-full rounded-3xl">
-                      {/* Image */}
+                <CarouselItem
+                  key={item.id}
+                  className="ml-6 md:max-w-[350px] flex flex-col items-center"
+                >
+                  <Link
+                    href={item.url}
+                    className="group block relative w-full h-[300px] md:h-[350px]"
+                  >
+                    <Card className="overflow-hidden h-full w-full rounded-3xl">
+                      {/* Image + Hover Text */}
                       <div className="relative h-full w-full transition-all duration-500 group-hover:h-1/2">
                         <Image
                           width={400}
@@ -146,11 +159,8 @@ export default function GalleryHoverCarousel({
                           alt={item.title}
                           className="h-full w-full object-cover object-center"
                         />
-                        {/* Fade overlay at bottom */}
                         <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                       </div>
-
-                      {/* Text Section */}
                       <div className="absolute bottom-0 left-0 w-full px-4 transition-all duration-500 group-hover:h-1/2 group-hover:flex flex-col justify-center bg-background/95 backdrop-blur-sm opacity-0 group-hover:opacity-100">
                         <h3 className="text-lg font-medium md:text-xl">{item.title}</h3>
                         <p className="text-muted-foreground text-sm md:text-base line-clamp-2">
@@ -166,9 +176,15 @@ export default function GalleryHoverCarousel({
                       </div>
                     </Card>
                   </Link>
+
+                  <div className="mt-2 w-full text-center">
+                    <h1 className="text-white font-bold text-lg">{item.Caption}</h1>
+                  </div>
                 </CarouselItem>
+
               ))}
             </CarouselContent>
+            <CarouselNavigation />
           </Carousel>
         </div>
       </div>

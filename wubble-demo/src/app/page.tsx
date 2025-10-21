@@ -25,6 +25,7 @@ import { Card } from "@/components/ui/card";
 import DiscoverMore from "@/components/DiscoverMore";
 import FeaturesCarousel2 from "@/components/FeaturesCarousel2";
 import FeaturesCarousel1 from "@/components/FeaturesCarousel1";
+import { LatestUpdates } from "@/components/LatestUpdates";
 const transitionVariants = {
   item: {
     hidden: {
@@ -69,25 +70,55 @@ const BlogList = [
 const items = [
   {
     id: "1",
-    title: "What makes Origin UI different?",
+    title: "How does the conversational AI sound engineer work?",
     content:
       "Origin UI focuses on developer experience and performance. Built with TypeScript, it offers excellent type safety, follows accessibility standards, and provides comprehensive documentation with regular updates.",
   },
   {
     id: "2",
-    title: "How can I customize the components?",
+    title: "Is the generated music and SFX copyright-free for commercial use?",
     content:
       "Use our CSS variables for global styling, or className and style props for component-specific changes. We support CSS modules, Tailwind, and dark mode out of the box.",
   },
   {
     id: "3",
-    title: "Is Origin UI optimized for performance?",
+    title: "How does the conversational AI sound engineer work?",
     content:
       "Yes, with tree-shaking, code splitting, and minimal runtime overhead. Most components are under 5KB gzipped.",
   },
   {
     id: "4",
-    title: "How accessible are the components?",
+    title: "How realistic is the voice cloning and is it secure?",
+    content:
+      "All components follow WAI-ARIA standards, featuring proper ARIA attributes, keyboard navigation, and screen reader support. Regular testing ensures compatibility with NVDA, VoiceOver, and JAWS.",
+  },
+  {
+    id: "5",
+    title: "Can I upload my own audio files for Wubble to mix, edit, and clean?",
+    content:
+      "All components follow WAI-ARIA standards, featuring proper ARIA attributes, keyboard navigation, and screen reader support. Regular testing ensures compatibility with NVDA, VoiceOver, and JAWS.",
+  },
+  {
+    id: "6",
+    title: "What do you mean by 'DAW-level' engineering?",
+    content:
+      "All components follow WAI-ARIA standards, featuring proper ARIA attributes, keyboard navigation, and screen reader support. Regular testing ensures compatibility with NVDA, VoiceOver, and JAWS.",
+  },
+  {
+    id: "7",
+    title: " How does Wubble integrate with my existing workflow (e.g., Unity, Premiere Pro)?",
+    content:
+      "All components follow WAI-ARIA standards, featuring proper ARIA attributes, keyboard navigation, and screen reader support. Regular testing ensures compatibility with NVDA, VoiceOver, and JAWS.",
+  },
+  {
+    id: "8",
+    title: " What's the difference between the Free, Pro, and Teams plans?",
+    content:
+      "All components follow WAI-ARIA standards, featuring proper ARIA attributes, keyboard navigation, and screen reader support. Regular testing ensures compatibility with NVDA, VoiceOver, and JAWS.",
+  },
+  {
+    id: "8",
+    title: " How does the Wubble API work?",
     content:
       "All components follow WAI-ARIA standards, featuring proper ARIA attributes, keyboard navigation, and screen reader support. Regular testing ensures compatibility with NVDA, VoiceOver, and JAWS.",
   },
@@ -118,11 +149,11 @@ export default function Home() {
           <div className="w-full absolute top-0 left-0 bg-black/50 backdrop-blur-sm h-[40rem] flex flex-col items-center">
             <HeroSection />
             {/* Chat Box */}
-             <PromptInputBox />
+            <PromptInputBox />
           </div>
-     
+
         </AnimatedGroup>
-             <div className="w-full absolute  h-[5rem] bg-gradient-to-b from-transparent to-black top-[35rem] "/>
+        <div className="w-full absolute  h-[5rem] bg-gradient-to-b from-transparent to-black top-[35rem] " />
         {/* Client Companies */}
         <AnimatedGroup
           variants={{
@@ -184,10 +215,10 @@ export default function Home() {
 
             </div>
             <Button className="bg-gradient-to-l from-[#6a5ae7] to-[#d622ef] mt-11">Open studio</Button>
-            
+
           </section>
-          <FeaturesCarousel1/>
-          
+          <FeaturesCarousel1 />
+
         </section>
 
         {/* Features Section */}
@@ -196,12 +227,12 @@ export default function Home() {
           <div className="w-[90%]">
             <FeatureSection />
           </div>
-          
+
         </section>
         <div className=" w-[100%] overflow-hidden">
-          <FeaturesCarousel2/>
+          <FeaturesCarousel2 />
         </div>
-        
+
 
         {/* Collaborate */}
 
@@ -217,22 +248,26 @@ export default function Home() {
               Invite directors, producers, clients, and editors to review, comment, and guide your AI agent—all in one place, all in real-time.
             </p>
             <Button className="bg-gradient-to-l from-[#6a5ae7] to-[#d622ef] w-[10rem]">Start Free Trial</Button>
-        
+
           </div>
-         
+
         </section>
 
         {/* Discover More Products */}
-        {/* <section className="flex flex-col items-center w-full overflow-hidden">
-              <h1 className="text-4xl font-bold">Discover More</h1>
-              <DiscoverMore/>
-        </section> */}
+        <section className="flex flex-col items-center w-full overflow-hidden">
+          <h1 className="text-4xl font-bold">Discover More</h1>
+          <DiscoverMore />
+        </section>
         {/* Pricing Section */}
         <section className="w-full max-w-6xl px-4 space-y-8">
           <h1 className="text-4xl font-bold text-center">Plans</h1>
           <PricingSection />
         </section>
+        {/*Latest Updates */}
+        <div className="w-[90%] overflow-hidden">
+          <LatestUpdates />
 
+        </div>
         {/* FAQ Section */}
         <section className="w-full max-w-5xl px-4 space-y-8  ">
           <h1 className="text-4xl font-bold text-center">FAQs</h1>
@@ -257,6 +292,13 @@ export default function Home() {
             ))}
           </Accordion>
         </section>
+        <AnimatedGroup className="w-full">
+
+          <div className="h-[20rem] bg-gradient-to-l from-[#6a5ae7] to-[#d622ef] flex justify-center items-center flex-col w-full gap-[3rem]">
+            <h1 className="text-3xl">Start Creating with Wubble</h1>
+            <Button className="w-[10rem] bg-white text-black hover:text-white">Get Started For Free</Button>
+          </div>
+        </AnimatedGroup>
       </main>
 
       {/* Footer */}
