@@ -19,11 +19,11 @@ import ShaderCanvas from "@/components/kaleidoscopic-orb-mesh-1";
 import LiquidCrystalBackground from "@/components/liquid-neon-shader";
 import MusicSectionCarousel from "@/components/MusicSectionCarousel";
 import AuroraWaves from "@/components/aurora-waves";
-import FeaturesCarousel from "@/components/FeaturesSectionCarousel";
+import FeaturesCarousel from "@/components/FeaturesCarousel2";
 import CreatorCarousel from "@/components/LandingPage/CreatorCarousel";
 import { Card } from "@/components/ui/card";
 import DiscoverMore from "@/components/DiscoverMore";
-import FeaturesCarousel2 from "@/components/FeaturesSectionCarousel";
+import FeaturesCarousel2 from "@/components/FeaturesCarousel2";
 import FeaturesCarousel1 from "@/components/FeaturesCarousel1";
 const transitionVariants = {
   item: {
@@ -145,7 +145,7 @@ export default function Home() {
         </div>
 
 
-        {/* Music Section */}
+        {/* Features Section */}
         <section className="flex flex-col items-center w-full space-y-10">
           <div className="text-center w-full space-y-4">
             <h1 className="text-4xl font-bold">One agent. Total audio production </h1>
@@ -184,23 +184,24 @@ export default function Home() {
 
             </div>
             <Button className="bg-gradient-to-l from-[#6a5ae7] to-[#d622ef] mt-11">Open studio</Button>
-            {/*             
-           <div className="border"> <AuroraWaves /></div> */}
-            {/* <div className="absolute z-0 top-[40rem] w-full"/>   */}
+            
           </section>
           <FeaturesCarousel1/>
-          {/* <MusicSectionCarousel /> */}
+          
         </section>
 
         {/* Features Section */}
-        <section className="w-full max-w-6xl px-4 space-y-8">
+        <section className="w-full max-w-6xl  space-y-8">
           {/* <h1 className="text-4xl font-bold text-center">Features</h1> */}
-          <div className="">
+          <div className="w-[90%]">
             <FeatureSection />
           </div>
-
+          
         </section>
-        <FeaturesCarousel2/>
+        <div className=" w-[100%] overflow-hidden">
+          <FeaturesCarousel2/>
+        </div>
+        
 
         {/* Collaborate */}
 

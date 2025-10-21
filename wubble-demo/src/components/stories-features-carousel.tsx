@@ -1,12 +1,18 @@
 'use client';
 
-import { Children, type ComponentProps, type HTMLAttributes, type ReactNode } from 'react';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import {
+  Children,
+  type ComponentProps,
+  type HTMLAttributes,
+  type ReactNode,
+} from 'react';
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
+  CarouselNavigation,
 } from '@/components/ui/carousel';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
@@ -14,19 +20,38 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export type StoriesProps = ComponentProps<typeof Carousel>;
+export type StoriesProps = ComponentProps<typeof Carousel> & {
+  showNavigation?: boolean;
+};
 
-export const Stories = ({ className, opts, ...props }: StoriesProps) => (
-  <Carousel
-    className={cn('w-full', className)}
-    opts={{
-      align: 'start',
-      loop: false,
-      dragFree: true,
-      ...opts,
-    }}
-    {...props}
-  />
+export const Stories = ({
+  className,
+  opts,
+  showNavigation = true,
+  children,
+  ...props
+}: StoriesProps) => (
+  <div className="relative w-full flex justify-center items-center">
+    <Carousel
+      className={cn('w-full', className)}
+      opts={{
+        align: 'start',
+        loop: false,
+        dragFree: true,
+        ...opts,
+      }}
+      {...props}
+    >
+      {children}
+      {showNavigation && (
+        <>
+          {/* <CarouselPrevious className="absolute left-0 z-20 bg-gray-900/50 text-white hover:bg-gray-900/80 rounded-full w-10 h-10" />
+          <CarouselNext className="absolute right-0 z-20 bg-gray-900/50 text-white hover:bg-gray-900/80 rounded-full w-10 h-10" /> */}
+          <CarouselNavigation/>
+        </>
+      )}
+    </Carousel>
+  </div>
 );
 
 export type StoriesContentProps = ComponentProps<typeof CarouselContent>;
@@ -41,10 +66,10 @@ export const StoriesContent = ({
 export type StoryProps = HTMLAttributes<HTMLDivElement>;
 
 export const Story = ({ className, ...props }: StoryProps) => (
-  <CarouselItem className={cn('basis-auto !w-[200px]  rounded-md', className)}>
+  <CarouselItem className={cn('basis-auto !w-[200px] rounded-md', className)}>
     <div
       className={cn(
-        'group relative overflow-hidden rounded-xl bg-muted/40',
+        'group relative w-full h-full overflow-hidden rounded-xl bg-muted/40',
         'cursor-pointer transition-all duration-200',
         'hover:scale-[1.02] hover:shadow-lg',
         'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
@@ -56,6 +81,7 @@ export const Story = ({ className, ...props }: StoryProps) => (
     />
   </CarouselItem>
 );
+
 export type StoryImageProps = ComponentProps<'img'> & {
   alt: string;
 };
@@ -95,7 +121,6 @@ export const StoryFeature = ({
     <span className="text-sm font-medium">{featureName}</span>
   </div>
 );
-
 
 export type StoryTitleProps = HTMLAttributes<HTMLDivElement>;
 

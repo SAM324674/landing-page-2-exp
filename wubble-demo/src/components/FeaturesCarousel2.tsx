@@ -10,6 +10,8 @@ import {
     StoryOverlay,
     StoryImage,
 } from '@/components/stories-features-carousel';
+// import { CarouselNavigation } from './carousel';
+// import { CarouselNext, CarouselPrevious } from './ui/carousel';
 const stories = [
     {
         id: 1,
@@ -74,7 +76,7 @@ const stories = [
 ];
 const FeaturesCarousel2 = () => {
     return (
-        <Stories>
+        <Stories showNavigation className='w-[95%] '>
             <StoriesContent>
                 {stories.map((story) => (
                     <Story className="aspect-[3/4] w-[200px]" key={story.id}>
@@ -84,7 +86,7 @@ const FeaturesCarousel2 = () => {
                     </Story>
                 ))}
             </StoriesContent>
-            
+           
         </Stories>
     )
 }
