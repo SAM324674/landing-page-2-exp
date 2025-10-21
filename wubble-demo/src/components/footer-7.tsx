@@ -27,30 +27,50 @@ interface Footer7Props {
 
 const defaultSections = [
   {
-    title: "Product",
+    title: "Solutions",
     links: [
-      { name: "Overview", href: "#" },
-      { name: "Pricing", href: "#" },
-      { name: "Marketplace", href: "#" },
-      { name: "Features", href: "#" },
+      { name: "Marketing ", href: '#' },
+      { name: "Film & TV", href: "#" },
+      { name: "Game dev", href: "#" },
+      { name: "Creators", href: "#" },
+      { name: "Podcastors", href: "#" },
+      { name: "Hospitality", href: "#" },
     ],
   },
   {
-    title: "Company",
+    title: "Tools",
     links: [
-      { name: "About", href: "#" },
-      { name: "Team", href: "#" },
-      { name: "Blog", href: "#" },
-      { name: "Careers", href: "#" },
+      { name: "AI audio cleaner", href: "#" },
+      { name: "Social clop generator", href: "#" },
+      { name: "AI Dubbing", href: "#" },
+      { name: "Auto captioning ", href: "#" },
+      { name: "Podcast intro maker", href: "#" },
+      { name: "AB Tester", href: '#' }
     ],
   },
   {
     title: "Resources",
     links: [
-      { name: "Help", href: "#" },
-      { name: "Sales", href: "#" },
-      { name: "Advertise", href: "#" },
-      { name: "Privacy", href: "#" },
+      { name: "Pricing", href: "#" },
+      { name: "Help Center", href: "#" },
+      { name: "Blog", href: "#" },
+      { name: "Case Studies", href: "#" },
+      { name: "News room", href: "#" },
+      { name: "Developers", href: "#" },
+    ]
+
+  },
+  {
+    title: "Company & Legal",
+    links: [
+      { name: "About Wubble", href: "#" },
+      { name: "Careers", href: "#" },
+      { name: "Press", href: "#" },
+      { name: "Privacy Policy", href: "#" },
+      { name: "Cookie Policy", href: "#" },
+      { name: "Terms of Use", href: "#" },
+      { name: "Subscriber License", href: "#" },
+      { name: "FAQS", href: "#" },
     ],
   },
 ];
@@ -81,7 +101,7 @@ export const Footer7 = ({
   legalLinks = defaultLegalLinks,
 }: Footer7Props) => {
   return (
-    <section className="py-32  mt-[5rem]">
+    <section className="py-32  mt-[5rem] p-3">
       <div className="container mx-auto">
         <div className="flex w-full flex-col justify-between gap-10 lg:flex-row lg:items-start lg:text-left">
           <div className="flex w-full flex-col justify-between gap-6 lg:items-start">
@@ -110,7 +130,7 @@ export const Footer7 = ({
               ))}
             </ul>
           </div>
-          <div className="grid w-full gap-6 md:grid-cols-3 lg:gap-20">
+          <div className="flex w-full gap-6  lg:gap-20">
             {sections.map((section, sectionIdx) => (
               <div key={sectionIdx}>
                 <h3 className="mb-4 font-bold">{section.title}</h3>
