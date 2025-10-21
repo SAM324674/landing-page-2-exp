@@ -23,6 +23,8 @@ import FeaturesCarousel from "@/components/FeaturesSectionCarousel";
 import CreatorCarousel from "@/components/LandingPage/CreatorCarousel";
 import { Card } from "@/components/ui/card";
 import DiscoverMore from "@/components/DiscoverMore";
+import FeaturesCarousel2 from "@/components/FeaturesSectionCarousel";
+import FeaturesCarousel1 from "@/components/FeaturesCarousel1";
 const transitionVariants = {
   item: {
     hidden: {
@@ -144,23 +146,23 @@ export default function Home() {
 
 
         {/* Music Section */}
-        <section className="flex flex-col items-center w-full space-y-12">
-          <div className="text-center max-w-3xl space-y-4">
-            <h1 className="text-4xl font-bold">Dive into our ocean of music</h1>
+        <section className="flex flex-col items-center w-full space-y-10">
+          <div className="text-center w-full space-y-4">
+            <h1 className="text-4xl font-bold">One agent. Total audio production </h1>
             <p className="text-lg text-muted-foreground">
-              Explore our galaxy of royalty-free music, curated for all your content needs.
-              Use our existing tracks and customize them to your style.
+              Our conversational AI generates, engineers, and masters everything. See the specific tools and features Wubble deploys for your workflow.
             </p>
           </div>
 
-          <Tabs defaultValue="gaming" className="w-full max-w-6xl ">
+          <Tabs defaultValue="Marketing & Ads" className="w-full max-w-6xl ">
             <div className="w-full flex justify-center items-center">
               <TabsList className="flex justify-center items-center flex-wrap gap-2 mb-6 h-[3rem] bg-gray-700/50  " shape="pill">
-                <TabsTrigger value="gaming" className="text-lg data-[state=active]:text-white data-[state=active]:bg-gradient-to-l data-[state=active]:from-[#6a5ae7]  data-[state=active]:to-[#d622ef] " >Gaming</TabsTrigger>
-                <TabsTrigger value="Podcast" className="text-lg data-[state=active]:text-white data-[state=active]:bg-gradient-to-l data-[state=active]:from-[#6a5ae7] data-[state=active]:to-[#d622ef] ">Podcast</TabsTrigger>
-                <TabsTrigger value="Content" className="text-lg data-[state=active]:text-white data-[state=active]:bg-gradient-to-l data-[state=active]:from-[#6a5ae7] data-[state=active]:to-[#d622ef] ">Content</TabsTrigger>
-                <TabsTrigger value="Marketing" className="text-lg data-[state=active]:text-white data-[state=active]:bg-gradient-to-l  data-[state=active]:from-[#6a5ae7] data-[state=active]:to-[#d622ef] ">Marketing</TabsTrigger>
-                <TabsTrigger value="Movies" className="text-lg data-[state=active]:text-white data-[state=active]:bg-gradient-to-l data-[state=active]:from-[#6a5ae7] data-[state=active]:to-[#d622ef] ">Movies</TabsTrigger>
+                <TabsTrigger value="Marketing & Ads" className="text-lg data-[state=active]:text-white data-[state=active]:bg-gradient-to-l data-[state=active]:from-[#6a5ae7]  data-[state=active]:to-[#d622ef] " >Marketing & Ads</TabsTrigger>
+                <TabsTrigger value="Film & TV" className="text-lg data-[state=active]:text-white data-[state=active]:bg-gradient-to-l data-[state=active]:from-[#6a5ae7] data-[state=active]:to-[#d622ef] ">Film & Tv</TabsTrigger>
+                <TabsTrigger value="Game dev" className="text-lg data-[state=active]:text-white data-[state=active]:bg-gradient-to-l data-[state=active]:from-[#6a5ae7] data-[state=active]:to-[#d622ef] ">Game dev</TabsTrigger>
+                <TabsTrigger value="Hospitality" className="text-lg data-[state=active]:text-white data-[state=active]:bg-gradient-to-l  data-[state=active]:from-[#6a5ae7] data-[state=active]:to-[#d622ef] ">Hospitality</TabsTrigger>
+                <TabsTrigger value="Creators" className="text-lg data-[state=active]:text-white data-[state=active]:bg-gradient-to-l data-[state=active]:from-[#6a5ae7] data-[state=active]:to-[#d622ef] ">Creators</TabsTrigger>
+                <TabsTrigger value="Podcasts" className="text-lg data-[state=active]:text-white data-[state=active]:bg-gradient-to-l data-[state=active]:from-[#6a5ae7] data-[state=active]:to-[#d622ef] ">Podcasters</TabsTrigger>
               </TabsList>
             </div>
 
@@ -174,11 +176,11 @@ export default function Home() {
               </TabsContent>
             ))} */}
           </Tabs>
-          <section className=" space-y-5 w-full h-[20rem] px-[10rem]  flex justify-between rounded-md  bg-gradient-to-t from-[#6a5ae7]/50 to-transparent  ">
+          <section className=" space-y-5 w-[90%] h-[20rem] px-[8rem]  flex justify-between items-center rounded-md  bg-gradient-to-t from-[#6a5ae7]/50 to-transparent  ">
 
-            <div className="flex flex-col  space-y-[2rem]">
-              <h1 className="text-4xl font-bold">Wubble Chat Studio</h1>
-              <p className="w-[25rem]">Bring your music ideas to life through conversation. Type your vision, get compositions instantly, and refine them in real time.</p>
+            <div className="flex flex-col   space-y-[2rem] ">
+              <h1 className="text-4xl font-bold">Go from brief to broadcast instantly</h1>
+              <p className="w-[25rem]">Instantly concept, generate, mix, and localize entire audio campaigns.</p>
 
             </div>
             <Button className="bg-gradient-to-l from-[#6a5ae7] to-[#d622ef] mt-11">Open studio</Button>
@@ -186,7 +188,8 @@ export default function Home() {
            <div className="border"> <AuroraWaves /></div> */}
             {/* <div className="absolute z-0 top-[40rem] w-full"/>   */}
           </section>
-          <MusicSectionCarousel />
+          <FeaturesCarousel1/>
+          {/* <MusicSectionCarousel /> */}
         </section>
 
         {/* Features Section */}
@@ -194,12 +197,10 @@ export default function Home() {
           {/* <h1 className="text-4xl font-bold text-center">Features</h1> */}
           <div className="">
             <FeatureSection />
-
-
           </div>
 
         </section>
-        <FeaturesCarousel />
+        <FeaturesCarousel2/>
 
         {/* Collaborate */}
 

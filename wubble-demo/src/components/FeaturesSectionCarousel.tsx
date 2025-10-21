@@ -72,7 +72,7 @@ const stories = [
         img: "/music.jpg",
     },
 ];
-const FeaturesCarousel = () => {
+const FeaturesCarousel2 = () => {
     return (
         <Stories>
             <StoriesContent>
@@ -84,8 +84,9 @@ const FeaturesCarousel = () => {
                     </Story>
                 ))}
             </StoriesContent>
+            
         </Stories>
     )
 }
 
-export default FeaturesCarousel
+export default FeaturesCarousel2

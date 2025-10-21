@@ -46,7 +46,7 @@ export const StoriesContent = ({
 export type StoryProps = HTMLAttributes<HTMLDivElement>;
 
 export const Story = ({ className, ...props }: StoryProps) => (
-  <CarouselItem className={cn('basis-auto !w-[200px]  rounded-md', className)}>
+  <CarouselItem className={cn('basis-auto w-[20rem] h-[15rem] rounded-md', className)}>
     <div
       className={cn(
         'group relative overflow-hidden rounded-xl bg-muted/40',
@@ -87,6 +87,7 @@ export const StoryVideo = ({ className, ...props }: StoryVideoProps) => {
     initialTimeRef.current = initialTime;
   }, [props.src]);
 
+  
   const handleMouseOver = () => {
     videoRef.current?.play();
   };
@@ -157,7 +158,7 @@ export const StoryAuthor = ({
 }: StoryAuthorProps) => (
   <div
     className={cn(
-      'absolute right-0 bottom-0 left-0 z-10',
+      'right-0 bottom-0 left-0 z-10',
       'p-3 text-white',
       className
     )}
