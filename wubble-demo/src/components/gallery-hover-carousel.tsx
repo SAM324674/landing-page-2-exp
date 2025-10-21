@@ -22,7 +22,7 @@ interface GalleryHoverCarouselItem {
   button: string;
   url: string;
   image: string;
-  w:string;
+  w: string;
 }
 
 
@@ -56,7 +56,7 @@ export default function GalleryHoverCarousel({
       button: "Explore Wubble Studio",
       url: "#",
       image: "/Blog 1.avif",
-      w:"18rem"
+      w: "18rem"
     },
     {
       id: "item-2",
@@ -66,7 +66,7 @@ export default function GalleryHoverCarousel({
       button: "Open Studio",
       url: "#",
       image: "/Blog 1.avif",
-      w:"10rem"
+      w: "10rem"
     },
     {
       id: "item-3",
@@ -76,7 +76,7 @@ export default function GalleryHoverCarousel({
       button: "Explore Wubble Studio",
       url: "#",
       image: "/Blog 1.avif",
-      w:"18rem"
+      w: "18rem"
     },
     {
       id: "item-4",
@@ -86,7 +86,7 @@ export default function GalleryHoverCarousel({
       button: "Explore Wubble Studio",
       url: "#",
       image: "/Blog 1.avif",
-      w:"18rem"
+      w: "18rem"
     },
     {
       id: "item-5",
@@ -96,7 +96,7 @@ export default function GalleryHoverCarousel({
       button: "Explore Wubble Studio",
       url: "#",
       image: "/Blog 1.avif",
-      w:"18rem"
+      w: "18rem"
     },
     {
       id: "item-6",
@@ -105,7 +105,7 @@ export default function GalleryHoverCarousel({
       button: "Explore Wubble Studio",
       url: "#",
       image: "/Blog 1.avif",
-      w:"18rem"
+      w: "18rem"
     },
   ],
 }: {
@@ -193,20 +193,18 @@ function CarouselInner({ items }: { items: GalleryHoverCarouselItem[] }) {
                 </div>
 
                 {/* Text */}
-                <div className="absolute bottom-0 left-0 w-full px-4 transition-all duration-500 group-hover:h-1/2 group-hover:flex flex-col justify-center bg-background/95 backdrop-blur-sm opacity-0 group-hover:opacity-100">
-                  <h3 className="text-lg font-medium md:text-xl">
-                    {item.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm md:text-base line-clamp-2">
-                    {item.summary}
-                  </p>
-                  <Button
-                    variant="outline"
-                    size="icon"
-                    className={`absolute bottom-2 right-[9rem] border border-gray-200  transition-all duration-500  mt-2 flex justify-center items-center gap-1 text-primary hover:text-primary/80 w-[${item.w}]`}
-                  >
-                    <p>{item.button}</p>
-                  </Button>
+                <div className="absolute bottom-0 left-0 w-full px-4 py-3 transition-all duration-500 group-hover:h-1/2 bg-background/95 backdrop-blur-sm opacity-0 group-hover:opacity-100 flex flex-col justify-center gap-3">
+                  <h3 className="text-lg font-medium md:text-xl">{item.title}</h3>
+                  <p className="text-muted-foreground text-sm md:text-base line-clamp-2">{item.summary}</p>
+                  <div className="mt-3">
+                    <Button
+                      variant="outline"
+                      className="border border-gray-200 transition-all duration-300 hover:scale-105 text-primary hover:text-primary/80 px-5 py-2 rounded-xl"
+                    >
+                      {item.button}
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </div>
                 </div>
               </Card>
             </Link>

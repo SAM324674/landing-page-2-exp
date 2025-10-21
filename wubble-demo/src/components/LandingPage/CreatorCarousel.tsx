@@ -104,7 +104,7 @@ const stories = [
       'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4',
   },
 ];
-const FeaturesCarousel = () => {
+const CreatorCarousel = () => {
   return (
      <Stories>
     <StoriesContent>
@@ -127,4 +127,4 @@ const FeaturesCarousel = () => {
   )
 }
 
-export default FeaturesCarousel
+export default CreatorCarousel

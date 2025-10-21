@@ -14,12 +14,14 @@ import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import { Plus } from "lucide-react";
 import ClientCompany from "@/components/LandingPage/ClientCompany";
 import FeatureSection from "@/components/LandingPage/FeatureSection";
-import FeaturesCarousel from "@/components/LandingPage/FeaturesCarousel";
 import { Button } from "@/components/ui/button";
 import ShaderCanvas from "@/components/kaleidoscopic-orb-mesh-1";
 import LiquidCrystalBackground from "@/components/liquid-neon-shader";
 import MusicSectionCarousel from "@/components/MusicSectionCarousel";
 import AuroraWaves from "@/components/aurora-waves";
+import FeaturesCarousel from "@/components/FeaturesSectionCarousel";
+import CreatorCarousel from "@/components/LandingPage/CreatorCarousel";
+import { Card } from "@/components/ui/card";
 const transitionVariants = {
   item: {
     hidden: {
@@ -148,7 +150,7 @@ export default function Home() {
         {/* Used By Millions of Creators */}
         <div className=" w-full overflow-hidden flex flex-col justify-center items-center space-y-10 ">
           <h1 className="text-white text-4xl font-bold">Used By millions of the best creators</h1>
-          <FeaturesCarousel />
+          <CreatorCarousel />
           <Button className="bg-gradient-to-l from-[#6a5ae7] to-[#d622ef] rounded-full">Get Started</Button>
         </div>
 
@@ -185,14 +187,14 @@ export default function Home() {
             ))} */}
           </Tabs>
           <section className=" space-y-5 w-full h-[20rem] px-[10rem]  flex justify-between rounded-md  bg-gradient-to-t from-[#6a5ae7]/50 to-transparent  ">
-           
+
             <div className="flex flex-col  space-y-[2rem]">
               <h1 className="text-4xl font-bold">Wubble Chat Studio</h1>
               <p className="w-[25rem]">Bring your music ideas to life through conversation. Type your vision, get compositions instantly, and refine them in real time.</p>
-              
+
             </div>
-              <Button className="bg-gradient-to-l from-[#6a5ae7] to-[#d622ef] mt-11">Open studio</Button>  
-{/*             
+            <Button className="bg-gradient-to-l from-[#6a5ae7] to-[#d622ef] mt-11">Open studio</Button>
+            {/*             
            <div className="border"> <AuroraWaves /></div> */}
             {/* <div className="absolute z-0 top-[40rem] w-full"/>   */}
           </section>
@@ -205,9 +207,34 @@ export default function Home() {
           <div className="">
             <FeatureSection />
 
+
+          </div>
+
+        </section>
+        <FeaturesCarousel />
+
+        {/* Collaborate */}
+
+        <section className="w-[80%] flex justify-between items-center my-[5rem]">
+          <div className="w-[50%]">
+            <h1 className="text-3xl font-bold">Collaborate With Others</h1>
+            <p>Invite your team, friends, or collaborators to craft music with you.
+              Wubble’s real-time collaboration lets everyone join the session, share ideas, and fine-tune every beat — together.
+              Exchange notes, adjust tempo, and remix in sync from anywhere in the world.
+
+              Work seamlessly across Projects, Playlists, Mixes, or that next big campaign soundtrack.
+            </p>
+          </div>
+          <div className="flex gap-[2rem]">
+            <Button className="bg-gradient-to-l from-[#6a5ae7] to-[#d622ef]">Start Composing</Button>
+            <Button className="">Start Free Trial</Button>
           </div>
         </section>
 
+        {/* Discover More Products */}
+        <section>
+          
+        </section>
         {/* Pricing Section */}
         <section className="w-full max-w-6xl px-4 space-y-8">
           <h1 className="text-4xl font-bold text-center">Plans</h1>
