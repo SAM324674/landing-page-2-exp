@@ -22,6 +22,7 @@ import AuroraWaves from "@/components/aurora-waves";
 import FeaturesCarousel from "@/components/FeaturesSectionCarousel";
 import CreatorCarousel from "@/components/LandingPage/CreatorCarousel";
 import { Card } from "@/components/ui/card";
+import DiscoverMore from "@/components/DiscoverMore";
 const transitionVariants = {
   item: {
     hidden: {
@@ -112,27 +113,14 @@ export default function Home() {
         </div>
         <AnimatedGroup>
 
-          <div className="w-full absolute top-0 left-0 bg-black/50 backdrop-blur-sm h-[40rem]">
+          <div className="w-full absolute top-0 left-0 bg-black/50 backdrop-blur-sm h-[40rem] flex flex-col items-center">
             <HeroSection />
+            {/* Chat Box */}
+             <PromptInputBox />
           </div>
+     
         </AnimatedGroup>
-
-
-        {/* Prompt Input */}
-        <AnimatedGroup
-          variants={{
-            container: {
-              visible: {
-                transition: { staggerChildren: 0.05, delayChildren: 0.75 },
-              },
-            },
-            ...transitionVariants,
-          }}
-          className="relative z-30 w-full flex justify-center -mt-[13rem]"
-        >
-          <PromptInputBox />
-        </AnimatedGroup>
-
+             <div className="w-full absolute  h-[5rem] bg-gradient-to-b from-transparent to-black top-[35rem] "/>
         {/* Client Companies */}
         <AnimatedGroup
           variants={{
@@ -143,7 +131,7 @@ export default function Home() {
             },
             ...transitionVariants,
           }}
-          className="w-full ">
+          className="w-full -mt-[11rem]  ">
           <ClientCompany />
         </AnimatedGroup>
 
@@ -232,8 +220,9 @@ export default function Home() {
         </section>
 
         {/* Discover More Products */}
-        <section>
-          
+        <section className="flex flex-col items-center w-full overflow-hidden">
+              <h1 className="text-4xl font-bold">Discover More</h1>
+              <DiscoverMore/>
         </section>
         {/* Pricing Section */}
         <section className="w-full max-w-6xl px-4 space-y-8">

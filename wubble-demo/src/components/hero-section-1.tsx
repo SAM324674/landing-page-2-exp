@@ -50,7 +50,7 @@ export function HeroSection() {
                     <div className="h-[80rem] -translate-y-[350px] absolute left-0 top-0 w-56 -rotate-45 bg-[radial-gradient(50%_50%_at_50%_50%,hsla(0,0%,85%,.04)_0,hsla(0,0%,45%,.02)_80%,transparent_100%)]" />
                 </div>
                 <section className=' flex justify-center'>
-                    <div className="relative pt-24 md:pt-36  ">
+                    <div className="relative pt-10 md:pt-10  ">
                         <AnimatedGroup
                             variants={{
                                 container: {
@@ -108,13 +108,13 @@ export function HeroSection() {
                                     </Link>
                          */}
                                     <h1
-                                        className="mt-8 max-w-4xl mx-auto text-balance text-6xl md:text-7xl lg:mt-16 xl:text-[5.25rem]">
-                                        Generate copyright free music with a click
+                                        className="mt-8 max-w-[95%] mx-auto  text-6xl md:text-7xl lg:mt-16 xl:text-[5.25rem]">
+                                        Your entire audio production
+                                        In one chat.
                                     </h1>
                                     <p
-                                        className="mx-auto mt-8 max-w-2xl text-balance text-lg">
-                                        Make playlists, remix, schedule in calendar, all with just a click
-                                    </p>
+                                        className="mx-auto mt-8 max-[85%] text-lg">
+                                        Wubble will ideate, generate, and perform granular, DAW-level engineering for your project, from concept to final mix.                                    </p>
                                 </AnimatedGroup>
 
                                 <AnimatedGroup
@@ -134,7 +134,7 @@ export function HeroSection() {
                                     <div
                                         key={1}
                                         className=" rounded-[14px] w-full p-0.5 flex flex-col gap-10">
-{/*                                         
+                                        {/*                                         
 
                                         <Button
                                             asChild
@@ -158,7 +158,7 @@ export function HeroSection() {
                                     </Button> */}
                                 </AnimatedGroup>
 
-                               
+
                             </div>
                         </div>
 

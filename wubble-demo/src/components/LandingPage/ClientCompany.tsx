@@ -1,74 +1,65 @@
 import React from 'react'
 import { Logos3 } from '../logos3';
-import Cisco from '../../../public/CiscoLogo.svg'
+import Cisco from '../../../public/Epic-GamesLogos.svg'
 import { Button } from '../ui/button';
+import Image from 'next/image';
+import { WidthIcon } from '@radix-ui/react-icons';
 // import { Button } from '../liquid-glass-button';
 
 const ClientCompany = () => {
-    const demoData = {
-        heading: "Trusted by these companies",
-        logos: [
+    const CompanyList = [
             {
                 id: "logo-1",
-                description: "Cisco",
-                image: "./CiscoLogo.svg",
+                image: "./Netflix.svg",
                 className: "h-[5rem] w-auto",
+                width:150,
+                height:100
             },
-            {
+             {
                 id: "logo-2",
-                description: "Twillo",
-                image: "TwilioLogo.svg",
-                className: "h-[5rem] w-auto",
+                image: "./Disnep+.svg",
+                width:130,
+                height:100
             },
-            {
+             {
                 id: "logo-3",
-                description: "Epic Games",
-                image: "Epic-GamesLogos.svg",
-                className: "h-[5rem] w-auto",
+                image: "./Epic-GamesLogos.svg",
+                width:90,
+                height:50
             },
-            {
-                id: "logo-1",
-                description: "Cisco",
-                image: "./CiscoLogo.svg",
-                className: "h-[5rem] w-auto",
+             {
+                id: "logo-4",
+                image: "./Spotify.svg",
+                width:150,
+                height:150
             },
-            {
-                id: "logo-2",
-                description: "Twillo",
-                image: "TwilioLogo.svg",
-                className: "h-[5rem] w-auto",
+             {
+                id: "logo-5",
+                image: "./Google.svg",
+                width:150,
+                height:200
             },
-            {
-                id: "logo-3",
-                description: "Epic Games",
-                image: "Epic-GamesLogos.svg",
-                className: "h-[5rem] w-auto",
+             {
+                id: "logo-6",
+                image: "./amazonLogo.svg",
+                width:150,
+                height:200
             },
-            {
-                id: "logo-1",
-                description: "Cisco",
-                image: "./CiscoLogo.svg",
-                className: "h-[5rem] w-auto",
-            },
-            {
-                id: "logo-2",
-                description: "Twillo",
-                image: "TwilioLogo.svg",
-                className: "h-[5rem] w-auto",
-            },
-            {
-                id: "logo-3",
-                description: "Epic Games",
-                image: "Epic-GamesLogos.svg",
-                className: "h-[5rem] w-auto",
-            },
+    ]
 
 
-        ],
-    };
+        
+    
     return (
-        <div className='w-full flex  flex-col items-center'>
-            <Logos3 {...demoData} />
+        <div className='w-full flex  flex-col items-center space-y-12'>
+            <h1 className='text-4xl font-bold'>Trusted By These Companies</h1>
+            <div className='grid grid-cols-3 w-[90%] '>
+                {CompanyList.map((company,index)=>(
+                    <div key={index+1} className='border border-gray-800 flex justify-center w-full p-4 h-[10rem]'>
+                        <Image src={company.image} alt='img' width={company.width} height={company.height}/>
+                    </div>
+                ))}
+            </div>
             <div className='flex gap-7'>
                 <Button className=' relative overflow-hidden text-white font-semibold
     bg-gradient-to-l from-[#6a5ae7] to-[#d622ef]
