@@ -191,7 +191,7 @@ export default function Home() {
         </section>
 
         {/* Features Section */}
-        <section className="w-full max-w-6xl  space-y-8">
+        <section className="w-full flex justify-center  space-y-8">
           {/* <h1 className="text-4xl font-bold text-center">Features</h1> */}
           <div className="w-[90%]">
             <FeatureSection />
@@ -205,27 +205,28 @@ export default function Home() {
 
         {/* Collaborate */}
 
-        <section className="w-[80%] flex justify-between items-center my-[5rem]">
-          <div className="w-[50%]">
-            <h1 className="text-3xl font-bold">Collaborate With Others</h1>
-            <p>Invite your team, friends, or collaborators to craft music with you.
-              Wubble’s real-time collaboration lets everyone join the session, share ideas, and fine-tune every beat — together.
-              Exchange notes, adjust tempo, and remix in sync from anywhere in the world.
+        <section className="w-[90%] flex justify-between items-center my-[5rem] gap-[5rem]">
+          <Card>
+            <div className="w-[35rem] h-[20rem]">
 
-              Work seamlessly across Projects, Playlists, Mixes, or that next big campaign soundtrack.
+            </div>
+          </Card>
+          <div className="w-[50%] flex-col flex space-y-14">
+            <h1 className="text-3xl font-bold">Direct your audio, together.</h1>
+            <p>
+              Invite directors, producers, clients, and editors to review, comment, and guide your AI agent—all in one place, all in real-time.
             </p>
+            <Button className="bg-gradient-to-l from-[#6a5ae7] to-[#d622ef] w-[10rem]">Start Free Trial</Button>
+        
           </div>
-          <div className="flex gap-[2rem]">
-            <Button className="bg-gradient-to-l from-[#6a5ae7] to-[#d622ef]">Start Composing</Button>
-            <Button className="">Start Free Trial</Button>
-          </div>
+         
         </section>
 
         {/* Discover More Products */}
-        <section className="flex flex-col items-center w-full overflow-hidden">
+        {/* <section className="flex flex-col items-center w-full overflow-hidden">
               <h1 className="text-4xl font-bold">Discover More</h1>
               <DiscoverMore/>
-        </section>
+        </section> */}
         {/* Pricing Section */}
         <section className="w-full max-w-6xl px-4 space-y-8">
           <h1 className="text-4xl font-bold text-center">Plans</h1>
