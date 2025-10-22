@@ -143,13 +143,13 @@ export default function GalleryHoverCarousel({
               {items.map((item) => (
                 <CarouselItem
                   key={item.id}
-                  className="ml-6 md:max-w-[350px] flex flex-col items-center"
+                  className="ml-6 md:max-w-[350px] flex flex-col items-center h-[20rem]"
                 >
                   <Link
                     href={item.url}
                     className="group block relative w-full h-[300px] md:h-[350px]"
                   >
-                    <Card className="overflow-hidden h-full w-full rounded-3xl">
+                    <Card className="overflow-hidden h-[15rem] border w-full rounded-3xl">
                       {/* Image + Hover Text */}
                       <div className="relative h-full w-full transition-all duration-500 group-hover:h-1/2">
                         <Image
@@ -161,7 +161,7 @@ export default function GalleryHoverCarousel({
                         />
                         <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                       </div>
-                      <div className="absolute bottom-0 left-0 w-full px-4 transition-all duration-500 group-hover:h-1/2 group-hover:flex flex-col justify-center bg-background/95 backdrop-blur-sm opacity-0 group-hover:opacity-100">
+                      <div className="absolute  bottom-10 left-0 w-full h-[10rem] px-4 transition-all duration-500 group-hover:h-[8rem] group-hover:flex flex-col justify-center bg-background/95 backdrop-blur-sm opacity-0 group-hover:opacity-100">
                         <h3 className="text-lg font-medium md:text-xl">{item.title}</h3>
                         <p className="text-muted-foreground text-sm md:text-base line-clamp-2">
                           {item.summary}

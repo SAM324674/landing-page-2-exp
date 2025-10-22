@@ -46,7 +46,7 @@ export function FeatureSteps({
   return (
     <div className={cn("p-8 md:p-12", className)}>
       <div className="max-w-7xl mx-auto w-full ">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-10 text-center ">
+        <h2 className="text-3xl md:text-3xl lg:text-4xl font-bold mb-10  ">
           {title}
         </h2>
 
@@ -111,6 +111,7 @@ export function FeatureSteps({
                         width={1000}
                         height={500}
                       />
+                      {/* <div className="absolute w-full border border-red-700 z-40 -bottom-[2rem] bg-background h-[5rem] rounded-b-md"></div> */}
                       <div className="absolute bottom-0 left-0 right-0 h-2/3 bg-gradient-to-t from-background via-background/50 to-transparent" />
                     </motion.div>
                   ),

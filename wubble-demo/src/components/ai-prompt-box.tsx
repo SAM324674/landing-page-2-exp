@@ -2,7 +2,7 @@
 import React from "react";
 import * as TooltipPrimitive from "@radix-ui/react-tooltip";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
-import { ArrowUp, Paperclip, Square, X, StopCircle, Mic, Globe, BrainCog, FolderCode } from "lucide-react";
+import { ArrowUp, Paperclip, Square, X, StopCircle, Mic, Globe, BrainCog, FolderCode, Plus, AudioLines, Earth } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 // Utility function for className merging
@@ -267,7 +267,7 @@ interface PromptInputContextType {
 const PromptInputContext = React.createContext<PromptInputContextType>({
   isLoading: false,
   value: "",
-  setValue: () => {},
+  setValue: () => { },
   maxHeight: 240,
   onSubmit: undefined,
   disabled: false,
@@ -390,7 +390,7 @@ const PromptInputTextarea: React.FC<PromptInputTextareaProps & React.ComponentPr
   );
 };
 
-interface PromptInputActionsProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface PromptInputActionsProps extends React.HTMLAttributes<HTMLDivElement> { }
 const PromptInputActions: React.FC<PromptInputActionsProps> = ({ children, className, ...props }) => (
   <div className={cn("flex items-center gap-2", className)} {...props}>
     {children}
@@ -443,7 +443,7 @@ interface PromptInputBoxProps {
   className?: string;
 }
 export const PromptInputBox = React.forwardRef((props: PromptInputBoxProps, ref: React.Ref<HTMLDivElement>) => {
-  const { onSend = () => {}, isLoading = false, placeholder = "Type your message here...", className } = props;
+  const { onSend = () => { }, isLoading = false, placeholder = "Type your message here...", className } = props;
   const [input, setInput] = React.useState("");
   const [files, setFiles] = React.useState<File[]>([]);
   const [filePreviews, setFilePreviews] = React.useState<{ [key: string]: string }>({});
@@ -613,10 +613,10 @@ export const PromptInputBox = React.forwardRef((props: PromptInputBoxProps, ref:
               showSearch
                 ? "Search the web..."
                 : showThink
-                ? "Think deeply..."
-                : showCanvas
-                ? "Create on canvas..."
-                : placeholder
+                  ? "Think deeply..."
+                  : showCanvas
+                    ? "Create on canvas..."
+                    : placeholder
             }
             className="text-base h-[10rem] "
           />
@@ -630,34 +630,83 @@ export const PromptInputBox = React.forwardRef((props: PromptInputBoxProps, ref:
           />
         )}
 
-        <PromptInputActions className="flex items-center justify-between gap-2 pt-2 mt-[3rem] p-4">
-          <div
-            className={cn(
-              "flex items-center gap-1 transition-opacity duration-300",
-              isRecording ? "opacity-0 invisible h-0" : "opacity-100 visible"
-            )}
-          >
-            <PromptInputAction tooltip="Upload image">
-              <button
-                onClick={() => uploadInputRef.current?.click()}
-                className="flex h-8 w-8 text-[#9CA3AF] cursor-pointer items-center justify-center rounded-full transition-colors hover:bg-gray-600/30 hover:text-[#D1D5DB]"
-                disabled={isRecording}
-              >
-                <Paperclip className="h-5 w-5 transition-colors" />
-                <input
-                  ref={uploadInputRef}
-                  type="file"
-                  className="hidden"
-                  onChange={(e) => {
-                    if (e.target.files && e.target.files.length > 0) processFile(e.target.files[0]);
-                    if (e.target) e.target.value = "";
-                  }}
-                  accept="image/*"
-                />
-              </button>
-            </PromptInputAction>
+        <PromptInputActions className="flex items-center justify-between gap-2 pt-2 mt-[3rem] p-4 -ml-10">
+          <div>
+            <div
+              className={cn(
+                "flex items-center ml-6 w-[15rem] justify-evenly transition-opacity duration-300 ",
+                isRecording ? "opacity-0 invisible h-0" : "opacity-100 visible"
+              )}
+            >
+              <PromptInputAction tooltip="Upload Files">
+                <button
+                  onClick={() => uploadInputRef.current?.click()}
+                  className="flex rounded-full border border-gray-600 h-8 w-8 text-[#9CA3AF] cursor-pointer items-center justify-center  transition-colors hover:bg-gray-600/30 hover:text-[#D1D5DB]"
+                  disabled={isRecording}
+                >
 
-            <div className="flex items-center">
+                  <Plus className="h-5 w-5 transition-colors" />
+
+
+                  <input
+                    ref={uploadInputRef}
+                    type="file"
+                    className="hidden"
+                    onChange={(e) => {
+                      if (e.target.files && e.target.files.length > 0) processFile(e.target.files[0]);
+                      if (e.target) e.target.value = "";
+                    }}
+                    accept="image/*"
+                  />
+                </button>
+              </PromptInputAction>
+              <PromptInputAction tooltip="Upload Files">
+                <button
+                  onClick={() => uploadInputRef.current?.click()}
+                  className="flex h-8 w-8 text-[#9CA3AF] ml-8 cursor-pointer items-center justify-center rounded-full transition-colors hover:bg-gray-600/30 hover:text-[#D1D5DB]"
+                  disabled={isRecording}
+                >
+                  <div className="flex gap-2 border border-gray-600 rounded-full px-3 py-1">
+                    <Paperclip className="h-5 w-5 transition-colors" />
+                    <p>Attach</p>
+                  </div>
+                  <input
+                    ref={uploadInputRef}
+                    type="file"
+                    className="hidden"
+                    onChange={(e) => {
+                      if (e.target.files && e.target.files.length > 0) processFile(e.target.files[0]);
+                      if (e.target) e.target.value = "";
+                    }}
+                    accept="image/*"
+                  />
+                </button>
+              </PromptInputAction>
+              <PromptInputAction tooltip="Upload Files">
+                <button
+                  onClick={() => uploadInputRef.current?.click()}
+                  className="flex h-8 w-8 ml-16 text-[#9CA3AF] cursor-pointer items-center justify-center rounded-full transition-colors hover:bg-gray-600/30 hover:text-[#D1D5DB]"
+                  disabled={isRecording}
+                >
+                  <div className="flex gap-2 border border-gray-600 rounded-full px-3 py-1">
+                    <Earth className="h-5 w-5 transition-colors" />
+                    <p>Public</p>
+                  </div>
+                  <input
+                    ref={uploadInputRef}
+                    type="file"
+                    className="hidden"
+                    onChange={(e) => {
+                      if (e.target.files && e.target.files.length > 0) processFile(e.target.files[0]);
+                      if (e.target) e.target.value = "";
+                    }}
+                    accept="image/*"
+                  />
+                </button>
+              </PromptInputAction>
+            </div>
+
+            {/* <div className="flex items-center">
               <button
                 type="button"
                 onClick={() => handleToggleChange("search")}
@@ -763,49 +812,56 @@ export const PromptInputBox = React.forwardRef((props: PromptInputBoxProps, ref:
                   )}
                 </AnimatePresence>
               </button>
-            </div>
+            </div> */}
           </div>
 
-          <PromptInputAction
-            tooltip={
-              isLoading
-                ? "Stop generation"
-                : isRecording
-                ? "Stop recording"
-                : hasContent
-                ? "Send message"
-                : "Voice message"
-            }
-          >
-            <Button
-              variant="default"
-              size="icon"
-              className={cn(
-                "h-8 w-8 rounded-full transition-all duration-200",
-                isRecording
-                  ? "bg-transparent hover:bg-gray-600/30 text-red-500 hover:text-red-400"
-                  : hasContent
-                  ? "bg-white hover:bg-white/80 text-[#1F2023]"
-                  : "bg-transparent hover:bg-gray-600/30 text-[#9CA3AF] hover:text-[#D1D5DB]"
-              )}
-              onClick={() => {
-                if (isRecording) setIsRecording(false);
-                else if (hasContent) handleSubmit();
-                else setIsRecording(true);
-              }}
-              disabled={isLoading && !hasContent}
+          <div className="gap-4 flex items-center">
+            <PromptInputAction
+              tooltip={
+                isLoading
+                  ? "Stop generation"
+                  : isRecording
+                    ? "Stop recording"
+                    : hasContent
+                      ? "Send message"
+                      : "Voice message"
+              }
             >
-              {isLoading ? (
-                <Square className="h-4 w-4 fill-[#1F2023] animate-pulse" />
-              ) : isRecording ? (
-                <StopCircle className="h-5 w-5 text-red-500" />
-              ) : hasContent ? (
-                <ArrowUp className="h-4 w-4 text-[#1F2023]" />
-              ) : (
-                <Mic className="h-5 w-5 text-[#1F2023] transition-colors" />
-              )}
-            </Button>
-          </PromptInputAction>
+              <Button
+                variant="default"
+                size="icon"
+                className={cn(
+                  "h-8 w-8 rounded-full transition-all duration-200",
+                  isRecording
+                    ? "bg-transparent hover:bg-gray-600/30 text-red-500 hover:text-red-400"
+                    : hasContent
+                      ? "bg-white hover:bg-white/80 text-[#1F2023]"
+                      : "bg-transparent hover:bg-gray-600/30 text-[#9CA3AF] hover:text-[#D1D5DB]"
+                )}
+                onClick={() => {
+                  if (isRecording) setIsRecording(false);
+                  else if (hasContent) handleSubmit();
+                  else setIsRecording(true);
+                }}
+                disabled={isLoading && !hasContent}
+              >
+                {isLoading ? (
+                  <Square className="h-4 w-4 fill-[#1F2023] animate-pulse" />
+                ) : isRecording ? (
+                  <StopCircle className="h-5 w-5 text-red-500" />
+                ) : hasContent ? (
+                  <ArrowUp className="h-4 w-4 text-[#1F2023]" />
+                ) : (
+                  <AudioLines className="h-5 w-5 text-[#1F2023] transition-colors" />
+                )}
+              </Button>
+            </PromptInputAction>
+            <PromptInputAction tooltip="Send">
+              <button className="rounded-full p-1 bg-gray-400 text-black">
+                <ArrowUp />
+              </button>
+            </PromptInputAction>
+          </div>
         </PromptInputActions>
       </PromptInput>
 

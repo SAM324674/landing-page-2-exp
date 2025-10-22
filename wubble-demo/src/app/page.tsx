@@ -7,6 +7,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/tabs";
 import { Footer7 } from "@/components/footer-7";
 import { FeaturesCard } from "@/components/card-21";
 import PricingSection from "@/components/pricing-section";
+import { Montserrat } from "next/font/google";
 // import { Accordion } from "@/components/ui/accordion";
 import { Accordion, AccordionContent, AccordionItem } from "@/components/ui/accordion";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
@@ -45,6 +46,7 @@ const transitionVariants = {
     },
   },
 };
+
 
 const MusicList = [
   { name: "Night Drives", img: "/NightDrives.avif", songTitle: "Night Drives" },
@@ -126,21 +128,21 @@ const items = [
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen font-sans text-white">
+    <div className="flex flex-col min-h-screen text-white ">
       {/* Header */}
       <Header />
 
       {/* Main content */}
-      <main className="flex-1 w-full flex flex-col items-center space-y-[5.3rem]">
+      <main className={`flex-1 w-full flex flex-col items-center space-y-[5.3rem]`}>
         {/* Hero Section */}
         <div className="relative w-full h-[40rem]  ">
-          <div className="absolute  w-full h-full ">
-            <LiquidCrystalBackground
+          <div className="absolute  w-full h-full  ">
+            {/* <LiquidCrystalBackground
               speed={0.6}
               radii={[0.25, 0.18, 0.3]}
               smoothK={[0.2, 0.3]}
 
-            />
+            /> */}
           </div>
           {/* <div className="bg-gradient-to-b  from-10% from-black/80 to-90% to-[#100f10] w-full  backdrop-blur-3xl absolute h-[4rem]  top-[39rem] z-10"/> */}
         </div>
@@ -159,18 +161,18 @@ export default function Home() {
           variants={{
             container: {
               visible: {
-                transition: { staggerChildren: 0.05, delayChildren: 0.75 },
+                transition: { staggerChildren: 0.004, delayChildren: 0.75 },
               },
             },
             ...transitionVariants,
           }}
-          className="w-full -mt-[11rem]  ">
+          className="w-full -mt-[5.3rem]  ">
           <ClientCompany />
         </AnimatedGroup>
 
         {/* Used By Millions of Creators */}
         <div className=" w-full overflow-hidden flex flex-col justify-center items-center space-y-10 ">
-          <h1 className="text-white text-4xl font-bold">Used By millions of the best creators</h1>
+          <h1 className="text-white text-4xl font-bold">Powering the World's Best Story Tellers</h1>
           <CreatorCarousel />
           <Button className="bg-gradient-to-l from-[#6a5ae7] to-[#d622ef] rounded-full">Get Started</Button>
         </div>
@@ -254,13 +256,13 @@ export default function Home() {
         </section>
 
         {/* Discover More Products */}
-        <section className="flex flex-col items-center w-full overflow-hidden">
-          <h1 className="text-4xl font-bold">Discover More</h1>
+        <section className="flex flex-col items-center w-full overflow-hidden mt-[7rem]">
+          <h1 className="text-4xl font-bold">Discover More Features</h1>
           <DiscoverMore />
         </section>
         {/* Pricing Section */}
-        <section className="w-full max-w-6xl px-4 space-y-8">
-          <h1 className="text-4xl font-bold text-center">Plans</h1>
+        <section className="w-full max-w-6xl px-4 mt-[4rem]">
+          <h1 className="text-4xl font-bold text-center">A Perfect Fit For Everyone</h1>
           <PricingSection />
         </section>
         {/*Latest Updates */}

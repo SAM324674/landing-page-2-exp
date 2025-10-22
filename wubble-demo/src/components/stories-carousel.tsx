@@ -158,13 +158,13 @@ export const StoryAuthor = ({
 }: StoryAuthorProps) => (
   <div
     className={cn(
-      'right-0 bottom-0 left-0 z-10',
+      
       'p-3 text-white',
       className
     )}
     {...props}
   >
-    <div className="flex items-center gap-2">{children}</div>
+    <div className="flex items-center justify-between">{children}</div>
   </div>
 );
 

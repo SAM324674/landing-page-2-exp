@@ -108,12 +108,12 @@ export function HeroSection() {
                                     </Link>
                          */}
                                     <h1
-                                        className="mt-8 max-w-[95%] mx-auto  text-6xl md:text-7xl lg:mt-16 xl:text-[5.25rem]">
-                                        Your entire audio production
-                                        In one chat.
+                                        className="mt-8 max-w-full  mx-auto  text-3xl md:text-7xl lg:mt-16 xl:text-[5.25rem]">
+                                        <p className=''>Your entire <span className='bg-gradient-to-l from-[#6a5ae7] to-[#d622ef] bg-clip-text text-transparent'>audio</span> production </p>
+                                        <p className=''>In one chat.</p>
                                     </h1>
                                     <p
-                                        className="mx-auto mt-8 max-[85%] text-lg">
+                                        className="mx-auto mt-8 max-[85%] text-md text-gray-400">
                                         Wubble will ideate, generate, and perform granular, DAW-level engineering for your project, from concept to final mix.                                    </p>
                                 </AnimatedGroup>
 

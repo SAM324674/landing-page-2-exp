@@ -3,15 +3,68 @@ import Link from 'next/link'
 import { Equal, X } from 'lucide-react'
 import { Button } from '@/components/liquid-glass-button'
 import React from 'react'
-import { cn } from '@/lib/utils' 
+import { cn } from '@/lib/utils'
+import { DropDownComponent } from './DropdownComponent'
 
 const menuItems = [
-    { name: 'Create', href: '#link' },
-    { name: 'Explore', href: '#link' },
-    { name: 'Latest', href: '#link' },
-    { name: 'Learn', href: '#link' },
-    { name: 'Plans', href: '#link' },
-    { name: 'Enterprise', href: '#link' }
+    {
+        name: 'Solutions',
+        href: '#link',
+        Options: [
+            'For Marketing',
+            'For Film & TV',
+            'For Game Developers',
+            'For Creators',
+            'For Podcasters',
+            'For hospitality'
+        ]
+    },
+    {
+        name: 'Features',
+        href: '#link',
+        Options: [
+            'AI Sound Engineer',
+            'Voice (TTS, Cloning , ADR)',
+            'Music (Generation, Mixing, Scoring',
+            'SFX (Generation, Foley, Mixing)',
+
+        ]
+    },
+    {
+        name: 'Developers', 
+        href: '#link',
+        Options: [
+            'Docs',
+            'Pricing',
+            'API reference',
+            'Get Help'
+        ]
+
+    },
+    {
+        name: 'Pricing', 
+        href: '#link',
+        Options: [
+            'Compare pricing ',
+            'Pro',
+            'Teams',
+            'Enterprise',
+            'Nonprofit'
+
+        ]
+    },
+    {
+        name: 'Resources', 
+        href: '#link',
+        Options: [
+            "Pricing",
+            "Help Center",
+            "Blog",
+            "Case studies",
+            "News room"
+
+        ]
+    },
 ]
 
 export const Header = () => {
@@ -29,8 +82,8 @@ export const Header = () => {
         <header>
             <nav
                 data-state={menuState && 'active'}
-                className="fixed left-0 min-w-screen z-50 px-1 top-0  text-white ">
-                <div className={cn('mx-auto mt-2 max-w-7xl px-6 transition-all duration-1000 lg:px-12  border-gray-950', isScrolled && ' bg-gray-900/50  rounded-2xl border border-gray-600 backdrop-blur-lg lg:px-5')}>
+                className="fixed left-0 min-w-screen z-50  top-0  text-white ">
+                <div className={cn('mx-auto py-4 w-full px-8 transition-all duration-1000 lg:px-12  bg-black', isScrolled && ' bg-black w-full  lg:px-5')}>
                     <div className="relative flex flex-wrap items-center justify-between gap-6 lg:gap-0 py-2">
                         <div className="flex w-full justify-between lg:w-auto">
                             <Link
@@ -47,7 +100,7 @@ export const Header = () => {
                                         fill="#fff200"
                                         d="M268.08,0c-27.4,0-51.41,4.43-72.07,13.26C175.36,4.43,151.35,0,123.95,0H0v324.6h123.95c27.37,0,51.38-4.58,72.07-13.7,20.69,9.12,44.7,13.7,72.07,13.7h123.95V0h-123.95ZM324.09,268.36h-47.91c-20.25,0-37.3-4.05-51.18-12.15-12.28-7.17-21.94-17.41-28.99-30.7h0s0,0,0,0c0,0,0,0,0,0h0c-7.05,13.29-16.71,23.53-28.99,30.7-13.87,8.1-30.93,12.15-51.18,12.15h-47.91V56.24h47.91c19.8,0,36.67,4.01,50.61,12.04,12.51,7.2,22.35,17.47,29.55,30.77h0s0,0,0,0c0,0,0,0,0,0h0c7.2-13.3,17.04-23.57,29.55-30.77,13.95-8.02,30.82-12.04,50.61-12.04h47.91v212.13Z"></path>
                                 </svg> */}
-                             <p className='font-semibold text-xl tracking-tighter'>Logo</p>  
+                                <p className='font-semibold text-xl tracking-tighter'>Logo</p>
                             </Link>
 
                             <button
@@ -66,7 +119,10 @@ export const Header = () => {
                                         <Link
                                             href={item.href}
                                             className="text-muted-foreground hover:text-accent-foreground block duration-150">
-                                            <span>{item.name}</span>
+                                            <DropDownComponent ButtonText={item.name} Options={item.Options}>
+                                                {/* <span>{item.name}</span> */}
+                                            </DropDownComponent>
+                                            
                                         </Link>
                                     </li>
                                 ))}
@@ -88,12 +144,12 @@ export const Header = () => {
                                 </ul>
                             </div>
                             <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-2 sm:space-y-0 md:w-fit">
-                                  
+
                                 <Button
                                     asChild
                                     variant="outline"
                                     size="sm"
-                                    className={cn(isScrolled && 'lg:hidden','text-black')}>
+                                    className={cn(isScrolled && 'lg:hidden', 'text-black')}>
                                     <Link href="#">
                                         <span>Login</span>
                                     </Link>
@@ -101,7 +157,7 @@ export const Header = () => {
                                 <Button
                                     asChild
                                     size="sm"
-                                    className={cn(isScrolled && 'lg:hidden','bg-gradient-to-l from-[#6a5ae7] to-[#d622ef]')}>
+                                    className={cn(isScrolled && 'lg:hidden', 'bg-gradient-to-l from-[#6a5ae7] to-[#d622ef]')}>
                                     <Link href="#">
                                         <span>Sign Up</span>
                                     </Link>

@@ -139,14 +139,14 @@ const LatestUpdates = ({
         >
           <CarouselContent className="-mr-4 ml-8 2xl:ml-[max(8rem,calc(50vw-700px+1rem))] 2xl:mr-[max(0rem,calc(50vw-700px-1rem))]">
             {items.map((item) => (
-              <CarouselItem key={item.id} className="pl-4 md:max-w-[452px]">
+              <CarouselItem key={item.id} className="pl-4 md:max-w-[400px]">
                 <a
                   href={item.url}
                   className="group flex flex-col justify-between"
                 >
                   <div>
                     <div className="flex aspect-[3/2] overflow-clip rounded-xl">
-                      <div className="flex-1">
+                      <div className="flex-1 h-[25rem]">
                         <div className="relative h-full w-full origin-bottom transition duration-300 group-hover:scale-105">
                           <img
                             src={item.image}
@@ -163,10 +163,10 @@ const LatestUpdates = ({
                   <div className="mb-8 line-clamp-2 text-sm text-muted-foreground md:mb-12 md:text-base lg:mb-9">
                     {item.summary}
                   </div>
-                  <div className="flex items-center text-sm">
+                  {/* <div className="flex items-center text-sm">
                     Read more{" "}
                     <ArrowRight className="ml-2 size-5 transition-transform group-hover:translate-x-1" />
-                  </div>
+                  </div> */}
                 </a>
               </CarouselItem>
             ))}

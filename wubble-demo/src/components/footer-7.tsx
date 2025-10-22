@@ -25,7 +25,27 @@ interface Footer7Props {
   }>;
 }
 
+
+
+
+
+
+
+
+
+
 const defaultSections = [
+  {
+    title: "Product",
+    links: [
+      { name: "AI sound engineer", href: '#' },
+      { name: "AI voice generator", href: "#" },
+      { name: "AI voice cloner", href: "#" },
+      { name: "AI audio studio", href: "#" },
+      { name: "AI SFX studio", href: "#" },
+      { name: "Wubble API", href: "#" },
+    ],
+  },
   {
     title: "Solutions",
     links: [
@@ -115,12 +135,30 @@ export const Footer7 = ({
                   className="h-8"
                 />
               </a>
-              <h2 className="text-xl font-semibold">{logo.title}</h2>
+              <h2 className="text-xl font-semibold">Logo</h2>
             </div>
-            <p className="max-w-[70%] text-sm text-muted-foreground">
+            {/* <p className="max-w-[70%] text-sm text-muted-foreground">
               {description}
-            </p>
-            <ul className="flex items-center space-x-6 text-muted-foreground">
+            </p> */}
+            {/* sections */}
+            <div className="flex w-full justify-evenly lg:gap-20">
+              {sections.map((section, sectionIdx) => (
+                <div key={sectionIdx}>
+                  <h3 className="mb-4 font-bold">{section.title}</h3>
+                  <ul className="space-y-3 text-sm text-muted-foreground">
+                    {section.links.map((link, linkIdx) => (
+                      <li
+                        key={linkIdx}
+                        className="font-medium hover:text-primary"
+                      >
+                        <a href={link.href}>{link.name}</a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+            {/* <ul className="flex items-center space-x-6 text-muted-foreground">
               {socialLinks.map((social, idx) => (
                 <li key={idx} className="font-medium hover:text-primary">
                   <a href={social.href} aria-label={social.label}>
@@ -128,25 +166,9 @@ export const Footer7 = ({
                   </a>
                 </li>
               ))}
-            </ul>
+            </ul> */}
           </div>
-          <div className="flex w-full gap-6  lg:gap-20">
-            {sections.map((section, sectionIdx) => (
-              <div key={sectionIdx}>
-                <h3 className="mb-4 font-bold">{section.title}</h3>
-                <ul className="space-y-3 text-sm text-muted-foreground">
-                  {section.links.map((link, linkIdx) => (
-                    <li
-                      key={linkIdx}
-                      className="font-medium hover:text-primary"
-                    >
-                      <a href={link.href}>{link.name}</a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
+
         </div>
         <div className="mt-8 flex flex-col justify-between gap-4 border-t py-8 text-xs font-medium text-muted-foreground md:flex-row md:items-center md:text-left">
           <p className="order-2 lg:order-1">{copyright}</p>

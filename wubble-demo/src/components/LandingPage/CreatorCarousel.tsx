@@ -1,6 +1,6 @@
 'use client';
 import React from 'react'
-
+import pic from '../../../public/Disnep+.svg'
 
 import {
   Stories,
@@ -21,6 +21,8 @@ const stories = [
     fallback: 'AJ',
     video:
       'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4#t=20',
+    p: 'Instantly create dialog takes',
+    span: '  with ADR Generation'
   },
   {
     id: 2,
@@ -30,6 +32,8 @@ const stories = [
     fallback: 'SC',
     video:
       'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4#t=20',
+    p: 'Translate full episodes ',
+    span: ' with Podcast localization'
   },
   {
     id: 3,
@@ -39,6 +43,8 @@ const stories = [
     fallback: 'MR',
     video:
       'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
+    p: 'Instantly create dialog takes',
+    span: '  with ADR Generation'
   },
   {
     id: 4,
@@ -48,6 +54,9 @@ const stories = [
     fallback: 'EW',
     video:
       'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4',
+    p: "Automatically mix and enhance episodes ",
+    span: "with Intelligent Editor"
+
   },
   {
     id: 5,
@@ -57,6 +66,8 @@ const stories = [
     fallback: 'DK',
     video:
       'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4',
+    p: 'Instantly create dialog takes',
+    span: '  with ADR Generation'
   },
   {
     id: 6,
@@ -66,6 +77,8 @@ const stories = [
     fallback: 'AJ',
     video:
       'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4#t=20',
+    p: "Automatically mix and enhance episodes ",
+    span: "with Intelligent Editor"
   },
   {
     id: 7,
@@ -75,6 +88,8 @@ const stories = [
     fallback: 'SC',
     video:
       'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4#t=20',
+    p: 'Create multiple ad variants ',
+    span: 'with Cultural Localization'
   },
   {
     id: 8,
@@ -84,6 +99,8 @@ const stories = [
     fallback: 'MR',
     video:
       'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
+    p: 'Create multiple ad variants ',
+    span: 'with Cultural Localization'
   },
   {
     id: 9,
@@ -93,6 +110,8 @@ const stories = [
     fallback: 'EW',
     video:
       'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4',
+    p: "Automatically mix and enhance episodes ",
+    span: "with Intelligent Editor"
   },
   {
     id: 10,
@@ -102,6 +121,8 @@ const stories = [
     fallback: 'DK',
     video:
       'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4',
+    p: 'Create multiple ad variants ',
+    span: 'with Cultural Localization'
   },
 ];
 const CreatorCarousel = () => {
@@ -109,19 +130,30 @@ const CreatorCarousel = () => {
     <Stories>
       <StoriesContent className='gap-10'>
         {stories.map((story) => (
-          <div className=' '  key={story.id}>
+          <div className=' ' key={story.id}>
+            <div className='pb-4 text-sm'>
+              <p>
+                {story.p}
+                <span className='text-gray-500'>{story.span}
+                </span></p>
+            </div>
             <Story className="aspect-[4/4]  " >
               <StoryVideo src={story.video} />
               <StoryOverlay />
 
             </Story>
-            <StoryAuthor>
-              <StoryAuthorImage
-                fallback={story.fallback}
-                name={story.author}
-                src={story.avatar}
-              />
-              <StoryAuthorName>{story.author}</StoryAuthorName>
+            <StoryAuthor className=''>
+              <div className='flex items-center gap-3'>
+                <StoryAuthorImage
+                  fallback={story.fallback}
+                  name={story.author}
+                  src={story.avatar}
+                />
+                <StoryAuthorName>{story.author}</StoryAuthorName>
+              </div>
+              <div>
+                <img src={'/Disnep+.svg'} height={100} width={70} />
+              </div>
             </StoryAuthor>
           </div>
 
