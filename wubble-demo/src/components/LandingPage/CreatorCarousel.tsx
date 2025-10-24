@@ -127,39 +127,24 @@ const stories = [
 ];
 const CreatorCarousel = () => {
   return (
-    <Stories>
-      <StoriesContent className='gap-10'>
-        {stories.map((story) => (
-          <div className=' ' key={story.id}>
-            <div className='pb-4 text-sm'>
-              <p>
-                {story.p}
-                <span className='text-gray-500'>{story.span}
-                </span></p>
-            </div>
-            <Story className="aspect-[4/4]  " >
-              <StoryVideo src={story.video} />
-              <StoryOverlay />
-
-            </Story>
-            <StoryAuthor className=''>
-              <div className='flex items-center gap-3'>
-                <StoryAuthorImage
-                  fallback={story.fallback}
-                  name={story.author}
-                  src={story.avatar}
-                />
-                <StoryAuthorName>{story.author}</StoryAuthorName>
-              </div>
-              <div>
-                <img src={'/Disnep+.svg'} height={100} width={70} />
-              </div>
-            </StoryAuthor>
-          </div>
-
-        ))}
-      </StoriesContent>
-    </Stories>
+     <Stories>
+    <StoriesContent>
+      {stories.map((story) => (
+        <Story className="aspect-[3/4] w-[200px]" key={story.id}>
+          <StoryVideo src={story.video} />
+          <StoryOverlay />
+          <StoryAuthor>
+            <StoryAuthorImage
+              fallback={story.fallback}
+              name={story.author}
+              src={story.avatar}
+            />
+            <StoryAuthorName>{story.author}</StoryAuthorName>
+          </StoryAuthor>
+        </Story>
+      ))}
+    </StoriesContent>
+  </Stories>
   )
 }
 

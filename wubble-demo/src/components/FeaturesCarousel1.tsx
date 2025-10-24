@@ -1,16 +1,9 @@
-import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
-} from "@/components/carousel"
+"use client"
 import Image from "next/image"
 import pic from '../../public/Gaming.jpg'
-import React from 'react'
-import { Card, CardContent } from "./ui/card"
-import { Item } from "@radix-ui/react-accordion"
-import { Button } from "./ui/button"
+import React from 'react';
+
+import { CircularGallery, GalleryItem } from '@/components/circular-gallery';
 const CarouselList = [
     {
         img: "/Gaming.jpg",
@@ -59,37 +52,119 @@ const CarouselList = [
     }
 ]
 
-const FeaturesCarousel1 = () => {
-    return (
-        <div className="relative w-full overflow-hidden  ">
-            
-            <Carousel className="ml-[7rem] w-[85%]">
-                <CarouselContent className="-ml-1">
-                    {CarouselList.map((item, index) => (
-                        <CarouselItem key={index} className="pl-5 md:basis-1/2 lg:basis-1/4">
-                            <div className="p-1">
-                                <Card className="overflow-hidden border border-gray-900 shadow-[#6a5ae7] shadow-xl">
-                                    <CardContent className="flex flex-col items-center justify-center px-0 space-y-5 bg-gray-900 ">
-                                        <div className="w-full rounded-xl overflow-hidden  mt-0  ">
-                                            <img src={item.img} className=""/>
-                                        </div>
-                                        <div className="  w-full  space-y-2  p-3 rounded-md text-white">
-                                                <h1 className="font-bold">{item.title}</h1>
-                                                <p className="text-gray-400">{item.Description}</p>
-                                                <Button className="bg-gray-500">View Feature</Button>
-                                        </div>
-                                        {/* <span className="text-2xl font-semibold">{index + 1}</span> */}
-                                    </CardContent>
-                                </Card>
-                            </div>
-                        </CarouselItem>
-                    ))}
-                </CarouselContent>
-                <CarouselPrevious  className="text-black"/>
-                <CarouselNext  className="text-black"/>
-            </Carousel>
-        </div>
-    )
-}
 
-export default FeaturesCarousel1
+
+
+const galleryData: GalleryItem[] = [
+	{
+		title: "Cultural Localization",
+		photo: {
+			url: "/Gaming.jpg",
+			text: "",
+			pos: '47% 35%',
+			
+		},
+        Description: "Auto-balance voice, music, and SFX for perfect clarity."
+	},
+        {
+       photo: {
+			url: "/Gaming.jpg",
+			text: "",
+			pos: '47% 35%',
+			
+		},
+        title: "Intelligent Mixing",
+        Description: "Auto-balance voice, music, and SFX for perfect clarity."
+    },
+    {
+       photo: {
+			url: "/Gaming.jpg",
+			text: "",
+			pos: '47% 35%',
+			
+		},
+        title: "Brand Voice Cloning",
+        Description: "Securely clone and deploy your spokesperson's voice."
+    },
+    {
+       photo: {
+			url: "/Gaming.jpg",
+			text: "",
+			pos: '47% 35%',
+			
+		},
+        title: "Cultural Localization",
+        Description: "Mock up and test multiple audio ideas in minutes."
+    },
+    {
+       photo: {
+			url: "/Gaming.jpg",
+			text: "",
+			pos: '47% 35%',
+			
+		},
+        title: "Intelligent Mixing",
+        Description: "Auto-balance voice, music, and SFX for perfect clarity."
+    },
+    {
+       photo: {
+			url: "/Gaming.jpg",
+			text: "",
+			pos: '47% 35%',
+			
+		},
+        title: "Brand Voice Cloning",
+        Description: "Securely clone and deploy your spokesperson's voice."
+    },
+    {
+       photo: {
+			url: "/Gaming.jpg",
+			text: "",
+			pos: '47% 35%',
+			
+		},
+        title: "Cultural Localization",
+        Description: "Mock up and test multiple audio ideas in minutes."
+    },
+    {
+       photo: {
+			url: "/Gaming.jpg",
+			text: "",
+			pos: '47% 35%',
+			
+		},
+        title: "Intelligent Mixing",
+        Description: "Auto-balance voice, music, and SFX for perfect clarity."
+    },
+    {
+       photo: {
+			url: "/Gaming.jpg",
+			text: "",
+			pos: '47% 35%',
+			
+		},
+        title: "Brand Voice Cloning",
+        Description: "Securely clone and deploy your spokesperson's voice."
+    }
+	
+];
+
+const FeatureCircularGallery = () => {
+  return (
+    // This outer container provides the scrollable height
+    <div className="w-full bg-background text-foreground" style={{ height: '500vh' }}>
+      {/* This inner container sticks to the top while scrolling */}
+      <div className="w-full h-screen sticky top-0 flex flex-col items-center justify-center overflow-hidden">
+        <div className="text-center mb-8 absolute top-16 z-10">
+          <h1 className="text-4xl font-bold">Animal Gallery</h1>
+          <p className="text-muted-foreground">Scroll to rotate the gallery</p>
+        </div>
+        <div className="w-full h-full">
+          <CircularGallery items={galleryData} />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default FeatureCircularGallery

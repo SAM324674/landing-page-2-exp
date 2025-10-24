@@ -1,6 +1,5 @@
 import { PromptInputBox } from "@/components/ai-prompt-box";
 import { HeroSection } from "@/components/hero-section-1";
-import { Header } from "@/components/navbar";
 import { AnimatedGroup } from "@/components/ui/animated-group";
 import { MusicCard } from "@/components/card-6";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/tabs";
@@ -14,7 +13,6 @@ import * as AccordionPrimitive from "@radix-ui/react-accordion";
 
 import { Plus } from "lucide-react";
 import ClientCompany from "@/components/LandingPage/ClientCompany";
-import FeatureSection from "@/components/LandingPage/FeatureSection";
 import { Button } from "@/components/ui/button";
 import ShaderCanvas from "@/components/kaleidoscopic-orb-mesh-1";
 import LiquidCrystalBackground from "@/components/liquid-neon-shader";
@@ -26,7 +24,17 @@ import { Card } from "@/components/ui/card";
 import DiscoverMore from "@/components/DiscoverMore";
 import FeaturesCarousel2 from "@/components/FeaturesCarousel2";
 import FeaturesCarousel1 from "@/components/FeaturesCarousel1";
-import { LatestUpdates } from "@/components/LatestUpdates";
+import Header from "@/components/navbar";
+import { HeroWave } from "@/components/ai-input-hero";
+import Testimonial1 from "@/components/testimonial-1";
+import { PillsTabs } from "@/components/PillTabs";
+import CircularGalleryDemo from "@/components/FeaturesCarousel1";
+import FeatureCircularGallery from "@/components/FeaturesCarousel1";
+import { FeatureSection } from "@/components/LandingPage/FeatureSection";
+import { PricingTable } from "@/components/pricing-table";
+import LatestUpdates from "@/components/LatestUpdates";
+import FAQ1 from "@/components/faq-monocrhome";
+import { WavePath } from "@/components/wave-path";
 const transitionVariants = {
   item: {
     hidden: {
@@ -48,114 +56,31 @@ const transitionVariants = {
 };
 
 
-const MusicList = [
-  { name: "Night Drives", img: "/NightDrives.avif", songTitle: "Night Drives" },
-  { name: "Behind the Ice", img: "/BehindtheIce.avif", songTitle: "Behind The Ice" },
-  { name: "Ocean Dreams", img: "/BehindtheIce.avif", songTitle: "Ocean Dreams" },
-  { name: "Neon Nights", img: "/BehindtheIce.avif", songTitle: "Neon Nights" },
-  { name: "Winter Roads", img: "/BehindtheIce.avif", songTitle: "Winter Roads" },
-  { name: "City Lights", img: "/BehindtheIce.avif", songTitle: "City Lights" },
-];
-
-const BlogList = [
-  { name: "Blog 1", img: "/Blog.avif" },
-  { name: "Blog 2", img: "/Blog.avif" },
-  { name: "Blog 3", img: "/Blog.avif" },
-  { name: "Blog 4", img: "/Blog.avif" },
-  { name: "Blog 5", img: "/Blog.avif" },
-  { name: "Blog 6", img: "/Blog.avif" },
-];
 
 
 
 
-const items = [
-  {
-    id: "1",
-    title: "How does the conversational AI sound engineer work?",
-    content:
-      "Origin UI focuses on developer experience and performance. Built with TypeScript, it offers excellent type safety, follows accessibility standards, and provides comprehensive documentation with regular updates.",
-  },
-  {
-    id: "2",
-    title: "Is the generated music and SFX copyright-free for commercial use?",
-    content:
-      "Use our CSS variables for global styling, or className and style props for component-specific changes. We support CSS modules, Tailwind, and dark mode out of the box.",
-  },
-  {
-    id: "3",
-    title: "How does the conversational AI sound engineer work?",
-    content:
-      "Yes, with tree-shaking, code splitting, and minimal runtime overhead. Most components are under 5KB gzipped.",
-  },
-  {
-    id: "4",
-    title: "How realistic is the voice cloning and is it secure?",
-    content:
-      "All components follow WAI-ARIA standards, featuring proper ARIA attributes, keyboard navigation, and screen reader support. Regular testing ensures compatibility with NVDA, VoiceOver, and JAWS.",
-  },
-  {
-    id: "5",
-    title: "Can I upload my own audio files for Wubble to mix, edit, and clean?",
-    content:
-      "All components follow WAI-ARIA standards, featuring proper ARIA attributes, keyboard navigation, and screen reader support. Regular testing ensures compatibility with NVDA, VoiceOver, and JAWS.",
-  },
-  {
-    id: "6",
-    title: "What do you mean by 'DAW-level' engineering?",
-    content:
-      "All components follow WAI-ARIA standards, featuring proper ARIA attributes, keyboard navigation, and screen reader support. Regular testing ensures compatibility with NVDA, VoiceOver, and JAWS.",
-  },
-  {
-    id: "7",
-    title: " How does Wubble integrate with my existing workflow (e.g., Unity, Premiere Pro)?",
-    content:
-      "All components follow WAI-ARIA standards, featuring proper ARIA attributes, keyboard navigation, and screen reader support. Regular testing ensures compatibility with NVDA, VoiceOver, and JAWS.",
-  },
-  {
-    id: "8",
-    title: " What's the difference between the Free, Pro, and Teams plans?",
-    content:
-      "All components follow WAI-ARIA standards, featuring proper ARIA attributes, keyboard navigation, and screen reader support. Regular testing ensures compatibility with NVDA, VoiceOver, and JAWS.",
-  },
-  {
-    id: "8",
-    title: " How does the Wubble API work?",
-    content:
-      "All components follow WAI-ARIA standards, featuring proper ARIA attributes, keyboard navigation, and screen reader support. Regular testing ensures compatibility with NVDA, VoiceOver, and JAWS.",
-  },
-];
+
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen text-white ">
+    <div className="flex flex-col min-h-screen w-full ">
       {/* Header */}
       <Header />
 
       {/* Main content */}
       <main className={`flex-1 w-full flex flex-col items-center space-y-[5.3rem]`}>
         {/* Hero Section */}
-        <div className="relative w-full h-[40rem]  ">
-          <div className="absolute  w-full h-full  ">
-            {/* <LiquidCrystalBackground
-              speed={0.6}
-              radii={[0.25, 0.18, 0.3]}
-              smoothK={[0.2, 0.3]}
 
-            /> */}
-          </div>
-          {/* <div className="bg-gradient-to-b  from-10% from-black/80 to-90% to-[#100f10] w-full  backdrop-blur-3xl absolute h-[4rem]  top-[39rem] z-10"/> */}
-        </div>
-        <AnimatedGroup>
+        <AnimatedGroup className="w-full">
 
-          <div className="w-full absolute top-0 left-0 bg-black/50 backdrop-blur-sm h-[40rem] flex flex-col items-center">
-            <HeroSection />
-            {/* Chat Box */}
-            <PromptInputBox />
+          <div className="w-full left-0 bg-black/50 backdrop-blur-sm  flex flex-col items-center">
+            {/* <HeroSection /> */}
+            <HeroWave />
           </div>
 
         </AnimatedGroup>
-        <div className="w-full absolute  h-[5rem] bg-gradient-to-b from-transparent to-black top-[35rem] " />
+        <div className="w-full absolute  h-[5rem] bg-gradient-to-b from-transparent to-black/80 top-[42rem] " />
         {/* Client Companies */}
         <AnimatedGroup
           variants={{
@@ -167,7 +92,7 @@ export default function Home() {
             ...transitionVariants,
           }}
           className="w-full -mt-[5.3rem]  ">
-          <ClientCompany />
+          <Testimonial1 />
         </AnimatedGroup>
 
         {/* Used By Millions of Creators */}
@@ -186,46 +111,17 @@ export default function Home() {
               Our conversational AI generates, engineers, and masters everything. See the specific tools and features Wubble deploys for your workflow.
             </p>
           </div>
+          <div className="w-full ">
+            <PillsTabs />
+          </div>
 
-          <Tabs defaultValue="Marketing & Ads" className="w-full max-w-6xl ">
-            <div className="w-full flex justify-center items-center">
-              <TabsList className="flex justify-center items-center flex-wrap gap-2 mb-6 h-[3rem] bg-gray-700/50  " shape="pill">
-                <TabsTrigger value="Marketing & Ads" className="text-lg data-[state=active]:text-white data-[state=active]:bg-gradient-to-l data-[state=active]:from-[#6a5ae7]  data-[state=active]:to-[#d622ef] " >Marketing & Ads</TabsTrigger>
-                <TabsTrigger value="Film & TV" className="text-lg data-[state=active]:text-white data-[state=active]:bg-gradient-to-l data-[state=active]:from-[#6a5ae7] data-[state=active]:to-[#d622ef] ">Film & Tv</TabsTrigger>
-                <TabsTrigger value="Game dev" className="text-lg data-[state=active]:text-white data-[state=active]:bg-gradient-to-l data-[state=active]:from-[#6a5ae7] data-[state=active]:to-[#d622ef] ">Game dev</TabsTrigger>
-                <TabsTrigger value="Hospitality" className="text-lg data-[state=active]:text-white data-[state=active]:bg-gradient-to-l  data-[state=active]:from-[#6a5ae7] data-[state=active]:to-[#d622ef] ">Hospitality</TabsTrigger>
-                <TabsTrigger value="Creators" className="text-lg data-[state=active]:text-white data-[state=active]:bg-gradient-to-l data-[state=active]:from-[#6a5ae7] data-[state=active]:to-[#d622ef] ">Creators</TabsTrigger>
-                <TabsTrigger value="Podcasts" className="text-lg data-[state=active]:text-white data-[state=active]:bg-gradient-to-l data-[state=active]:from-[#6a5ae7] data-[state=active]:to-[#d622ef] ">Podcasters</TabsTrigger>
-              </TabsList>
-            </div>
-
-            {/* {["gaming", "Podcast", "Content", "Marketing", "Movies"].map((category) => (
-              <TabsContent key={category} value={category}>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-                  {MusicList.map((music, index) => (
-                    <MusicCard key={index} imageUrl={music.img} songTitle={music.songTitle} />
-                  ))}
-                </div>
-              </TabsContent>
-            ))} */}
-          </Tabs>
-          <section className=" space-y-5 w-[90%] h-[20rem] px-[8rem]  flex justify-between items-center rounded-md  bg-gradient-to-t from-[#6a5ae7]/50 to-transparent  ">
-
-            <div className="flex flex-col   space-y-[2rem] ">
-              <h1 className="text-4xl font-bold">Go from brief to broadcast instantly</h1>
-              <p className="w-[25rem]">Instantly concept, generate, mix, and localize entire audio campaigns.</p>
-
-            </div>
-            <Button className="bg-gradient-to-l from-[#6a5ae7] to-[#d622ef] mt-11">Open studio</Button>
-
-          </section>
-          <FeaturesCarousel1 />
+          <FeatureCircularGallery />
 
         </section>
 
         {/* Features Section */}
         <section className="w-full flex justify-center  space-y-8">
-          {/* <h1 className="text-4xl font-bold text-center">Features</h1> */}
+
           <div className="w-[90%]">
             <FeatureSection />
           </div>
@@ -261,8 +157,10 @@ export default function Home() {
           <DiscoverMore />
         </section>
         {/* Pricing Section */}
-        <section className="w-full max-w-6xl px-4 mt-[4rem]">
+        <section className="w-[85%] px-4 mt-[4rem]">
           <h1 className="text-4xl font-bold text-center">A Perfect Fit For Everyone</h1>
+
+
           <PricingSection />
         </section>
         {/*Latest Updates */}
@@ -271,34 +169,24 @@ export default function Home() {
 
         </div>
         {/* FAQ Section */}
-        <section className="w-full max-w-5xl px-4 space-y-8  ">
+        <section className="w-[90%] px-4 space-y-8  ">
           <h1 className="text-4xl font-bold text-center">FAQs</h1>
-          <Accordion type="single" collapsible className="w-full" defaultValue="3">
-            {items.map((item) => (
-              <AccordionItem value={item.id} key={item.id} className="py-2">
-                <AccordionPrimitive.Header className="flex">
-                  <AccordionPrimitive.Trigger className="flex flex-1 items-center justify-between py-2 text-left text-[15px] font-semibold leading-6 transition-all [&>svg>path:last-child]:origin-center [&>svg>path:last-child]:transition-all [&>svg>path:last-child]:duration-200 [&[data-state=open]>svg>path:last-child]:rotate-90 [&[data-state=open]>svg>path:last-child]:opacity-0 [&[data-state=open]>svg]:rotate-180">
-                    {item.title}
-                    <Plus
-                      size={16}
-                      strokeWidth={2}
-                      className="shrink-0 opacity-60 transition-transform duration-200"
-                      aria-hidden="true"
-                    />
-                  </AccordionPrimitive.Trigger>
-                </AccordionPrimitive.Header>
-                <AccordionContent className="pb-2 text-muted-foreground">
-                  {item.content}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+          <FAQ1 />
         </section>
-        <AnimatedGroup className="w-full">
+        <AnimatedGroup className="w-full flex flex-col items-center">
 
-          <div className="h-[20rem] bg-gradient-to-l from-[#6a5ae7] to-[#d622ef] flex justify-center items-center flex-col w-full gap-[3rem]">
-            <h1 className="text-3xl">Start Creating with Wubble</h1>
-            <Button className="w-[10rem] bg-white text-black hover:text-white">Get Started For Free</Button>
+          <WavePath />
+          <div className="flex w-[70vw] flex-col items-center">
+            <WavePath className="mb-10" />
+            <div className="flex w-full flex-col items-end">
+              <div className="flex ">
+                <p className="text-muted-foreground mt-2 text-sm">World of Art</p>
+                <p className="text-foreground/80 ml-8 w-3/4 text-2xl md:text-4xl">
+                  Experience the emotions of artists through their works. Let the
+                  beauty of art inspire you and fill your soul.
+                </p>
+              </div>
+            </div>
           </div>
         </AnimatedGroup>
       </main>

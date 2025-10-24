@@ -5,32 +5,48 @@ import { Button } from "@/components/ui/button";
 import { CheckIcon, Crown, Minus, Plus } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import cn from "clsx";
+import { PricingTable } from "./pricing-table";
 
+const features = [
+    { name: "Basic Analytics", included: "starter" },
+    { name: "Up to 5 team members", included: "starter" },
+    { name: "Basic support", included: "starter" },
+    { name: "Advanced Analytics", included: "pro" },
+    { name: "Up to 20 team members", included: "pro" },
+    { name: "Priority support", included: "pro" },
+    { name: "Custom integrations", included: "all" },
+    { name: "Unlimited team members", included: "all" },
+    { name: "24/7 phone support", included: "all" },
+];
 const plans = [
   {
-    title: "Wubble Free",
+    name: "Wubble Free",
     description: "For designing or engineering AI audio for anything.",
     buttonText: "Get Wubble Free",
+    level:"free",
     badge: "For one person "
   },
   {
-    title: "Wubble Pro",
+    name: "Wubble Pro",
     description: [
       "For professionals growing their brand or studio with premium audio features."
     ],
     buttonText: "Start free Pro trial",
+    level:"pro",
     badge: "For one person "
   },
   {
-    title: "Wubble Teams",
+    name: "Wubble Teams",
     description: "For teams to create and direct audio together with premium tools and workflows.",
     buttonText: "Start free teams trial",
+    level:"teams",
     badge: "For your team "
   },
   {
-    title: "Wubble Enterprise",
+    name: "Wubble Enterprise",
     description: "For organizations needing advanced security, API access, and dedicated support.",
     buttonText: "Contact sales",
+    level:"enterprise",
     badge: "For your team"
   },
 
@@ -51,17 +67,17 @@ const PlanCard = ({
   return (
     <div
       className={cn(
-        `flex flex-col relative rounded-2xl border-2   lg:rounded-3xl transition-all bg-black/50  ${plan.title === "Wubble Free" ? "border-gray-700" : "border-blue-500/50 ring-blue-500/20 ring-2"}  overflow-hidden px-3 py-2 space-y-2`,
+        `flex flex-col relative rounded-2xl border-2   lg:rounded-3xl transition-all bg-black/50  ${plan.name === "Wubble Free" ? "border-gray-700" : "border-blue-500/50 ring-blue-500/20 ring-2"}  overflow-hidden px-3 py-2 space-y-2`,
 
 
       )}
     >
-      {plan.title === "Mastermind" && (
+      {plan.name === "Mastermind" && (
         <div className="absolute top-1/2 inset-x-0 mx-auto h-12 -rotate-45 w-full bg-blue-600 rounded-2xl lg:rounded-3xl blur-[8rem] -z-10"></div>
       )}
 
       <div className="p-2 flex flex-col items-start w-full relative space-y-5">
-        {/* <h2 className="font-normal text-sm text-foreground pt-2">{plan.title}</h2>
+        {/* <h2 className="font-normal text-sm text-foreground pt-2">{plan.name}</h2>
         <h3 className="mt-3 text-xl md:text-3xl font-bold">
           ${price * users}
           <span className="text-sm font-normal text-muted-foreground">
@@ -71,12 +87,12 @@ const PlanCard = ({
         <div className="flex justify-between w-full">
 
           <div className="px-3 text-xs p-1 rounded-full bg-gray-700">{plan.badge}</div>
-          {plan.title == "Wubble Free" ?
+          {plan.name == "Wubble Free" ?
             <></> :
             <Crown fill="white" size={18} />}
         </div>
         <div className="h-[10rem] flex flex-col gap-9 mt-4">
-          <h1>{plan.title}</h1>
+          <h1>{plan.name}</h1>
           <p className="text-xs md:text-base text-muted-foreground mt-2">
             {plan.description}
           </p>
@@ -104,18 +120,7 @@ const PlanCard = ({
             </AnimatePresence>
           </div> */}
       </div>
-      {/* 
-      <div className="flex flex-col items-start w-full p-2 gap-y-2">
-        <span className="text-xs text-left mb-2">Includes:</span>
-        {plan.features.map((feature, index) => (
-          <div key={index} className="flex items-start gap-2">
-          <CheckIcon className="w-3 h-3 flex-shrink-0 text-blue-500 mt-1" />
-          <span className="text-left text-sm">{feature}</span>
-        </div>        
-        ))}
-
-        {plan.description}
-      </div> */}
+      
     </div>
   );
 };
@@ -125,51 +130,20 @@ export default function PricingSection() {
   const [users, setUsers] = useState(1);
 
   return (
-    <section className="py-16 bg-black ">
-      <div className="max-w-6xl mx-auto px-6">
+    <section className="py-10 bg-black  w-full ">
+      <div className="w-full  mx-auto px-6">
         {/* Controls */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-10">
-          {/* <div className="flex bg-neutral-800 rounded-full">
-            <button
-              className={`px-4 py-2 rounded-full text-sm font-medium transition ${
-                billing === "annual" ? "bg-black text-white" : "text-gray-200 "
-              }`}
-              onClick={() => setBilling("annual")}
-            >
-              Annually (Save 20%)
-            </button>
-            <button
-              className={`px-4 py-2 rounded-full text-sm font-medium transition ${
-                billing === "monthly" ? "bg-black text-white" : "text-gray-700"
-              }`}
-              onClick={() => setBilling("monthly")}
-            >
-              Monthly
-            </button>
-          </div> */}
-
-          {/* <div className="flex items-center gap-3 border border-gray-700 rounded-full px-4 py-2 text-sm font-normal">
-            <span>Users:</span>
-            <button
-              className="px-2 text-lg"
-              onClick={() => setUsers(Math.max(1, users - 1))}
-            >
-              <Minus className="w-4 h-4" />
-            </button>
-            <span className="w-6 text-center">{users}</span>
-            <button className="px-2 text-lg" onClick={() => setUsers(users + 1)}>
-              <Plus className="w-4 h-4" />
-            </button>
-          </div> */}
-        </div>
+        
 
         {/* Grid */}
-        <div className="grid gap-6 md:grid-cols-4">
+        {/* <div className="grid gap-6 md:grid-cols-4">
           {plans.map((plan) => (
-            <PlanCard key={plan.title} plan={plan}  />
+            <PlanCard key={plan.name} plan={plan}  />
           ))}
-        </div>
+        </div> */}
+        <PricingTable  features={features} plans={plans}/>
       </div>
     </section>
   );
 }
+export {PlanCard}

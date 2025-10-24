@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Montserrat,Poppins } from "next/font/google";
+import { Raleway} from "next/font/google";
+import { ThemeProvider } from "@/components/themeProvider";
 
 // const montserrat = Montserrat({subsets:['latin']});
-const poppins = Poppins({ subsets: ['latin'], weight: '400' })
+const raleway = Raleway({ subsets: ['latin'], weight: '400' })
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -27,11 +28,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${poppins.className}  antialiased bg-black`}
-      >
-        {children}
-      </body>
+      
+        <body
+          className={`${raleway.className}  antialiased bg-black`}
+        >
+          <ThemeProvider >{children}</ThemeProvider>
+        </body>
+      
     </html>
   );
 }
