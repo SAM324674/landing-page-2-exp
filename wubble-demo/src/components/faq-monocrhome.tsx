@@ -407,7 +407,7 @@ function FAQ1() {
 
             return (
               <li
-                key={item.question}
+                key={index}
                 className={`group relative overflow-hidden rounded-3xl border backdrop-blur-xl transition-all duration-500 hover:-translate-y-0.5 focus-within:-translate-y-0.5 ${palette.border} ${palette.panel} ${palette.shadow}`}
                 onMouseMove={setCardGlow}
                 onMouseLeave={clearCardGlow}

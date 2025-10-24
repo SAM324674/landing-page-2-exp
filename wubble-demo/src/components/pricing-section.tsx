@@ -67,7 +67,7 @@ const PlanCard = ({
   return (
     <div
       className={cn(
-        `flex flex-col relative rounded-2xl border-2   lg:rounded-3xl transition-all bg-black/50  ${plan.name === "Wubble Free" ? "border-gray-700" : "border-blue-500/50 ring-blue-500/20 ring-2"}  overflow-hidden px-3 py-2 space-y-2`,
+        `flex flex-col relative rounded-2xl   lg:rounded-3xl transition-all bg-black/50   overflow-hidden px-3 py-2 space-y-2`,
 
 
       )}
@@ -100,7 +100,7 @@ const PlanCard = ({
       </div>
 
       <div className="flex flex-col items-start w-full px-2 py-2 h-[5rem] ">
-        <Button size="lg" className="w-full">
+        <Button size="lg" className="w-full rounded-full">
           {plan.buttonText}
         </Button>
         {/* <div className="h-8 overflow-hidden w-full mx-auto">

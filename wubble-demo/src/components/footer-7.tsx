@@ -1,187 +1,237 @@
+"use client";
 import React from "react";
-import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
-
-interface Footer7Props {
-  logo?: {
-    url: string;
-    src: string;
-    alt: string;
-    title: string;
-  };
-  sections?: Array<{
-    title: string;
-    links: Array<{ name: string; href: string }>;
-  }>;
-  description?: string;
-  socialLinks?: Array<{
-    icon: React.ReactElement;
-    href: string;
-    label: string;
-  }>;
-  copyright?: string;
-  legalLinks?: Array<{
-    name: string;
-    href: string;
-  }>;
-}
+// Removed unused lucide-react icons (Mail, Phone, MapPin, etc.) as they are not
+// present in the Wubble design or the simplified footer.
+import { DIcons } from "dicons";
+import Link from "next/link";
+// Imported components are assumed to be correct
+import { FooterBackgroundGradient } from "@/components/hover-footer";
+import { TextHoverEffect } from "@/components/hover-footer";
 
 
+function HoverFooter() {
+  // New unified data structure based on the Wubble logo image
+  const wubbleFooterData = [
+    {
+      title: "Product",
+      links: [
+        { label: "AI sound engineer", href: "#" },
+        { label: "AI voice generator", href: "#" },
+        { label: "AI voice cloner", href: "#" },
+        { label: "AI audio studio", href: "#" },
+        { label: "AI SFX studio", href: "#" },
+        { label: "Wubble API", href: "#" },
+      ],
+    },
+    {
+      title: "Solutions",
+      links: [
+        { label: "Marketing", href: "#" },
+        { label: "Film & TV", href: "#" },
+        { label: "Game dev", href: "#" },
+        { label: "Creators", href: "#" },
+        { label: "Podcasters", href: "#" },
+        { label: "Hospitality", href: "#" },
+      ],
+    },
+    {
+      title: "Tools", // Note: This is the first "Tools" column
+      links: [
+        { label: "AI audio cleaner", href: "#" },
+        { label: "Social clop generator", href: "#" },
+        { label: "AI Dubbing", href: "#" },
+        { label: "Auto captioning", href: "#" },
+        { label: "Podcast intro maker", href: "#" },
+        { label: "AB Tester", href: "#" },
+      ],
+    },
+    {
+      title: "Resources",
+      links: [
+        { label: "Pricing", href: "#" },
+        { label: "Help Center", href: "#" },
+        { label: "Blog", href: "#" },
+        { label: "Case Studies", href: "#" },
+        { label: "Newsroom", href: "#" },
+        { label: "Developers", href: "#" },
+      ],
+    },
+    // {
+    //   title: "Tools", // Note: This is the second "Tools" column
+    //   links: [
+    //     { label: "Discord", href: "#" },
+    //     { label: "X/Twitter", href: "#" },
+    //     { label: "LinkedIn", href: "#" },
+    //     { label: "YouTube", href: "#" },
+    //   ],
+    // },
+    {
+      title: "Company & Legal",
+      links: [
+        { label: "About Wubble", href: "#" },
+        { label: "Careers", href: "#" },
+        { label: "Press", href: "#" },
+        { label: "Security", href: "#" },
+        { label: "Privacy policy", href: "#" },
+        { label: "Cookie policy", href: "#" },
+        { label: "Terms of Use", href: "#" },
+        { label: "Subscriber License", href: "#" },
+        { label: "FAQs", href: "#" },
+      ],
+    },
+  ];
 
+  const Underline = `hover:-translate-y-1 border border-dotted rounded-xl p-2.5 transition-transform bg-[#9598B5]/30 backdrop-blur-md `;
 
-
-
-
-
-
-
-const defaultSections = [
-  {
-    title: "Product",
-    links: [
-      { name: "AI sound engineer", href: '#' },
-      { name: "AI voice generator", href: "#" },
-      { name: "AI voice cloner", href: "#" },
-      { name: "AI audio studio", href: "#" },
-      { name: "AI SFX studio", href: "#" },
-      { name: "Wubble API", href: "#" },
-    ],
-  },
-  {
-    title: "Solutions",
-    links: [
-      { name: "Marketing ", href: '#' },
-      { name: "Film & TV", href: "#" },
-      { name: "Game dev", href: "#" },
-      { name: "Creators", href: "#" },
-      { name: "Podcastors", href: "#" },
-      { name: "Hospitality", href: "#" },
-    ],
-  },
-  {
-    title: "Tools",
-    links: [
-      { name: "AI audio cleaner", href: "#" },
-      { name: "Social clop generator", href: "#" },
-      { name: "AI Dubbing", href: "#" },
-      { name: "Auto captioning ", href: "#" },
-      { name: "Podcast intro maker", href: "#" },
-      { name: "AB Tester", href: '#' }
-    ],
-  },
-  {
-    title: "Resources",
-    links: [
-      { name: "Pricing", href: "#" },
-      { name: "Help Center", href: "#" },
-      { name: "Blog", href: "#" },
-      { name: "Case Studies", href: "#" },
-      { name: "News room", href: "#" },
-      { name: "Developers", href: "#" },
-    ]
-
-  },
-  {
-    title: "Company & Legal",
-    links: [
-      { name: "About Wubble", href: "#" },
-      { name: "Careers", href: "#" },
-      { name: "Press", href: "#" },
-      { name: "Privacy Policy", href: "#" },
-      { name: "Cookie Policy", href: "#" },
-      { name: "Terms of Use", href: "#" },
-      { name: "Subscriber License", href: "#" },
-      { name: "FAQS", href: "#" },
-    ],
-  },
-];
-
-const defaultSocialLinks = [
-  { icon: <FaInstagram className="size-5" />, href: "#", label: "Instagram" },
-  { icon: <FaFacebook className="size-5" />, href: "#", label: "Facebook" },
-  { icon: <FaTwitter className="size-5" />, href: "#", label: "Twitter" },
-  { icon: <FaLinkedin className="size-5" />, href: "#", label: "LinkedIn" },
-];
-
-const defaultLegalLinks = [
-  { name: "Terms and Conditions", href: "#" },
-  { name: "Privacy Policy", href: "#" },
-];
-
-export const Footer7 = ({
-  logo = {
-    url: "https://www.shadcnblocks.com",
-    src: "https://www.shadcnblocks.com/images/block/logos/shadcnblockscom-icon.svg",
-    alt: "logo",
-    title: "Shadcnblocks.com",
-  },
-  sections = defaultSections,
-  description = "A collection of components for your startup business or side project.",
-  socialLinks = defaultSocialLinks,
-  copyright = "© 2024 Shadcnblocks.com. All rights reserved.",
-  legalLinks = defaultLegalLinks,
-}: Footer7Props) => {
   return (
-    <section className="py-32  mt-[5rem] p-3">
-      <div className="container mx-auto">
-        <div className="flex w-full flex-col justify-between gap-10 lg:flex-row lg:items-start lg:text-left">
-          <div className="flex w-full flex-col justify-between gap-6 lg:items-start">
-            {/* Logo */}
-            <div className="flex items-center gap-2 lg:justify-start">
-              <a href={logo.url}>
-                <img
-                  src={logo.src}
-                  alt={logo.alt}
-                  title={logo.title}
-                  className="h-8"
-                />
-              </a>
-              <h2 className="text-xl font-semibold">Logo</h2>
+    <footer className="bg-[#0F0F11]/10 relative h-fit rounded-3xl overflow-hidden m-8">
+      <div className="max-w-7xl mx-auto p-14 z-50 relative">
+        {/* Adjusted grid to accommodate 7 columns (Brand + 6 new columns) */}
+        <div className="flex gap-10 md:gap-8 lg:gap-16 pb-12">
+
+          <div className="flex flex-col space-y-4 col-span-2 lg:col-span-1">
+            <div className="flex items-center space-x-2">
+              <span className="text-white text-3xl font-bold">Wubble logo</span>
             </div>
-            {/* <p className="max-w-[70%] text-sm text-muted-foreground">
-              {description}
-            </p> */}
-            {/* sections */}
-            <div className="flex w-full justify-evenly lg:gap-20">
-              {sections.map((section, sectionIdx) => (
-                <div key={sectionIdx}>
-                  <h3 className="mb-4 font-bold">{section.title}</h3>
-                  <ul className="space-y-3 text-sm text-muted-foreground">
-                    {section.links.map((link, linkIdx) => (
-                      <li
-                        key={linkIdx}
-                        className="font-medium hover:text-primary"
-                      >
-                        <a href={link.href}>{link.name}</a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-            {/* <ul className="flex items-center space-x-6 text-muted-foreground">
-              {socialLinks.map((social, idx) => (
-                <li key={idx} className="font-medium hover:text-primary">
-                  <a href={social.href} aria-label={social.label}>
-                    {social.icon}
-                  </a>
-                </li>
-              ))}
-            </ul> */}
+
           </div>
 
+          {/* New Footer link sections, mapping all 6 columns from the data structure */}
+          {wubbleFooterData.map((section, index) => (
+            // Using index as part of the key since two titles are identical ("Tools")
+            <div key={`${section.title}-${index}`} >
+              <h4 className="text-white text-[18px] font-semibold tracking-[-2.2%] leading-[100%] mb-6">
+                {section.title}
+              </h4>
+              <ul className="space-y-3">
+                {section.links.map((link) => (
+                  <li key={link.label} className="relative">
+                    <a
+                      href={link.href}
+                      className="hover:text-[#3ca2fa] transition-colors text-[18px]"
+                    >
+                      {link.label}
+                    </a>
+
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+          {/* NOTE: The original 'Contact Us' static section is now removed 
+          because all content is now driven by 'wubbleFooterData'. */}
         </div>
-        <div className="mt-8 flex flex-col justify-between gap-4 border-t py-8 text-xs font-medium text-muted-foreground md:flex-row md:items-center md:text-left">
-          <p className="order-2 lg:order-1">{copyright}</p>
-          <ul className="order-1 flex flex-col gap-2 md:order-2 md:flex-row">
-            {legalLinks.map((link, idx) => (
-              <li key={idx} className="hover:text-primary">
-                <a href={link.href}> {link.name}</a>
-              </li>
-            ))}
-          </ul>
+
+        <hr className="border-t border-gray-700 my-8" />
+
+        {/* Footer bottom (Social icons and Copyright) - kept original social icons for now */}
+        <div className="relative z-30 flex flex-col md:flex-row justify-between items-center text-sm space-y-4 md:space-y-0">
+          {/* Social icons (You'd ideally create a socialLinks array for this too, 
+          but keeping the original structure since the Wubble image doesn't show them) */}
+          <div className="flex flex-wrap justify-center gap-y-6 ">
+            <div className="flex flex-wrap items-center justify-center gap-6 gap-y-4 px-6">
+              <Link
+                aria-label="Logo"
+                href="mailto:contact@designali.in"
+                rel="noreferrer"
+                target="_blank"
+                className={Underline}
+              >
+                <DIcons.Mail strokeWidth={1.5} className="h-5 w-5" />
+              </Link>
+              <Link
+                aria-label="Logo"
+                href="https://x.com/designali_in"
+                rel="noreferrer"
+                target="_blank"
+                className={Underline}
+              >
+                <DIcons.X className="h-5 w-5" />
+              </Link>
+              <Link
+                aria-label="Logo"
+                href="https://www.instagram.com/designali.in/"
+                rel="noreferrer"
+                target="_blank"
+                className={Underline}
+              >
+                <DIcons.Instagram className="h-5 w-5" />
+              </Link>
+              <Link
+                aria-label="Logo"
+                href="https://www.threads.net/designali.in"
+                rel="noreferrer"
+                target="_blank"
+                className={Underline}
+              >
+                <DIcons.Threads className="h-5 w-5" />
+              </Link>
+              <Link
+                aria-label="Logo"
+                href="https://chat.whatsapp.com/LWsNPcz5BlWDVOha41vzuh"
+                rel="noreferrer"
+                target="_blank"
+                className={Underline}
+              >
+                <DIcons.WhatsApp className="h-5 w-5" />
+              </Link>
+              <Link
+                aria-label="Logo"
+                href="https://www.behance.net/designali-in"
+                rel="noreferrer"
+                target="_blank"
+                className={Underline}
+              >
+                <DIcons.Behance className="h-5 w-5" />
+              </Link>
+              <Link
+                aria-label="Logo"
+                href="https://www.facebook.com/designali.agency"
+                rel="noreferrer"
+                target="_blank"
+                className={Underline}
+              >
+                <DIcons.Facebook className="h-5 w-5" />
+              </Link>
+              <Link
+                aria-label="Logo"
+                href="https://www.linkedin.com/company/designali"
+                rel="noreferrer"
+                target="_blank"
+                className={Underline}
+              >
+                <DIcons.LinkedIn className="h-5 w-5" />
+              </Link>
+              <Link
+                aria-label="Logo"
+                href="https://www.youtube.com/@designali-in"
+                rel="noreferrer"
+                target="_blank"
+                className={Underline}
+              >
+                <DIcons.YouTube className="h-5 w-5" />
+              </Link>
+            </div>
+          </div>
+          <div className="flex flex-wrap justify-center gap-y-6">
+            {/* ... (Original social icon links using DIcons) ... */}
+          </div>
+
+          {/* Copyright */}
+          <p className="text-center md:text-left">
+            &copy; {new Date().getFullYear()} All rights reserved.
+          </p>
         </div>
       </div>
-    </section>
-  );
-};
 
+      {/* Text hover effect & Background Gradient */}
+      <div className="lg:flex hidden h-[30rem] -mt-52 ">
+        <TextHoverEffect text="Wubble" className="z-30" />
+      </div>
+
+      <FooterBackgroundGradient />
+    </footer>
+  );
+}
+
+export default HoverFooter;

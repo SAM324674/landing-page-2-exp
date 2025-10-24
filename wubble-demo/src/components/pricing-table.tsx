@@ -77,9 +77,9 @@ export function PricingTable({
               onClick={() => handlePlanSelect(plan.level)}
               className={cn(
                 "flex-1 p-4 rounded-xl text-left transition-all ",
-                "border border-zinc-200 dark:border-zinc-800",
+                "border border-zinc-200 dark:border-[#7076E3]/40",
                 selectedPlan === plan.level &&
-                  "ring-2 ring-blue-500 dark:ring-blue-400",
+                  "ring-2 ring-[#7076E3] dark:ring-[#7076E3]",
               )}
             >
               {/* <div className="flex items-center justify-between mb-2">
@@ -146,7 +146,7 @@ export function PricingTable({
                         )}
                       >
                         {shouldShowCheck(feature.included, plan.level) ? (
-                          <CheckIcon className="w-5 h-5 text-blue-500" />
+                          <CheckIcon className="w-5 h-5 text-[#7076E3]" />
                         ) : (
                           <span className="text-zinc-300 dark:text-zinc-700">
                             -
@@ -164,7 +164,7 @@ export function PricingTable({
         <div className="mt-8 text-center">
           <Button
             className={cn(
-              "w-full sm:w-auto bg-blue-500 hover:bg-blue-600 px-8 py-2 rounded-xl",
+              "w-full sm:w-auto bg-[#7076E3] hover:bg-[#7076E30]/80 px-8 py-2 rounded-[10px] text-white font-[600] ",
               buttonClassName,
             )}
           >

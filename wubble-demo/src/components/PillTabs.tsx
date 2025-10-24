@@ -7,81 +7,103 @@ import { Tabs } from "./ui/tabs";
 export function PillsTabs() {
     const tabs = [
         {
-            title: "Product",
-            value: "product",
+            title: "Marketing & ads",
+            value: "Marketing & ads",
             content: (
-                <section className=" space-y-5 w-[90%] h-[20rem] px-[8rem]  flex justify-between items-center rounded-md  bg-white  ">
+                <section className=" space-y-5 w-[90%] h-[303px] p-[50px]  flex justify-between items-center rounded-[10px]  bg-white  font-[600]  ">
 
-                    <div className="flex flex-col   space-y-[2rem] text-black ">
-                        <h1 className="text-4xl font-bold">Go from brief to broadcast instantly</h1>
-                        <p className="w-[25rem]">Instantly concept, generate, mix, and localize entire audio campaigns.</p>
+                    <div className="flex flex-col   space-y-[20px] text-black ">
+                        <h1 className="font-bold text-[40px]">Go from brief to broadcast instantly</h1>
+                        <p className="w-[672px] text-[#1E2025BF] text-[20px]">Instantly concept, generate, mix, and localize entire audio campaigns.</p>
 
+                        <Button className="bg-[#7076E3] w-[152px] h-[56px] text-white font-[600] mt-6 text-[16px]">Learn More</Button>
                     </div>
-                    <Button className="bg-gradient-to-l from-[#6a5ae7] to-[#d622ef] mt-11">Open studio</Button>
+                    
 
                 </section>
             ),
         },
         {
-            title: "Services",
-            value: "services",
+            title: "Film $ TV",
+            value: "Film $ TV",
             content: (
-                <section className=" space-y-5 w-[90%] h-[20rem] px-[8rem]  flex justify-between items-center rounded-md  bg-white  ">
+                <section className=" space-y-5 w-[90%] h-[303px] p-[50px]  flex justify-between items-center rounded-[10px]  bg-white  font-[600]  ">
 
-                    <div className="flex flex-col   space-y-[2rem] text-black ">
-                        <h1 className="text-4xl font-bold">Go from brief to broadcast instantly</h1>
-                        <p className="w-[25rem]">Instantly concept, generate, mix, and localize entire audio campaigns.</p>
+                    <div className="flex flex-col   space-y-[20px] text-black ">
+                        <h1 className="font-bold text-[40px]">Go from brief to broadcast instantly</h1>
+                        <p className="w-[672px] text-[#1E2025BF] text-[20px]">Instantly concept, generate, mix, and localize entire audio campaigns.</p>
 
+                        <Button className="bg-[#7076E3] w-[152px] h-[56px] text-white font-[600] mt-6 text-[16px]">Learn More</Button>
                     </div>
-                    <Button className="bg-gradient-to-l from-[#6a5ae7] to-[#d622ef] mt-11">Open studio</Button>
+                    
 
                 </section>
             ),
         },
         {
-            title: "Playground",
-            value: "playground",
-            content: (
-                <section className=" space-y-5 w-[90%] h-[20rem] px-[8rem]  flex justify-between items-center rounded-md  bg-white  ">
-
-                    <div className="flex flex-col   space-y-[2rem] text-black ">
-                        <h1 className="text-4xl font-bold">Go from brief to broadcast instantly</h1>
-                        <p className="w-[25rem]">Instantly concept, generate, mix, and localize entire audio campaigns.</p>
-
-                    </div>
-                    <Button className="bg-gradient-to-l from-[#6a5ae7] to-[#d622ef] mt-11">Open studio</Button>
-
-                </section>
-            ),
-        },
-        {
-            title: "Content",
-            value: "content",
+            title: "Game Dev",
+            value: "Game Dev",
              content: (
-                <section className=" space-y-5 w-[90%] h-[20rem] px-[8rem]  flex justify-between items-center rounded-md  bg-white  ">
+                <section className=" space-y-5 w-[90%] h-[303px] p-[50px]  flex justify-between items-center rounded-[10px]  bg-white  font-[600]  ">
 
-                    <div className="flex flex-col   space-y-[2rem] text-black ">
-                        <h1 className="text-4xl font-bold">Go from brief to broadcast instantly</h1>
-                        <p className="w-[25rem]">Instantly concept, generate, mix, and localize entire audio campaigns.</p>
+                    <div className="flex flex-col   space-y-[20px] text-black ">
+                        <h1 className="font-bold text-[40px]">Go from brief to broadcast instantly</h1>
+                        <p className="w-[672px] text-[#1E2025BF] text-[20px]">Instantly concept, generate, mix, and localize entire audio campaigns.</p>
 
+                        <Button className="bg-[#7076E3] w-[152px] h-[56px] text-white font-[600] mt-6 text-[16px]">Learn More</Button>
                     </div>
-                    <Button className="bg-gradient-to-l from-[#6a5ae7] to-[#d622ef] mt-11">Open studio</Button>
+                    
 
                 </section>
             ),
         },
         {
-            title: "Random",
-            value: "random",
-            content: (
-                <section className=" space-y-5 w-[90%] h-[20rem] px-[8rem]  flex justify-between items-center rounded-md  bg-white   ">
+            title: "Hospitality",
+            value: "Hospitality",
+             content: (
+                <section className=" space-y-5 w-[90%] h-[303px] p-[50px]  flex justify-between items-center rounded-[10px]  bg-white  font-[600]  ">
 
-                    <div className="flex flex-col   space-y-[2rem] text-black ">
-                        <h1 className="text-4xl font-bold">Go from brief to broadcast instantly</h1>
-                        <p className="w-[25rem]">Instantly concept, generate, mix, and localize entire audio campaigns.</p>
+                    <div className="flex flex-col   space-y-[20px] text-black ">
+                        <h1 className="font-bold text-[40px]">Go from brief to broadcast instantly</h1>
+                        <p className="w-[672px] text-[#1E2025BF] text-[20px]">Instantly concept, generate, mix, and localize entire audio campaigns.</p>
 
+                        <Button className="bg-[#7076E3] w-[152px] h-[56px] text-white font-[600] mt-6 text-[16px]">Learn More</Button>
                     </div>
-                    <Button className="bg-gradient-to-l from-[#6a5ae7] to-[#d622ef] mt-11">Open studio</Button>
+                    
+
+                </section>
+            ),
+        },
+        {
+            title: "Creators",
+            value: "Creators",
+            content: (
+                <section className=" space-y-5 w-[90%] h-[303px] p-[50px]  flex justify-between items-center rounded-[10px]  bg-white  font-[600]  ">
+
+                    <div className="flex flex-col   space-y-[20px] text-black ">
+                        <h1 className="font-bold text-[40px]">Go from brief to broadcast instantly</h1>
+                        <p className="w-[672px] text-[#1E2025BF] text-[20px]">Instantly concept, generate, mix, and localize entire audio campaigns.</p>
+
+                        <Button className="bg-[#7076E3] w-[152px] h-[56px] text-white font-[600] mt-6 text-[16px]">Learn More</Button>
+                    </div>
+                    
+
+                </section>
+            ),
+        },
+        {
+            title: "Podcasters",
+            value: "Podcasters",
+             content: (
+                <section className=" space-y-5 w-[90%] h-[303px] p-[50px]  flex justify-between items-center rounded-[10px]  bg-white  font-[600]  ">
+
+                    <div className="flex flex-col   space-y-[20px] text-black ">
+                        <h1 className="font-bold text-[40px]">Go from brief to broadcast instantly</h1>
+                        <p className="w-[672px] text-[#1E2025BF] text-[20px]">Instantly concept, generate, mix, and localize entire audio campaigns.</p>
+
+                        <Button className="bg-[#7076E3] w-[152px] h-[56px] text-white font-[600] mt-6 text-[16px]">Learn More</Button>
+                    </div>
+                    
 
                 </section>
             ),
@@ -89,7 +111,7 @@ export function PillsTabs() {
     ];
 
     return (
-        <div className="h-[20rem] md:h-[40rem] [perspective:1000px]  flex flex-col  mx-auto w-[90%]  items-start justify-center border ">
+        <div className="h-[20rem] md:h-[40rem] [perspective:1000px]   flex flex-col  mx-auto w-[95%]  border ">
             <Tabs tabs={tabs} />
         </div>
     );

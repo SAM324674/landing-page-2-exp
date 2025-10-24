@@ -84,7 +84,7 @@ const LatestUpdates = () => {
   return (
     <div>
       <Component
-         title="Our Most Popular Articles of 2024!"
+         title="Latest Updates"
          description=""
           backgroundLabel="BLOG"
           backgroundPosition="left"

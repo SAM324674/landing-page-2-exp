@@ -2,28 +2,28 @@
 
 import React, { useEffect, useRef, useState, useCallback } from "react";
 import * as THREE from "three";
-import { EffectComposer } from "three/addons/postprocessing/EffectComposer.js";
-import { RenderPass } from "three/addons/postprocessing/RenderPass.js";
-import { UnrealBloomPass } from "three/addons/postprocessing/UnrealBloomPass.js";
-import { ShaderPass } from "three/addons/postprocessing/ShaderPass.js";
+import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer";
+import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass";
+import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass";
+import { ShaderPass } from "three/examples/jsm/postprocessing/ShaderPass";
 import gsap from "gsap";
 import { AIChatInput } from "./ui/ai-chat-input";
 
 // --- Mock Components for self-contained file ---
 
-const Navbar = () => (
-  <nav className="absolute top-0 w-full p-4 z-30">
-    <div className="max-w-7xl mx-auto flex justify-between items-center text-white">
-      <h2 className="text-xl font-bold">Wubble</h2>
-      <div className="space-x-4">
-        <a href="#" className="hover:text-blue-400 transition">Docs</a>
-        <a href="#" className="hover:text-blue-400 transition">GitHub</a>
-      </div>
-    </div>
-  </nav>
-);
+// const Navbar = () => (
+//   <nav className="absolute top-0 w-full p-4 z-30">
+//     <div className="max-w-7xl mx-auto flex justify-between items-center text-white">
+//       <h2 className="text-xl font-bold">Wubble</h2>
+//       <div className="space-x-4">
+//         <a href="#" className="hover:text-blue-400 transition">Docs</a>
+//         <a href="#" className="hover:text-blue-400 transition">GitHub</a>
+//       </div>
+//     </div>
+//   </nav>
+// );
 
-;
+// ;
 
 // --- HeroWave Component ---
 
@@ -821,7 +821,7 @@ export function HeroWave({ className, style, extendLeftPx = 320, title = "Build 
       style={{ position: "relative", width: "100%", height: "100vh", ...style }}
       aria-label="Animated hero"
     >
-      <Navbar />
+      {/* <Navbar /> */}
       {/* Wave Canvas Container (Background Layer) */}
       <div
         ref={waveRef}
@@ -838,12 +838,12 @@ export function HeroWave({ className, style, extendLeftPx = 320, title = "Build 
         style={{
           position: "absolute",
           inset: 0,
-          zIndex: 2, // <--- CORRECTED: Z-Index 2 (Higher than the wave)
+          zIndex: 2,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          pointerEvents: "none",
+          // REMOVED: pointerEvents: "none", 👈 Fix applied
           padding: "24px",
           color: "white",
           textAlign: "center",
@@ -852,19 +852,19 @@ export function HeroWave({ className, style, extendLeftPx = 320, title = "Build 
       >
         <div
           className="w-full flex flex-col gap-4 "
-
         >
-          <div>
+          <div className="flex flex-col gap-[1rem] items-center ">
             <h1
-              className="text-4xl md:text-6xl xl:text-7xl font-extrabold tracking-tight mb-4">
+              className="text-[96px] leading-[90%] font-[500] w-[820px] tracking-[-3%] mb-4">
               <p>Your entire audio production </p>
               <p>In one chat.</p>
             </h1>
             <p
-              className="mx-auto  max-w-2xl text-lg text-gray-300">
-              Wubble will ideate, generate, and perform granular, DAW-level engineering for your project, from concept to final mix.
+              className="mx-auto  text-[24px] text-gray-300 font-[600] h-[56px] leading-[100%] tracking-[-3%] w-[830px]">
+              Wubble ideates, generates, and performs granular, DAW-level engineering for your project, from concept to final mix.
             </p>
           </div>
+          {/* ... Title and Subtitle ... */}
           <AIChatInput />
         </div>
       </div>

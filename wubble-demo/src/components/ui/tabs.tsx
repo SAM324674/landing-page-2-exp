@@ -40,11 +40,11 @@ export const Tabs = ({
     <>
       <div
         className={cn(
-          "flex flex-row items-center  justify-center [perspective:1000px] relative overflow-auto sm:overflow-visible no-visible-scrollbar max-w-full w-full",
+          "flex flex-row items-center gap-[10px] justify-center  [perspective:1000px] relative overflow-auto sm:overflow-visible no-visible-scrollbar max-w-full w-full",
           containerClassName
         )}
       >
-        <div className="p-3 rounded-full bg-[#9598B533]">
+        <div className="py-[11px] px-[12px] rounded-full bg-[#CCCFEE33] w-[986px] flex gap-[10px] justify-evenly font-[600] text-[16px] ">
           {propTabs.map((tab, idx) => (
             <button
               key={tab.title}
@@ -53,7 +53,7 @@ export const Tabs = ({
               }}
               onMouseEnter={() => setHovering(true)}
               onMouseLeave={() => setHovering(false)}
-              className={cn("relative px-4 py-2 rounded-full", tabClassName)}
+              className={cn("relative px-[30px] py-[12px] rounded-full font-[600]", tabClassName)}
               style={{
                 transformStyle: "preserve-3d",
               }}
@@ -107,7 +107,7 @@ export const FadeInDiv = ({
     return tab.value === tabs[0].value;
   };
   return (
-    <div className="relative w-full flex justify-center h-full">
+    <div className="relative w-full flex  h-full">
       {tabs.map((tab, idx) => (
         <motion.div
           key={tab.value}
@@ -121,7 +121,7 @@ export const FadeInDiv = ({
           animate={{
             y: isActive(tab) ? [0, 40, 0] : 0,
           }}
-          className={cn("w-full h-full absolute top-0 left-0 flex justify-center", className)}
+          className={cn("w-full h-full absolute top-0 left-0 flex justify-center p-0", className)}
         >
           {tab.content}
         </motion.div>

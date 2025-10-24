@@ -146,7 +146,7 @@ export const companyLinks: NavItemType[] = [
 
 export default function Header() {
 	return (
-		<div className="fixed z-40 top-0 w-full px-4">
+		<div className="fixed z-40 top-3 w-full px-4">
 			{/* <div
 				aria-hidden="true"
 				className={cn(
@@ -156,17 +156,17 @@ export default function Header() {
 				)}
 			/> */}
 
-			<div className="bg-background sticky top-2 z-50 mx-auto h-14 w-full border px-4  rounded-lg">
-				<div className="flex h-full items-center justify-between">
+			<div className="bg-background/50 backdrop-blur-lg sticky top-2 z-50 mx-auto  w-full border p-3  rounded-lg">
+				<div className="flex h-full items-center justify-around">
 					<div className="flex items-center gap-2">
 						<Grid2x2PlusIcon className="size-6" />
 						<p className="font-mono text-lg font-bold">Asme</p>
 					</div>
 					<DesktopMenu />
 
-					<div className="flex items-center gap-2">
-						<Button>Log In</Button>
-                        <Button>Sign Up</Button>
+					<div className="flex items-center gap-[30px]">
+						<Button className='text-[16px] w-[95px] h-[48px] leading-[150%]  tracking-[0%] bg-[#7076E3] text-white rounded-[10px] py-[12px] px-[24px] font-[600] '>Log In</Button>
+                        <Button className='w-[107px] h-[48px] py-[12px] px-[24px] text-[16px] rounded-[10px] leading-[150%] font-[600] bg-background border border-foreground/50 text-foreground hover:text-black'>Sign Up</Button>
 						<MoileNav />
 					</div>
 				</div>
@@ -177,12 +177,17 @@ export default function Header() {
 
 function DesktopMenu() {
 	return (
-		<NavigationMenu className="hidden lg:block">
-			<NavigationMenuList>
+		<NavigationMenu className="hidden lg:block ">
+			<NavigationMenuList className='gap-[20px] flex ml-[13rem]'>
 				<NavigationMenuItem>
-					<NavigationMenuTrigger>Product</NavigationMenuTrigger>
-					<NavigationMenuContent>
-						<div className="grid w-full md:w-4xl md:grid-cols-[1fr_.30fr]">
+					<NavigationMenuLink className="cursor-pointer text-[16px] leading-[150%] font-[500] py-[12px] px-[24px] rounded-[10px]" >
+						Solutions
+					</NavigationMenuLink>
+				</NavigationMenuItem>
+				<NavigationMenuItem className=''>
+					<NavigationMenuTrigger className='cursor-pointer text-[16px] leading-[150%] font-[500] py-[12px] px-[24px] rounded-[10px] w-full'>Features</NavigationMenuTrigger>
+					<NavigationMenuContent className='w-full  flex '>
+						<div className="grid md:w-4xl md:grid-cols-[1fr_.30fr] ">
 							<ul className="grid grow gap-4 p-4 md:grid-cols-3 md:border-r">
 								{productLinks.slice(0, 3).map((link) => (
 									<li key={link.href}>
@@ -190,7 +195,7 @@ function DesktopMenu() {
 									</li>
 								))}
 							</ul>
-							<ul className="space-y-1 p-4">
+							<ul className="space-y-1 p-4 ">
 								{productLinks.slice(3).map((link) => (
 									<li key={link.href}>
 										<NavSmallItem
@@ -205,9 +210,16 @@ function DesktopMenu() {
 					</NavigationMenuContent>
 				</NavigationMenuItem>
 				<NavigationMenuItem>
-					<NavigationMenuTrigger>Company</NavigationMenuTrigger>
+					<NavigationMenuLink className='cursor-pointer text-[16px] leading-[150%] font-[500] py-[12px] px-[24px] rounded-[10px]'>
+						Developers
+					</NavigationMenuLink>
+				</NavigationMenuItem>
+				
+				
+				<NavigationMenuItem>
+					<NavigationMenuTrigger className='cursor-pointer text-[16px] leading-[150%] font-[500] py-[12px] px-[24px] rounded-[10px]'>Pricing</NavigationMenuTrigger>
 					<NavigationMenuContent>
-						<div className="grid w-full md:w-4xl md:grid-cols-[1fr_.40fr]">
+						<div className="grid w-4xl md:grid-cols-[1fr_.40fr]">
 							<ul className="grid grow grid-cols-2 gap-4 p-4 md:border-r">
 								{companyLinks.slice(0, 2).map((link) => (
 									<li key={link.href}>
@@ -233,8 +245,8 @@ function DesktopMenu() {
 					</NavigationMenuContent>
 				</NavigationMenuItem>
 				<NavigationMenuItem>
-					<NavigationMenuLink className="cursor-pointer">
-						Pricing
+					<NavigationMenuLink className='cursor-pointer text-[16px] leading-[150%] font-[500] py-[12px] px-[24px] rounded-[10px]'>
+						Resources
 					</NavigationMenuLink>
 				</NavigationMenuItem>
 			</NavigationMenuList>

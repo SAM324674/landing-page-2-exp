@@ -11,6 +11,7 @@ interface TimelineEntry {
   id:number
   title: string;
   content: React.ReactNode;
+  description:string;
 }
 
 export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
@@ -89,23 +90,20 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
       ref={containerRef}
     >
       <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
-        <h2 className="text-lg md:text-4xl mb-4 text-black dark:text-white max-w-4xl">
-          Changelog from my journey
+        <h2 className="text-[40px] font-[600] leading-[100%] tracking-[-3%] w-[875px]">
+          Generate, mix, and master studio-quality audio with our conversational AI agent.
         </h2>
-        <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base max-w-sm">
-          I&apos;ve been working on Aceternity for the past 2 years. Here&apos;s
-          a timeline of my journey.
-        </p>
+        
       </div>
 
-      <div ref={ref} className="relative max-w-7xl mx-auto pb-20">
+      <div ref={ref} className="relative w-full mx-auto pb-20">
         {data.map((item, index) => (
           <div
             key={item.id}
             className="flex justify-start pt-10 md:pt-40 md:gap-10"
           >
             
-            <div className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full">
+            <div className="sticky flex flex-col md:flex-row z-40 items-center top-30 self-start max-w-[600px] lg:max-w-[600px] md:w-[600px]">
               <div className="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-white dark:bg-black flex items-center justify-center">
                 <div 
                   // 💡 Added conditional styling to highlight the active circle
@@ -116,19 +114,21 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                   }`} 
                 />
               </div>
-              <h3 
+              <div 
                 // 💡 Added conditional styling to highlight the active title
-                className={`hidden md:block text-xl md:pl-20 md:text-5xl font-bold transition-colors duration-500 ${
+                className={`hidden  md:pl-18 transition-colors duration-500  gap-[20px] md:flex flex-col ${
                   index === activeItem
                     ? "text-black dark:text-white"
                     : "text-neutral-500 dark:text-neutral-500"
                 }`}
               >
-                {item.title}
-              </h3>
+                
+                <h1 className="text-[24px] leading-[100%] tracking-[-3%] font-[600] w-[600px]">{item.title}</h1>
+                <p className="text-[20px] leading-[150%] tracking-[-3%] font-[500] w-[600px]">{item.description}</p>
+              </div>
             </div>
-
-            <div className="relative pl-20 pr-4 md:pl-4 w-full">
+                {/*  */}
+            <div className="relative ml-[5rem] pr-4 md:ml-[5rem] w-full">
               <h3 
                 // 💡 Added conditional styling to highlight the active mobile title
                 className={`md:hidden block text-2xl mb-4 text-left font-bold transition-colors duration-500 ${

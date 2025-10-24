@@ -155,11 +155,11 @@ const FeatureCircularGallery = () => {
     <div className="w-full bg-background text-foreground" style={{ height: '500vh' }}>
       {/* This inner container sticks to the top while scrolling */}
       <div className="w-full h-screen sticky top-0 flex flex-col items-center justify-center overflow-hidden">
-        <div className="text-center mb-8 absolute top-16 z-10">
+        {/* <div className="text-center mb-8 absolute top-16 z-10">
           <h1 className="text-4xl font-bold">Animal Gallery</h1>
           <p className="text-muted-foreground">Scroll to rotate the gallery</p>
-        </div>
-        <div className="w-full h-full">
+        </div> */}
+        <div className="w-full h-full ">
           <CircularGallery items={galleryData} />
         </div>
       </div>

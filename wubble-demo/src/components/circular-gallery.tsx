@@ -84,7 +84,7 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
         ref={ref}
         role="region"
         aria-label="Circular 3D Gallery"
-        className={cn("relative w-full h-full flex items-center justify-center", className)}
+        className={cn("relative w-full h-full flex items-center justify-center ", className)}
         style={{ perspective: '2000px' }}
         {...props}
       >
@@ -107,7 +107,7 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
                 key={i} 
                 role="group"
                 aria-label={item.title}
-                className="absolute w-[300px] h-[400px]"
+                className="absolute w-[307px] h-[426px] rounded-[10px] overflow-hidden "
                 style={{
                   transform: `rotateY(${itemAngle}deg) translateZ(${radius}px)`,
                   left: '50%',
@@ -118,18 +118,17 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
                   transition: 'opacity 0.3s linear'
                 }}
               >
-                <div className="relative w-full h-full rounded-lg shadow-2xl overflow-hidden group border border-border bg-card/70 dark:bg-card/30 backdrop-blur-lg">
+                <div className="relative w-full h-full rounded-[10px] shadow-2xl overflow-hidden group border border-border bg-card/70 dark:bg-card/30 backdrop-blur-lg">
                   <img
                     src={item.photo.url}
                     alt={item.photo.text}
-                    className="absolute inset-0 w-full h-full object-cover"
+                    className="absolute inset-0 w-full h-[218px] object-cover rounded-[10px]"
                     style={{ objectPosition: item.photo.pos || 'center' }}
                   />
                   {/* Replaced text-primary-foreground with text-white for consistent color */}
-                  <div className="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent text-white">
-                    <h2 className="text-xl font-bold">{item.common}</h2>
-                    <em className="text-sm italic opacity-80">{item.binomial}</em>
-                    <p className="text-xs mt-2 opacity-70">Photo by: {item.photo.by}</p>
+                  <div className="absolute bottom-0 left-0 w-full p-4 bg-black text-white flex  flex-col gap-[30px] py-[50px] px-[30px]  h-[208px]">
+                    <h2 className="text-[20px] font-[500] ">{item.title}</h2>
+                    <p className="text-sm opacity-80 text-[16px] leading-[150%] tracking-[0%]">{item.Description}</p>
                   </div>
                 </div>
               </div>

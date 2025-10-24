@@ -9,15 +9,14 @@ export function FeatureSection() {
     {
       id:1,
       title: "Conversational Engineering",
+      description:"Go beyond generation. Conversationally guide Wubble to mix, master, and perform DAW-level edits on all your tracks.",
       content: (
         <div>
-          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
-            Describe your desired sound and our AI agent will instantly generate, mix, and master it to perfection.
-          </p>
+         
           <div className="gap-4">
             <video
               src={'./Video1.mp4'} 
-              className="rounded-lg object-cover h-[30rem] w-full"
+              className="rounded-lg object-cover w-[570px] h-[566px]"
               loop 
               muted 
               playsInline 
@@ -29,15 +28,14 @@ export function FeatureSection() {
     },
     { id:2,
       title: "Smart Collaboration",
+      description:"Seamlessly collaborate with your team in real-time, making feedback and revisions easier than ever.",
       content: (
         <div>
-          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
-            Invite your team, directors, and clients to review and guide the AI agent in real-time.
-          </p>
+          
           <div className="gap-4">
             <video
               src={'./Video2.mp4'} 
-              className="rounded-lg object-cover h-[30rem] w-full"
+              className="rounded-lg object-cover w-[570px] h-[566px]"
               loop 
               muted 
               playsInline 
@@ -49,17 +47,18 @@ export function FeatureSection() {
     },
     { id:3,
       title: "AI-Powered Insights",
+      description:"Leverage advanced analytics to gain insights into your music trends and enhance decision-making.",
       content: (
         <div>
-          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
+          {/* <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
             Automatic quality control, loudness normalization, and genre-specific mastering deployed instantly.
-          </p>
+          </p> */}
           <div className="mb-8">
             <div className="gap-4">
               {/* ID: timeline-video-2 */}
               <video
                 src={'./Video1.mp4'} 
-                className="rounded-lg object-cover h-[30rem] w-full"
+                className="rounded-lg object-cover w-[570px] h-[566px]"
                 loop 
                 muted 
                 playsInline 
@@ -72,17 +71,18 @@ export function FeatureSection() {
     },
     { id:4,
       title: "Customizable Workflows",
-      content: (
+      description:"Tailor your experience with customizable workflows that adapt to your unique creative process.",
+     content: (
         <div>
-          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
-            Integrate Wubble directly into your DAW, Unity, or video editor for seamless production.
-          </p>
+          {/* <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
+            Automatic quality control, loudness normalization, and genre-specific mastering deployed instantly.
+          </p> */}
           <div className="mb-8">
             <div className="gap-4">
-              {/* ID: timeline-video-3 */}
+              {/* ID: timeline-video-2 */}
               <video
                 src={'./Video2.mp4'} 
-                className="rounded-lg object-cover h-[30rem] w-full"
+                className="rounded-lg object-cover w-[570px] h-[566px]"
                 loop 
                 muted 
                 playsInline 

@@ -36,10 +36,10 @@ export const Component = ({
 
   return (
     <section className={cn(
-      "container relative my-20 py-10 mx-auto px-4",
+      "container relative  py-10 mx-auto px-4 ",
       className
     )}>
-      <h1 className="text-center text-4xl font-semibold capitalize !leading-[1.4] md:text-5xl lg:text-6xl mb-2">
+      <h1 className="  capitalize !leading-[1.4]  text-[40px] font-[400] mb-2">
         {title}
       </h1>
       

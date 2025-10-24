@@ -130,7 +130,7 @@ const CreatorCarousel = () => {
      <Stories>
     <StoriesContent>
       {stories.map((story) => (
-        <Story className="aspect-[3/4] w-[200px]" key={story.id}>
+        <Story className="aspect-[3/4] w-[200px] " key={story.id}>
           <StoryVideo src={story.video} />
           <StoryOverlay />
           <StoryAuthor>

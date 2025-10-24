@@ -3,7 +3,7 @@ import { HeroSection } from "@/components/hero-section-1";
 import { AnimatedGroup } from "@/components/ui/animated-group";
 import { MusicCard } from "@/components/card-6";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/tabs";
-import { Footer7 } from "@/components/footer-7";
+import HoverFooter from "@/components/footer-7";
 import { FeaturesCard } from "@/components/card-21";
 import PricingSection from "@/components/pricing-section";
 import { Montserrat } from "next/font/google";
@@ -55,13 +55,6 @@ const transitionVariants = {
   },
 };
 
-
-
-
-
-
-
-
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen w-full ">
@@ -99,7 +92,6 @@ export default function Home() {
         <div className=" w-full overflow-hidden flex flex-col justify-center items-center space-y-10 ">
           <h1 className="text-white text-4xl font-bold">Powering the World's Best Story Tellers</h1>
           <CreatorCarousel />
-          <Button className="bg-gradient-to-l from-[#6a5ae7] to-[#d622ef] rounded-full">Get Started</Button>
         </div>
 
 
@@ -122,7 +114,7 @@ export default function Home() {
         {/* Features Section */}
         <section className="w-full flex justify-center  space-y-8">
 
-          <div className="w-[90%]">
+          <div className="w-[95%]">
             <FeatureSection />
           </div>
 
@@ -134,18 +126,18 @@ export default function Home() {
 
         {/* Collaborate */}
 
-        <section className="w-[90%] flex justify-between items-center my-[5rem] gap-[5rem]">
-          <Card>
-            <div className="w-[35rem] h-[20rem]">
+        <section className="w-[85%] h-[566px] flex justify-between items-center my-[5rem] gap-[50px]">
+          <Card className="h-full">
+            <div className="w-[650px] h-full">
 
             </div>
           </Card>
-          <div className="w-[50%] flex-col flex space-y-14">
-            <h1 className="text-3xl font-bold">Direct your audio, together.</h1>
-            <p>
+          <div className=" flex-col flex gap-[30px] w-[590px]">
+            <h1 className="font-[600] text-[40px] leading-[100%] tracking-[-3%]">Direct your audio, together.</h1>
+            <p className="text-[20px] text-white/75 font-[500]">
               Invite directors, producers, clients, and editors to review, comment, and guide your AI agent—all in one place, all in real-time.
             </p>
-            <Button className="bg-gradient-to-l from-[#6a5ae7] to-[#d622ef] w-[10rem]">Start Free Trial</Button>
+            <Button className="bg-[#7076E3] text-[16px] font-[600] text-white leading-[150%] tracking-[0%] w-[230px] h-[56px]">Start Free Teams Trial</Button>
 
           </div>
 
@@ -157,7 +149,7 @@ export default function Home() {
           <DiscoverMore />
         </section>
         {/* Pricing Section */}
-        <section className="w-[85%] px-4 mt-[4rem]">
+        <section className="w-[85%] px-4 mt-[2rem]">
           <h1 className="text-4xl font-bold text-center">A Perfect Fit For Everyone</h1>
 
 
@@ -170,13 +162,13 @@ export default function Home() {
         </div>
         {/* FAQ Section */}
         <section className="w-[90%] px-4 space-y-8  ">
-          <h1 className="text-4xl font-bold text-center">FAQs</h1>
+          <h1 className="text-[40px]  font-[400] text-center">Frequently asked questions</h1>
           <FAQ1 />
         </section>
-        <AnimatedGroup className="w-full flex flex-col items-center">
+        <AnimatedGroup className="w-full flex flex-col items-center h-[25rem]">
 
-          <WavePath />
-          <div className="flex w-[70vw] flex-col items-center">
+          {/* <WavePath /> */}
+          <div className="flex w-[70vw] flex-col items-center space-y-10">
             <WavePath className="mb-10" />
             <div className="flex w-full flex-col items-end">
               <div className="flex ">
@@ -187,13 +179,14 @@ export default function Home() {
                 </p>
               </div>
             </div>
+            <Button>Get Started for Free</Button>
           </div>
         </AnimatedGroup>
       </main>
 
       {/* Footer */}
       <div className="p-3">
-        <Footer7 />
+        <HoverFooter />
       </div>
 
     </div>
