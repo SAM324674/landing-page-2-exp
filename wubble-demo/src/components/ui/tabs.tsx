@@ -40,11 +40,11 @@ export const Tabs = ({
     <>
       <div
         className={cn(
-          "flex flex-row items-center gap-[10px] justify-center  [perspective:1000px] relative overflow-auto sm:overflow-visible no-visible-scrollbar max-w-full w-full",
+          "flex flex-row items-center gap-[10px]  justify-center  [perspective:1000px] relative overflow-auto sm:overflow-visible no-visible-scrollbar max-w-full w-full",
           containerClassName
         )}
       >
-        <div className="py-[11px] px-[12px] rounded-full bg-gradient-to-r from-purple-50/80 via-purple-50/60 to-purple-50/80 w-[986px] flex gap-[10px] justify-evenly font-[600] text-[16px] ">
+        <div className="py-[11px] px-[12px] rounded-full bg-gradient-to-r from-purple-50/80 via-purple-50/60 to-purple-50/80 shadow-[4px_1px_15px_5px_rgba(0,0,0)] shadow-gray-400/30 w-[986px] flex gap-[10px] justify-evenly font-[600] text-[16px] ">
           {propTabs.map((tab, idx) => (
             <button
               key={tab.title}
@@ -53,7 +53,7 @@ export const Tabs = ({
               }}
               onMouseEnter={() => setHovering(true)}
               onMouseLeave={() => setHovering(false)}
-              className={cn("relative px-[30px] py-[12px] rounded-full font-[600]", tabClassName)}
+              className={cn("relative px-[30px] py-[12px] rounded-full", tabClassName)}
               style={{
                 transformStyle: "preserve-3d",
               }}
@@ -63,7 +63,7 @@ export const Tabs = ({
                   layoutId="clickedbutton"
                   transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
                   className={cn(
-                    "absolute inset-0  bg-[#00A8E8]  rounded-full  ",
+                    "absolute inset-0 bg-gradient-to-r from-[#a855f7] via-[#c084fc] to-[#e879f9]  rounded-full  ",
                     activeTabClassName
                   )}
                 />
@@ -72,7 +72,7 @@ export const Tabs = ({
               <span
                 className={cn(
                   "relative block font-medium transition-colors duration-200",
-                  active.value === tab.value ? "text-white" : "text-gray-700" // <-- ADDED CONDITIONAL TEXT COLOR
+                  active.value === tab.value ? "text-white font-[600]" : "text-gray-700 font-[600]" // <-- ADDED CONDITIONAL TEXT COLOR
                 )}
               >
                 {tab.title}

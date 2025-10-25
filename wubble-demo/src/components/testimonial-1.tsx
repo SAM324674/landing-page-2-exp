@@ -69,18 +69,18 @@ export default function Testimonial1() {
     return classes.filter(Boolean).join(' ');
   }
   return (
-    <div className="bg-background w-full grid place-content-center px-4 md:px-8 lg:px-16 py-10 relative space-y-10">
+    <div className="bg-background w-full px-[5rem] place-content-center  py-10 relative space-y-10">
       <div className="w-full flex justify-center mb-[2rem]">
         <h1 className="text-[24px] font-[600] tracking-[-3%] leading-[100%]">Trusted by the world's most creative studios</h1>
       </div>
       
-      <div className="max-w-6xl mx-auto space-y-6">
+      <div className="w-full mx-auto space-y-6">
         {/* First Row - 6 logos */}
-        <div className="grid grid-cols-6 gap-4 bg-neutral-100 w-full mx-auto px-8 py-8 border rounded-md border-neutral-200 min-h-[120px]">
-          {stats.slice(0, 6).map((stat, index) => (
+        <div className="grid grid-cols-3 gap-4 bg-neutral-100 min-w-full border  mx-auto px-8 py-8  rounded-md  min-h-[120px]">
+          {stats.slice(0, 3).map((stat, index) => (
             <div
               key={stat?.label + index}
-              className="flex gap-4 pl-6 relative justify-center items-center"
+              className="flex gap-4 pl-6 relative justify-center items-center "
             >
               {index !== 0 && (
                 <div className="w-0.5 h-12 border border-dashed border-neutral-200 absolute left-0" />
@@ -112,8 +112,8 @@ export default function Testimonial1() {
         </div>
 
         {/* Second Row - 6 logos (duplicated) */}
-        <div className="grid grid-cols-6 gap-4 bg-neutral-100 w-full mx-auto px-8 py-8 border rounded-md border-neutral-200 min-h-[120px]">
-          {stats.slice(0, 6).map((stat, index) => (
+        <div className="grid grid-cols-3 gap-4 bg-neutral-100 w-full mx-auto px-8 py-8 border rounded-md border-neutral-200 min-h-[120px]">
+          {stats.slice(3, 6).map((stat, index) => (
             <div
               key={stat?.label + index + 6}
               className="flex gap-4 pl-6 relative justify-center items-center"

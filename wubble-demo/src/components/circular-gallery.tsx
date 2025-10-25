@@ -126,9 +126,9 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
                     style={{ objectPosition: item.photo.pos || 'center' }}
                   />
                   {/* Replaced text-primary-foreground with text-white for consistent color */}
-                  <div className="absolute bottom-0 left-0 w-full p-4 bg-black text-white flex  flex-col gap-[30px] py-[50px] px-[30px]  h-[208px]">
-                    <h2 className="text-[20px] font-[500] ">{item.title}</h2>
-                    <p className="text-sm opacity-80 text-[16px] leading-[150%] tracking-[0%]">{item.Description}</p>
+                  <div className="absolute bottom-0 left-0 w-full p-4 bg-background text-foreground flex  flex-col gap-[25px] py-[50px] px-[30px]  h-[208px]">
+                    <h2 className="text-[20px] font-[600] ">{item.title}</h2>
+                    <p className="text-sm opacity-80 text-[15px] leading-[150%] tracking-[0%]">{item.Description}</p>
                   </div>
                 </div>
               </div>

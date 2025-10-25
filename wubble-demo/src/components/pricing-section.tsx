@@ -67,7 +67,7 @@ const PlanCard = ({
   return (
     <div
       className={cn(
-        `flex flex-col relative rounded-2xl   lg:rounded-3xl transition-all bg-black/50   overflow-hidden px-3 py-2 space-y-2`,
+        `flex flex-col relative rounded-2xl   lg:rounded-3xl transition-all    overflow-hidden px-3 py-2 space-y-2`,
 
 
       )}
@@ -86,12 +86,12 @@ const PlanCard = ({
         </h3> */}
         <div className="flex justify-between w-full">
 
-          <div className="px-3 text-xs p-1 rounded-full bg-primary/10 text-primary font-medium">{plan.badge}</div>
+          <div className="px-3 text-xs p-1 rounded-full bg-background text-black   font-[600]">{plan.badge}</div>
           {plan.name == "Wubble Free" ?
             <></> :
-            <Crown fill="white" size={18} />}
+            <Crown fill="#f59303" size={18} stroke="#d68001"/>}
         </div>
-        <div className="h-[10rem] flex flex-col gap-9 mt-4">
+        <div className="h-[10rem] flex flex-col gap-9 mt-4 font-[600]">
           <h1>{plan.name}</h1>
           <p className="text-xs md:text-base text-muted-foreground mt-2">
             {plan.description}
@@ -100,7 +100,7 @@ const PlanCard = ({
       </div>
 
       <div className="flex flex-col items-start w-full px-2 py-2 h-[5rem] ">
-        <Button size="lg" className="w-full rounded-full">
+        <Button size="lg" className="w-full rounded-full font-[600]">
           {plan.buttonText}
         </Button>
         {/* <div className="h-8 overflow-hidden w-full mx-auto">
@@ -130,7 +130,7 @@ export default function PricingSection() {
   const [users, setUsers] = useState(1);
 
   return (
-    <section className="py-10 bg-background w-full">
+    <section className=" bg-background w-full">
       <div className="w-full  mx-auto px-6">
         {/* Controls */}
         

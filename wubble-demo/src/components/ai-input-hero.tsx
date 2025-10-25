@@ -1,31 +1,13 @@
 "use client";
 
-import React, { useEffect, useRef, useState, useCallback } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
-import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer";
-import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass";
-import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass";
-import { ShaderPass } from "three/examples/jsm/postprocessing/ShaderPass";
+import { EffectComposer } from "three/addons/postprocessing/EffectComposer.js";
+import { RenderPass } from "three/addons/postprocessing/RenderPass.js";
+import { UnrealBloomPass } from "three/addons/postprocessing/UnrealBloomPass.js";
+import { ShaderPass } from "three/addons/postprocessing/ShaderPass.js";
 import gsap from "gsap";
 import { AIChatInput } from "./ui/ai-chat-input";
-
-// --- Mock Components for self-contained file ---
-
-// const Navbar = () => (
-//   <nav className="absolute top-0 w-full p-4 z-30">
-//     <div className="max-w-7xl mx-auto flex justify-between items-center text-white">
-//       <h2 className="text-xl font-bold">Wubble</h2>
-//       <div className="space-x-4">
-//         <a href="#" className="hover:text-blue-400 transition">Docs</a>
-//         <a href="#" className="hover:text-blue-400 transition">GitHub</a>
-//       </div>
-//     </div>
-//   </nav>
-// );
-
-// ;
-
-// --- HeroWave Component ---
 
 export type HeroWaveProps = {
   className?: string;
@@ -42,7 +24,6 @@ export function HeroWave({ className, style, extendLeftPx = 320, title = "Build 
   const [prompt, setPrompt] = useState("");
   const containerRef = useRef<HTMLDivElement | null>(null);
   const waveRef = useRef<HTMLDivElement | null>(null);
-
   // Typing placeholder animation (runs only when input is empty)
   const basePlaceholder = "Make me a";
   const suggestionsRef = useRef<string[]>([
@@ -135,9 +116,6 @@ export function HeroWave({ className, style, extendLeftPx = 320, title = "Build 
   }, [prompt]);
 
   useEffect(() => {
-    // DISABLED: Wave animation removed for clean white theme
-    return;
-    // eslint-disable-next-line no-unreachable
     if (!containerRef.current || !waveRef.current) return;
 
     // --- Shaders ---
@@ -270,6 +248,7 @@ export function HeroWave({ className, style, extendLeftPx = 320, title = "Build 
       waveContainer.removeChild(waveContainer.firstChild);
     }
     const waveRenderer = new THREE.WebGLRenderer({ antialias: false, alpha: true });
+    waveRenderer.setClearColor(0xffffff, 1);
     waveRenderer.setPixelRatio(EFFECT_PR);
     waveRenderer.toneMapping = THREE.ACESFilmicToneMapping;
     waveRenderer.toneMappingExposure = 1.0;
@@ -314,8 +293,9 @@ export function HeroWave({ className, style, extendLeftPx = 320, title = "Build 
     }
 
     function createInstancedMaterial() {
-      const baseCol = new THREE.Color("#a855f7"); // Vibrant purple base color (Canva-like)
-      const emisCol = new THREE.Color("#c084fc"); // Lighter purple emissive color
+      const baseCol = new THREE.Color("#000000");
+      // or "#000000" for black bars
+      const emisCol = new THREE.Color("#2075ff"); // a saturated blue for glow
 
       return new THREE.ShaderMaterial({
         defines: { USE_INSTANCING: "" },
@@ -337,7 +317,7 @@ export function HeroWave({ className, style, extendLeftPx = 320, title = "Build 
           uMinBottomWidthPx: { value: 0 },
           uColor: { value: baseCol },
           uEmissive: { value: emisCol },
-          uBaseEmissive: { value: 0.8 },
+          uBaseEmissive: { value: 0.05 },
           uRotationAngle: { value: THREE.MathUtils.degToRad(23.4) },
         },
         vertexShader: `
@@ -412,13 +392,14 @@ export function HeroWave({ className, style, extendLeftPx = 320, title = "Build 
 
             float emissiveStrength = uBaseEmissive + vGlow * 0.9 + vPulse * 0.15;
             vec3 finalColor = uColor + uEmissive * emissiveStrength;
-            gl_FragColor = vec4(finalColor, 0.35 * alpha);
+            gl_FragColor = vec4(finalColor, 1.0 * alpha);
           }
         `,
+      
         side: THREE.FrontSide,
         transparent: true,
         depthWrite: false,
-        blending: THREE.AdditiveBlending,
+        blending: THREE.NormalBlending,
       });
     }
 
@@ -439,9 +420,6 @@ export function HeroWave({ className, style, extendLeftPx = 320, title = "Build 
     }
 
     // Pointer tracking
-    const listeners: Array<() => void> = [];
-    let rect: DOMRect; // Defined later in onResize/init
-
     function setupPointerTracking() {
       const el = waveRenderer.domElement;
       const readCoords = (e: PointerEvent | TouchEvent): { x: number; y: number } => {
@@ -451,8 +429,9 @@ export function HeroWave({ className, style, extendLeftPx = 320, title = "Build 
       };
       const updatePos = (e: any, active: boolean) => {
         const { x, y } = readCoords(e);
-        mouse.x = x - rect.left;
-        mouse.y = y - rect.top;
+        const r = rect;
+        mouse.x = x - r.left;
+        mouse.y = y - r.top;
         mouse.active = active;
         if (!proxyInitialized) {
           proxyMouseX = mouse.x;
@@ -466,8 +445,8 @@ export function HeroWave({ className, style, extendLeftPx = 320, title = "Build 
         mouse.active = false;
       };
 
-      el.addEventListener("pointerdown", activate as any, { passive: true });
-      el.addEventListener("pointermove", move as any, { passive: true });
+      el.addEventListener("pointerdown", activate, { passive: true });
+      el.addEventListener("pointermove", move, { passive: true });
       window.addEventListener("pointerup", deactivate as any, { passive: true });
       el.addEventListener("pointerleave", deactivate as any, { passive: true });
 
@@ -489,7 +468,6 @@ export function HeroWave({ className, style, extendLeftPx = 320, title = "Build 
     }
 
     // Accumulate glow based on mouse movement
-    let smoothSpeed = 0;
     function accumulateGlow(dt: number) {
       if (!instancedBars) return;
       const attr = (instancedBars.geometry.getAttribute("aGlow") as THREE.InstancedBufferAttribute);
@@ -576,6 +554,8 @@ export function HeroWave({ className, style, extendLeftPx = 320, title = "Build 
       updateGlowDistance();
     }
 
+    // (All text logic removed)
+
     // --- Scene 1 Timeline ---
     function buildKeyframeTweens(target: any, keyframes: Array<any>) {
       const tl = gsap.timeline();
@@ -643,15 +623,14 @@ export function HeroWave({ className, style, extendLeftPx = 320, title = "Build 
       waveRenderPass = new RenderPass(waveScene, waveCamera);
       waveComposer.addPass(waveRenderPass);
 
-      waveBloomPass = new UnrealBloomPass(new THREE.Vector2(cameraWidth, cameraHeight), 1.5, 0.4, 0.85);
+      waveBloomPass = new UnrealBloomPass(new THREE.Vector2(cameraWidth, cameraHeight), 1.0, 0.68, 0.0);
       (waveBloomPass as any).resolution.set(cameraWidth * 0.5, cameraHeight * 0.5);
       waveComposer.addPass(waveBloomPass);
 
       grainPass = createFilmGrainPass();
-      waveComposer.addPass(grainPass);
+      // waveComposer.addPass(grainPass);
 
       createInstancedBars();
-      rect = waveRenderer.domElement.getBoundingClientRect(); // Initialize rect here
       setupPointerTracking();
       updateGainMultiplier();
       waveCameraInitialized = true;
@@ -738,6 +717,11 @@ export function HeroWave({ className, style, extendLeftPx = 320, title = "Build 
       (waveRenderer as any)?.dispose?.();
       instancedBars = null;
     }
+
+    const listeners: Array<() => void> = [];
+
+    let smoothSpeed = 0;
+    let rect = waveRenderer.domElement.getBoundingClientRect();
 
     const ticker = () => {
       if (!waveCameraInitialized || !instancedBars) return;
@@ -868,6 +852,16 @@ export function HeroWave({ className, style, extendLeftPx = 320, title = "Build 
           <AIChatInput />
         </div>
       </div>
+      <div
+        ref={waveRef}
+        id="waveCanvas"
+        style={{
+          position: "absolute",
+          inset: 0,
+          zIndex: 1,
+          opacity: 1
+        }}
+      />
     </section>
   );
 }

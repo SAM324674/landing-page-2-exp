@@ -84,14 +84,14 @@ function HoverFooter() {
   const Underline = `hover:-translate-y-1 border border-dotted rounded-xl p-2.5 transition-transform bg-[#9598B5]/30 backdrop-blur-md `;
 
   return (
-    <footer className="bg-secondary/30 relative h-fit rounded-3xl overflow-hidden m-8 border border-border">
+    <footer className="bg-background/30 relative h-fit rounded-3xl overflow-hidden m-8 border border-border">
       <div className="max-w-7xl mx-auto p-14 z-50 relative">
         {/* Adjusted grid to accommodate 7 columns (Brand + 6 new columns) */}
         <div className="flex gap-10 md:gap-8 lg:gap-16 pb-12">
 
           <div className="flex flex-col space-y-4 col-span-2 lg:col-span-1">
             <div className="flex items-center space-x-2">
-              <span className="text-white text-3xl font-bold">Wubble logo</span>
+              <span className="text-foreground text-3xl font-bold ">Wubble logo</span>
             </div>
 
           </div>
@@ -100,7 +100,7 @@ function HoverFooter() {
           {wubbleFooterData.map((section, index) => (
             // Using index as part of the key since two titles are identical ("Tools")
             <div key={`${section.title}-${index}`} >
-              <h4 className="text-white text-[18px] font-semibold tracking-[-2.2%] leading-[100%] mb-6">
+              <h4 className="text-foreground text-[18px] font-semibold tracking-[-2.2%] leading-[100%] mb-6">
                 {section.title}
               </h4>
               <ul className="space-y-3">

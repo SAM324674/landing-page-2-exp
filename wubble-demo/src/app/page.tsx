@@ -57,7 +57,7 @@ const transitionVariants = {
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen w-full ">
+    <div className="flex flex-col min-h-screen w-full bg-background">
       {/* Header */}
       <Header />
 
@@ -67,7 +67,7 @@ export default function Home() {
 
         <AnimatedGroup className="w-full">
 
-          <div className="w-full left-0 bg-white/95 backdrop-blur-sm flex flex-col items-center">
+          <div className="w-full left-0 bg-background backdrop-blur-sm flex flex-col items-center">
             {/* <HeroSection /> */}
             <HeroWave />
           </div>
@@ -96,32 +96,36 @@ export default function Home() {
 
 
         {/* Features Section */}
-        <section className="flex flex-col items-center w-full space-y-10 mt-[5.3rem] py-16 bg-gradient-to-b from-purple-50/30 via-transparent to-transparent">
-          <div className="text-center w-full space-y-4">
-            <h1 className="text-4xl font-bold">One agent. Total audio production </h1>
-            <p className="text-lg text-muted-foreground">
-              Our conversational AI generates, engineers, and masters everything. See the specific tools and features Wubble deploys for your workflow.
-            </p>
-          </div>
-          <div className="w-full ">
-            <PillsTabs />
+        <section className="flex flex-col items-center w-full  mt-[5.3rem] py-16   ">
+          <div className="bg-gradient-to-t from-[#d19fff]/50  to-transparent w-full space-y-10">
+            <div className="text-center w-full space-y-4">
+              <h1 className="text-4xl font-bold">One agent. Total audio production </h1>
+              <p className="text-lg text-muted-foreground">
+                Our conversational AI generates, engineers, and masters everything. See the specific tools and features Wubble deploys for your workflow.
+              </p>
+            </div>
+            <div className="w-full ">
+              <PillsTabs />
+            </div>
           </div>
 
           <FeatureCircularGallery />
 
+
+
         </section>
 
         {/* Features Section */}
-        <section className="w-full flex justify-center  space-y-8">
-
+        <section className="w-full  flex flex-col items-center justify-center  space-y-8 ">
           <div className="w-[95%]">
             <FeatureSection />
           </div>
+          <div className=" w-[100%] overflow-hidden ">
+            <FeaturesCarousel2 />
+          </div>
+
 
         </section>
-        <div className=" w-[100%] overflow-hidden">
-          <FeaturesCarousel2 />
-        </div>
 
 
         {/* Collaborate */}
@@ -150,9 +154,7 @@ export default function Home() {
         </section>
         {/* Pricing Section */}
         <section className="w-[85%] px-4 mt-[2rem]">
-          <h1 className="text-4xl font-bold text-center">A Perfect Fit For Everyone</h1>
-
-
+          <h1 className="text-4xl font-bold text-center -mb-10">A Perfect Fit For Everyone</h1>
           <PricingSection />
         </section>
         {/*Latest Updates */}

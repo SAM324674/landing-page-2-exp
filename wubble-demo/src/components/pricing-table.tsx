@@ -58,7 +58,7 @@ export function PricingTable({
     <section
       className={cn(
         "bg-background text-foreground",
-        "py-12 sm:py-24 md:py-32 ",
+        "py-10 sm:py-24 md:py-32 ",
         "fade-bottom overflow-hidden pb-0",
         ""
       )}
@@ -76,35 +76,13 @@ export function PricingTable({
               type="button"
               onClick={() => handlePlanSelect(plan.level)}
               className={cn(
-                "flex-1 p-4 rounded-xl text-left transition-all ",
+                "flex-1 p-4 rounded-xl text-left transition-all  ",
                 "border border-zinc-200 dark:border-[#7076E3]/40",
                 selectedPlan === plan.level &&
                   "ring-2 ring-[#7076E3] dark:ring-[#7076E3]",
+                  plan.level!="free"?"bg-primary/20":"bg-gray-200"
               )}
             >
-              {/* <div className="flex items-center justify-between mb-2">
-                <span className="text-sm font-medium">{plan.name}</span>
-                {plan.popular && (
-                  <span className="text-xs bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 px-2 py-0.5 rounded-full">
-                    Popular
-                  </span>
-                )}
-              </div> */}
-              
-              {/* <div className="flex items-baseline gap-1">
-                <NumberFlow
-                  format={{
-                    style: "currency",
-                    currency: "USD",
-                    trailingZeroDisplay: "stripIfInteger",
-                  }}
-                  value={isYearly ? plan.price.yearly : plan.price.monthly}
-                  className="text-2xl font-bold"
-                />
-                <span className="text-sm font-normal text-zinc-500">
-                  /{isYearly ? "year" : "month"}
-                </span>
-              </div> */}
               <PlanCard plan={plan}/>
             </button>
           ))}
@@ -164,7 +142,7 @@ export function PricingTable({
         <div className="mt-8 text-center">
           <Button
             className={cn(
-              "w-full sm:w-auto bg-[#7076E3] hover:bg-[#7076E30]/80 px-8 py-2 rounded-[10px] text-white font-[600] ",
+              "w-full sm:w-auto bg-primary  hover:bg-[#7076E30]/80 px-8 py-2 rounded-[10px] text-white font-[600] ",
               buttonClassName,
             )}
           >

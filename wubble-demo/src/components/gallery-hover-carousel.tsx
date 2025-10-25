@@ -102,7 +102,7 @@ export default function GalleryHoverCarousel({
   }, [carouselApi]);
 
   return (
-    <section className="py-2 bg-black">
+    <section className="py-2 bg-background">
       <div className="container mx-auto px-6">
         <div className="mb-8 flex flex-col justify-between md:mb-14 md:flex-row md:items-end lg:mb-16">
           {/* <div className="max-w-2xl">
@@ -135,8 +135,8 @@ export default function GalleryHoverCarousel({
 
         <div className="w-full max-w-full">
           <Carousel
-            setApi={setCarouselApi}
-            opts={{ breakpoints: { "(max-width: 768px)": { dragFree: true } } }}
+            // setApi={setCarouselApi}
+            // opts={{ breakpoints: { "(max-width: 768px)": { dragFree: true } } }}
             className="relative w-full max-w-full"
           >
             <CarouselContent className="hide-scrollbar w-full max-w-full md:ml-4 md:-mr-4">
@@ -161,9 +161,9 @@ export default function GalleryHoverCarousel({
                         />
                         <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                       </div>
-                      <div className="absolute  bottom-10 left-0 w-full h-[10rem] px-4 transition-all duration-500 group-hover:h-[8rem] group-hover:flex flex-col justify-center bg-background/95 backdrop-blur-sm opacity-0 group-hover:opacity-100">
-                        <h3 className="text-lg font-medium md:text-xl">{item.title}</h3>
-                        <p className="text-muted-foreground text-sm md:text-base line-clamp-2">
+                      <div className="absolute  bottom-10 left-0 w-full h-[10rem] px-4 transition-all duration-500 group-hover:h-[8rem] group-hover:flex flex-col justify-center bg-foreground/95 backdrop-blur-sm opacity-0 group-hover:opacity-100 rounded-b-xl">
+                        <h3 className="text-lg font-medium md:text-xl text-background">{item.title}</h3>
+                        <p className="text-background/80 text-sm md:text-base line-clamp-2 ">
                           {item.summary}
                         </p>
                         <Button

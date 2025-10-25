@@ -10,7 +10,7 @@ export function PillsTabs() {
             title: "Marketing & ads",
             value: "Marketing & ads",
             content: (
-                <section className=" space-y-5 w-[90%] h-[303px] p-[50px]  flex justify-between items-center rounded-[10px]  bg-gradient-to-b from-purple-50/90 via-purple-200/60 to-purple-600  font-[600]  ">
+                <section className=" space-y-5 w-[90%] h-[303px] p-[50px]  flex justify-between items-center rounded-[10px]  bg-gradient-to-b from-purple-50 via-purple-200 to-purple-600  font-[600]  ">
 
                     <div className="flex flex-col   space-y-[20px] text-gray-900 ">
                         <h1 className="font-bold text-[40px]">Go from brief to broadcast instantly</h1>
@@ -27,7 +27,7 @@ export function PillsTabs() {
             title: "Film $ TV",
             value: "Film $ TV",
             content: (
-                <section className=" space-y-5 w-[90%] h-[303px] p-[50px]  flex justify-between items-center rounded-[10px]  bg-gradient-to-b from-purple-50/90 via-purple-200/60 to-purple-600  font-[600]  ">
+                <section className=" space-y-5 w-[90%] h-[303px] p-[50px]  flex justify-between items-center rounded-[10px]  bg-gradient-to-b from-purple-50 via-purple-200 to-purple-600  font-[600]  ">
 
                     <div className="flex flex-col   space-y-[20px] text-gray-900 ">
                         <h1 className="font-bold text-[40px]">Go from brief to broadcast instantly</h1>
@@ -44,7 +44,7 @@ export function PillsTabs() {
             title: "Game Dev",
             value: "Game Dev",
              content: (
-                <section className=" space-y-5 w-[90%] h-[303px] p-[50px]  flex justify-between items-center rounded-[10px]  bg-gradient-to-b from-purple-50/90 via-purple-200/60 to-purple-600  font-[600]  ">
+                <section className=" space-y-5 w-[90%] h-[303px] p-[50px]  flex justify-between items-center rounded-[10px]  bg-gradient-to-b from-purple-50 via-purple-200 to-purple-600  font-[600]  ">
 
                     <div className="flex flex-col   space-y-[20px] text-gray-900 ">
                         <h1 className="font-bold text-[40px]">Go from brief to broadcast instantly</h1>
@@ -61,7 +61,7 @@ export function PillsTabs() {
             title: "Hospitality",
             value: "Hospitality",
              content: (
-                <section className=" space-y-5 w-[90%] h-[303px] p-[50px]  flex justify-between items-center rounded-[10px]  bg-gradient-to-b from-purple-50/90 via-purple-200/60 to-purple-600  font-[600]  ">
+                <section className=" space-y-5 w-[90%] h-[303px] p-[50px]  flex justify-between items-center rounded-[10px]  bg-gradient-to-b from-purple-50 via-purple-200 to-purple-600  font-[600]  ">
 
                     <div className="flex flex-col   space-y-[20px] text-gray-900 ">
                         <h1 className="font-bold text-[40px]">Go from brief to broadcast instantly</h1>
@@ -78,7 +78,7 @@ export function PillsTabs() {
             title: "Creators",
             value: "Creators",
             content: (
-                <section className=" space-y-5 w-[90%] h-[303px] p-[50px]  flex justify-between items-center rounded-[10px]  bg-gradient-to-b from-purple-50/90 via-purple-200/60 to-purple-600  font-[600]  ">
+                <section className=" space-y-5 w-[90%] h-[303px] p-[50px]  flex justify-between items-center rounded-[10px]  bg-gradient-to-b from-purple-50 via-purple-200 to-purple-600  font-[600]  ">
 
                     <div className="flex flex-col   space-y-[20px] text-gray-900 ">
                         <h1 className="font-bold text-[40px]">Go from brief to broadcast instantly</h1>
@@ -95,7 +95,7 @@ export function PillsTabs() {
             title: "Podcasters",
             value: "Podcasters",
              content: (
-                <section className=" space-y-5 w-[90%] h-[303px] p-[50px]  flex justify-between items-center rounded-[10px]  bg-gradient-to-b from-purple-50/90 via-purple-200/60 to-purple-600  font-[600]  ">
+                <section className=" space-y-5 w-[90%] h-[303px] p-[50px]  flex justify-between items-center rounded-[10px]  bg-gradient-to-b from-purple-50 via-purple-200 to-purple-600  font-[600]  ">
 
                     <div className="flex flex-col   space-y-[20px] text-gray-900 ">
                         <h1 className="font-bold text-[40px]">Go from brief to broadcast instantly</h1>
@@ -111,7 +111,7 @@ export function PillsTabs() {
     ];
 
     return (
-        <div className="h-[20rem] md:h-[40rem] [perspective:1000px]   flex flex-col  mx-auto w-[95%]  border ">
+        <div className="h-[20rem] md:h-[40rem] [perspective:1000px]   flex flex-col  mx-auto w-[95%]  ">
             <Tabs tabs={tabs} />
         </div>
     );

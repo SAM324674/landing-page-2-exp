@@ -259,8 +259,8 @@ export default function Header() {
 					<DesktopMenu />
 
 					<div className="flex items-center gap-[30px]">
-						<Button className='text-[16px] w-[95px] h-[48px] leading-[150%] tracking-[0%] bg-primary text-primary-foreground hover:bg-primary/90 rounded-[10px] py-[12px] px-[24px] font-[600]'>Log In</Button>
-                        <Button className='w-[107px] h-[48px] py-[12px] px-[24px] text-[16px] rounded-[10px] leading-[150%] font-[600] bg-white border-2 border-primary text-primary hover:bg-primary/5'>Sign Up</Button>
+						<Button className='text-[16px] w-[95px] h-[48px] leading-[150%] tracking-[0%] bg-[#a855f7] text-primary-foreground hover:bg-primary/90 rounded-[10px] py-[12px] px-[24px] font-[600]'>Log In</Button>
+                        <Button className='w-[107px] h-[48px] py-[12px] px-[24px] text-[16px] rounded-[10px] leading-[150%] font-[600] bg-white border-2 border-[#a855f7] text-[#a855f7] hover:bg-primary/5'>Sign Up</Button>
 						<MoileNav />
 					</div>
 				</div>
