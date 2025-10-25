@@ -10,7 +10,7 @@ export function GridCard({
 	return (
 		<div
 			className={cn(
-				'group bg-background relative isolate z-0 flex h-full flex-col justify-between overflow-hidden rounded-sm border px-5 py-4 transition-colors duration-75',
+				'group bg-card hover:bg-gradient-to-br hover:from-primary/10 hover:to-accent/10 relative isolate z-0 flex h-full flex-col justify-between overflow-hidden rounded-lg border border-border hover:border-primary px-5 py-4 transition-all duration-300',
 				className,
 			)}
 			{...props}
@@ -28,8 +28,8 @@ export function GridCard({
 				</div>
 				<div
 					className={cn(
-						'absolute -inset-[10%] opacity-0 blur-[50px] transition-opacity duration-150 group-hover:opacity-10',
-						'bg-[conic-gradient(#F35066_0deg,#F35066_117deg,#9071F9_180deg,#5182FC_240deg,#F35066_360deg)]',
+						'absolute -inset-[10%] opacity-0 blur-[50px] transition-opacity duration-300 group-hover:opacity-20',
+						'bg-gradient-to-br from-[#a855f7] to-[#e879f9]',
 					)}
 				/>
 			</div>

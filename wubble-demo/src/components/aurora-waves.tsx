@@ -20,11 +20,11 @@ uniform float uSpeed;
 uniform float uGlow;
 uniform float uTheme; // 0 = dark, 1 = light
 
-// Simple smooth palette (Aurora-like)
+// Simple smooth palette (Purple gradient like Canva)
 vec3 palette(float t) {
     return mix(
-      vec3(0.1, 0.2, 0.5), // deep blue
-      vec3(0.8, 0.4, 0.9), // magenta
+      vec3(0.4, 0.2, 0.7), // deep purple
+      vec3(0.9, 0.5, 0.95), // light purple/pink
       0.5 + 0.5 * sin(t)
     );
 }
@@ -64,8 +64,13 @@ void main() {
     // Apply theme blending (dark → black bg, light → white bg)
     vec3 bg = mix(vec3(0.02, 0.02, 0.05), vec3(1.0), uTheme);
 
-    // Blend glow with background
-    col = mix(bg, col, g * 1.5);
+    // Edge fade for smooth boundaries
+    float edgeFadeX = smoothstep(1.0, 0.7, abs(uv.x));
+    float edgeFadeY = smoothstep(1.0, 0.7, abs(uv.y));
+    float edgeFade = edgeFadeX * edgeFadeY;
+
+    // Blend glow with background and apply edge fade
+    col = mix(bg, col, g * 1.5 * edgeFade);
 
     gl_FragColor = vec4(col, 1.0);
 }

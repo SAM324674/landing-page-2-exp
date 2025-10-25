@@ -18,6 +18,22 @@ import {
 	PlugIcon,
 	MenuIcon,
 	XIcon,
+	Megaphone,
+	Film,
+	Gamepad2,
+	Video,
+	Podcast,
+	Hotel,
+	Brain,
+	Mic,
+	Music,
+	Volume2,
+	Book,
+	CreditCard,
+	FileCode,
+	LifeBuoy,
+	Building,
+	Heart,
 } from 'lucide-react';
 import {
 	Sheet,
@@ -47,49 +63,127 @@ import {
 } from '@/components/ui/accordion';
 import { cn } from '@/lib/utils';
 
-export const productLinks: NavItemType[] = [
+// Solutions Links
+export const solutionsLinks: NavItemType[] = [
 	{
-		title: 'Website Builder',
+		title: 'For Marketing & Advertising',
 		href: '#',
-		description: 'Create responsive websites with ease',
-		icon: GlobeIcon,
+		description: 'Create compelling audio for campaigns',
+		icon: Megaphone,
 	},
 	{
-		title: 'Cloud Platform',
+		title: 'For Film & TV',
 		href: '#',
-		description: 'Deploy and scale apps in the cloud',
-		icon: LayersIcon,
+		description: 'Professional audio production for media',
+		icon: Film,
 	},
 	{
-		title: 'Team Collaboration',
+		title: 'For Game Developers',
 		href: '#',
-		description: 'Tools to help your teams work better together',
-		icon: UserPlusIcon,
+		description: 'Dynamic game audio and soundscapes',
+		icon: Gamepad2,
 	},
 	{
-		title: 'Analytics',
+		title: 'For Creators',
 		href: '#',
-		icon: BarChart,
+		description: 'Audio tools for content creators',
+		icon: Video,
 	},
 	{
-		title: 'Integrations',
+		title: 'For Podcasters',
 		href: '#',
-		icon: PlugIcon,
+		description: 'Professional podcast production',
+		icon: Podcast,
 	},
 	{
-		title: 'E-Commerce',
+		title: 'For Hospitality',
 		href: '#',
-		icon: DollarSign,
+		description: 'Ambient audio for venues',
+		icon: Hotel,
+	},
+];
+
+// Features Links
+export const featuresLinks: NavItemType[] = [
+	{
+		title: 'AI Sound Engineer',
+		href: '#',
+		description: 'Professional audio engineering powered by AI',
+		icon: Brain,
 	},
 	{
-		title: 'Security',
+		title: 'Voice (TTS, Cloning, ADR)',
 		href: '#',
-		icon: Shield,
+		description: 'Text-to-speech, voice cloning, and ADR',
+		icon: Mic,
 	},
 	{
-		title: 'API',
+		title: 'Music (Generation, Mixing, Scoring)',
 		href: '#',
-		icon: CodeIcon,
+		description: 'Complete music production suite',
+		icon: Music,
+	},
+	{
+		title: 'SFX (Generation, Foley, Mixing)',
+		href: '#',
+		description: 'Sound effects creation and mixing',
+		icon: Volume2,
+	},
+];
+
+// Developers Links
+export const developersLinks: NavItemType[] = [
+	{
+		title: 'Docs',
+		href: '#',
+		description: 'Complete documentation',
+		icon: Book,
+	},
+	{
+		title: 'Pricing',
+		href: '#',
+		description: 'View pricing plans',
+		icon: CreditCard,
+	},
+	{
+		title: 'API Reference',
+		href: '#',
+		description: 'API documentation',
+		icon: FileCode,
+	},
+	{
+		title: 'Get Help',
+		href: '#',
+		description: 'Support and assistance',
+		icon: LifeBuoy,
+	},
+];
+
+// Compare Pricing Links
+export const pricingLinks: NavItemType[] = [
+	{
+		title: 'Pro',
+		href: '#',
+		description: 'For individual professionals',
+		icon: Star,
+	},
+	{
+		title: 'Teams',
+		href: '#',
+		description: 'For collaborative teams',
+		icon: Users,
+	},
+	{
+		title: 'Enterprise',
+		href: '#',
+		description: 'For large organizations',
+		icon: Building,
+	},
+	{
+		title: 'Nonprofit',
+		href: '#',
+		description: 'Special pricing for nonprofits',
+		icon: Heart,
 	},
 ];
 
@@ -160,13 +254,13 @@ export default function Header() {
 				<div className="flex h-full items-center justify-around">
 					<div className="flex items-center gap-2">
 						<Grid2x2PlusIcon className="size-6" />
-						<p className="font-mono text-lg font-bold">Asme</p>
+						<p className="font-mono text-lg font-bold">Wubble</p>
 					</div>
 					<DesktopMenu />
 
 					<div className="flex items-center gap-[30px]">
-						<Button className='text-[16px] w-[95px] h-[48px] leading-[150%]  tracking-[0%] bg-[#7076E3] text-white rounded-[10px] py-[12px] px-[24px] font-[600] '>Log In</Button>
-                        <Button className='w-[107px] h-[48px] py-[12px] px-[24px] text-[16px] rounded-[10px] leading-[150%] font-[600] bg-background border border-foreground/50 text-foreground hover:text-black'>Sign Up</Button>
+						<Button className='text-[16px] w-[95px] h-[48px] leading-[150%] tracking-[0%] bg-primary text-primary-foreground hover:bg-primary/90 rounded-[10px] py-[12px] px-[24px] font-[600]'>Log In</Button>
+                        <Button className='w-[107px] h-[48px] py-[12px] px-[24px] text-[16px] rounded-[10px] leading-[150%] font-[600] bg-white border-2 border-primary text-primary hover:bg-primary/5'>Sign Up</Button>
 						<MoileNav />
 					</div>
 				</div>
@@ -179,45 +273,84 @@ function DesktopMenu() {
 	return (
 		<NavigationMenu className="hidden lg:block ">
 			<NavigationMenuList className='gap-[20px] flex ml-[13rem]'>
+				{/* Solutions Dropdown */}
 				<NavigationMenuItem>
-					<NavigationMenuLink className="cursor-pointer text-[16px] leading-[150%] font-[500] py-[12px] px-[24px] rounded-[10px]" >
+					<NavigationMenuTrigger className='cursor-pointer text-[16px] leading-[150%] font-[500] py-[12px] px-[24px] rounded-[10px]'>
 						Solutions
-					</NavigationMenuLink>
-				</NavigationMenuItem>
-				<NavigationMenuItem className=''>
-					<NavigationMenuTrigger className='cursor-pointer text-[16px] leading-[150%] font-[500] py-[12px] px-[24px] rounded-[10px] w-full'>Features</NavigationMenuTrigger>
-					<NavigationMenuContent className='w-full  flex '>
-						<div className="grid md:w-4xl md:grid-cols-[1fr_.30fr] ">
-							<ul className="grid grow gap-4 p-4 md:grid-cols-3 md:border-r">
-								{productLinks.slice(0, 3).map((link) => (
+					</NavigationMenuTrigger>
+					<NavigationMenuContent>
+						<div className="grid w-4xl md:grid-cols-2">
+							<ul className="grid grow gap-4 p-4">
+								{solutionsLinks.slice(0, 3).map((link) => (
 									<li key={link.href}>
 										<NavGridCard link={link} />
 									</li>
 								))}
 							</ul>
-							<ul className="space-y-1 p-4 ">
-								{productLinks.slice(3).map((link) => (
+							<ul className="grid grow gap-4 p-4">
+								{solutionsLinks.slice(3).map((link) => (
 									<li key={link.href}>
-										<NavSmallItem
-											item={link}
-											href={link.href}
-											className="gap-x-1"
-										/>
+										<NavGridCard link={link} />
 									</li>
 								))}
 							</ul>
 						</div>
 					</NavigationMenuContent>
 				</NavigationMenuItem>
+				
+				{/* Features Dropdown */}
 				<NavigationMenuItem>
-					<NavigationMenuLink className='cursor-pointer text-[16px] leading-[150%] font-[500] py-[12px] px-[24px] rounded-[10px]'>
-						Developers
-					</NavigationMenuLink>
+					<NavigationMenuTrigger className='cursor-pointer text-[16px] leading-[150%] font-[500] py-[12px] px-[24px] rounded-[10px]'>
+						Features
+					</NavigationMenuTrigger>
+					<NavigationMenuContent>
+						<ul className="grid gap-4 p-4 md:grid-cols-2 w-3xl">
+							{featuresLinks.map((link) => (
+								<li key={link.href}>
+									<NavGridCard link={link} />
+								</li>
+							))}
+						</ul>
+					</NavigationMenuContent>
 				</NavigationMenuItem>
 				
-				
+				{/* Developers Dropdown */}
 				<NavigationMenuItem>
-					<NavigationMenuTrigger className='cursor-pointer text-[16px] leading-[150%] font-[500] py-[12px] px-[24px] rounded-[10px]'>Pricing</NavigationMenuTrigger>
+					<NavigationMenuTrigger className='cursor-pointer text-[16px] leading-[150%] font-[500] py-[12px] px-[24px] rounded-[10px]'>
+						Developers
+					</NavigationMenuTrigger>
+					<NavigationMenuContent>
+						<ul className="grid gap-4 p-4 md:grid-cols-2 w-3xl">
+							{developersLinks.map((link) => (
+								<li key={link.href}>
+									<NavGridCard link={link} />
+								</li>
+							))}
+						</ul>
+					</NavigationMenuContent>
+				</NavigationMenuItem>
+				
+				{/* Compare Pricing Dropdown */}
+				<NavigationMenuItem>
+					<NavigationMenuTrigger className='cursor-pointer text-[16px] leading-[150%] font-[500] py-[12px] px-[24px] rounded-[10px]'>
+						Compare Pricing
+					</NavigationMenuTrigger>
+					<NavigationMenuContent>
+						<ul className="grid gap-4 p-4 md:grid-cols-2 w-3xl">
+							{pricingLinks.map((link) => (
+								<li key={link.href}>
+									<NavGridCard link={link} />
+								</li>
+							))}
+						</ul>
+					</NavigationMenuContent>
+				</NavigationMenuItem>
+				
+				{/* Resources Dropdown */}
+				<NavigationMenuItem>
+					<NavigationMenuTrigger className='cursor-pointer text-[16px] leading-[150%] font-[500] py-[12px] px-[24px] rounded-[10px]'>
+						Resources
+					</NavigationMenuTrigger>
 					<NavigationMenuContent>
 						<div className="grid w-4xl md:grid-cols-[1fr_.40fr]">
 							<ul className="grid grow grid-cols-2 gap-4 p-4 md:border-r">
@@ -244,11 +377,6 @@ function DesktopMenu() {
 						</div>
 					</NavigationMenuContent>
 				</NavigationMenuItem>
-				<NavigationMenuItem>
-					<NavigationMenuLink className='cursor-pointer text-[16px] leading-[150%] font-[500] py-[12px] px-[24px] rounded-[10px]'>
-						Resources
-					</NavigationMenuLink>
-				</NavigationMenuItem>
 			</NavigationMenuList>
 		</NavigationMenu>
 	);
@@ -257,13 +385,28 @@ function DesktopMenu() {
 function MoileNav() {
 	const sections = [
 		{
-			id: 'product',
-			name: 'Product',
-			list: productLinks,
+			id: 'solutions',
+			name: 'Solutions',
+			list: solutionsLinks,
 		},
 		{
-			id: 'company',
-			name: 'Company',
+			id: 'features',
+			name: 'Features',
+			list: featuresLinks,
+		},
+		{
+			id: 'developers',
+			name: 'Developers',
+			list: developersLinks,
+		},
+		{
+			id: 'pricing',
+			name: 'Compare Pricing',
+			list: pricingLinks,
+		},
+		{
+			id: 'resources',
+			name: 'Resources',
 			list: companyLinks,
 		},
 	];

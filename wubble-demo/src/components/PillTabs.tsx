@@ -10,13 +10,13 @@ export function PillsTabs() {
             title: "Marketing & ads",
             value: "Marketing & ads",
             content: (
-                <section className=" space-y-5 w-[90%] h-[303px] p-[50px]  flex justify-between items-center rounded-[10px]  bg-white  font-[600]  ">
+                <section className=" space-y-5 w-[90%] h-[303px] p-[50px]  flex justify-between items-center rounded-[10px]  bg-gradient-to-b from-purple-50/90 via-purple-200/60 to-purple-600  font-[600]  ">
 
-                    <div className="flex flex-col   space-y-[20px] text-black ">
+                    <div className="flex flex-col   space-y-[20px] text-gray-900 ">
                         <h1 className="font-bold text-[40px]">Go from brief to broadcast instantly</h1>
-                        <p className="w-[672px] text-[#1E2025BF] text-[20px]">Instantly concept, generate, mix, and localize entire audio campaigns.</p>
+                        <p className="w-[672px] text-gray-800/80 text-[20px]">Instantly concept, generate, mix, and localize entire audio campaigns.</p>
 
-                        <Button className="bg-[#7076E3] w-[152px] h-[56px] text-white font-[600] mt-6 text-[16px]">Learn More</Button>
+                        <Button className="bg-white hover:bg-gray-50 w-[152px] h-[56px] text-gray-900 font-[600] mt-6 text-[16px]">Learn More</Button>
                     </div>
                     
 
@@ -27,13 +27,13 @@ export function PillsTabs() {
             title: "Film $ TV",
             value: "Film $ TV",
             content: (
-                <section className=" space-y-5 w-[90%] h-[303px] p-[50px]  flex justify-between items-center rounded-[10px]  bg-white  font-[600]  ">
+                <section className=" space-y-5 w-[90%] h-[303px] p-[50px]  flex justify-between items-center rounded-[10px]  bg-gradient-to-b from-purple-50/90 via-purple-200/60 to-purple-600  font-[600]  ">
 
-                    <div className="flex flex-col   space-y-[20px] text-black ">
+                    <div className="flex flex-col   space-y-[20px] text-gray-900 ">
                         <h1 className="font-bold text-[40px]">Go from brief to broadcast instantly</h1>
-                        <p className="w-[672px] text-[#1E2025BF] text-[20px]">Instantly concept, generate, mix, and localize entire audio campaigns.</p>
+                        <p className="w-[672px] text-gray-800/80 text-[20px]">Instantly concept, generate, mix, and localize entire audio campaigns.</p>
 
-                        <Button className="bg-[#7076E3] w-[152px] h-[56px] text-white font-[600] mt-6 text-[16px]">Learn More</Button>
+                        <Button className="bg-white hover:bg-gray-50 w-[152px] h-[56px] text-gray-900 font-[600] mt-6 text-[16px]">Learn More</Button>
                     </div>
                     
 
@@ -44,13 +44,13 @@ export function PillsTabs() {
             title: "Game Dev",
             value: "Game Dev",
              content: (
-                <section className=" space-y-5 w-[90%] h-[303px] p-[50px]  flex justify-between items-center rounded-[10px]  bg-white  font-[600]  ">
+                <section className=" space-y-5 w-[90%] h-[303px] p-[50px]  flex justify-between items-center rounded-[10px]  bg-gradient-to-b from-purple-50/90 via-purple-200/60 to-purple-600  font-[600]  ">
 
-                    <div className="flex flex-col   space-y-[20px] text-black ">
+                    <div className="flex flex-col   space-y-[20px] text-gray-900 ">
                         <h1 className="font-bold text-[40px]">Go from brief to broadcast instantly</h1>
-                        <p className="w-[672px] text-[#1E2025BF] text-[20px]">Instantly concept, generate, mix, and localize entire audio campaigns.</p>
+                        <p className="w-[672px] text-gray-800/80 text-[20px]">Instantly concept, generate, mix, and localize entire audio campaigns.</p>
 
-                        <Button className="bg-[#7076E3] w-[152px] h-[56px] text-white font-[600] mt-6 text-[16px]">Learn More</Button>
+                        <Button className="bg-white hover:bg-gray-50 w-[152px] h-[56px] text-gray-900 font-[600] mt-6 text-[16px]">Learn More</Button>
                     </div>
                     
 
@@ -61,13 +61,13 @@ export function PillsTabs() {
             title: "Hospitality",
             value: "Hospitality",
              content: (
-                <section className=" space-y-5 w-[90%] h-[303px] p-[50px]  flex justify-between items-center rounded-[10px]  bg-white  font-[600]  ">
+                <section className=" space-y-5 w-[90%] h-[303px] p-[50px]  flex justify-between items-center rounded-[10px]  bg-gradient-to-b from-purple-50/90 via-purple-200/60 to-purple-600  font-[600]  ">
 
-                    <div className="flex flex-col   space-y-[20px] text-black ">
+                    <div className="flex flex-col   space-y-[20px] text-gray-900 ">
                         <h1 className="font-bold text-[40px]">Go from brief to broadcast instantly</h1>
-                        <p className="w-[672px] text-[#1E2025BF] text-[20px]">Instantly concept, generate, mix, and localize entire audio campaigns.</p>
+                        <p className="w-[672px] text-gray-800/80 text-[20px]">Instantly concept, generate, mix, and localize entire audio campaigns.</p>
 
-                        <Button className="bg-[#7076E3] w-[152px] h-[56px] text-white font-[600] mt-6 text-[16px]">Learn More</Button>
+                        <Button className="bg-white hover:bg-gray-50 w-[152px] h-[56px] text-gray-900 font-[600] mt-6 text-[16px]">Learn More</Button>
                     </div>
                     
 
@@ -78,13 +78,13 @@ export function PillsTabs() {
             title: "Creators",
             value: "Creators",
             content: (
-                <section className=" space-y-5 w-[90%] h-[303px] p-[50px]  flex justify-between items-center rounded-[10px]  bg-white  font-[600]  ">
+                <section className=" space-y-5 w-[90%] h-[303px] p-[50px]  flex justify-between items-center rounded-[10px]  bg-gradient-to-b from-purple-50/90 via-purple-200/60 to-purple-600  font-[600]  ">
 
-                    <div className="flex flex-col   space-y-[20px] text-black ">
+                    <div className="flex flex-col   space-y-[20px] text-gray-900 ">
                         <h1 className="font-bold text-[40px]">Go from brief to broadcast instantly</h1>
-                        <p className="w-[672px] text-[#1E2025BF] text-[20px]">Instantly concept, generate, mix, and localize entire audio campaigns.</p>
+                        <p className="w-[672px] text-gray-800/80 text-[20px]">Instantly concept, generate, mix, and localize entire audio campaigns.</p>
 
-                        <Button className="bg-[#7076E3] w-[152px] h-[56px] text-white font-[600] mt-6 text-[16px]">Learn More</Button>
+                        <Button className="bg-white hover:bg-gray-50 w-[152px] h-[56px] text-gray-900 font-[600] mt-6 text-[16px]">Learn More</Button>
                     </div>
                     
 
@@ -95,13 +95,13 @@ export function PillsTabs() {
             title: "Podcasters",
             value: "Podcasters",
              content: (
-                <section className=" space-y-5 w-[90%] h-[303px] p-[50px]  flex justify-between items-center rounded-[10px]  bg-white  font-[600]  ">
+                <section className=" space-y-5 w-[90%] h-[303px] p-[50px]  flex justify-between items-center rounded-[10px]  bg-gradient-to-b from-purple-50/90 via-purple-200/60 to-purple-600  font-[600]  ">
 
-                    <div className="flex flex-col   space-y-[20px] text-black ">
+                    <div className="flex flex-col   space-y-[20px] text-gray-900 ">
                         <h1 className="font-bold text-[40px]">Go from brief to broadcast instantly</h1>
-                        <p className="w-[672px] text-[#1E2025BF] text-[20px]">Instantly concept, generate, mix, and localize entire audio campaigns.</p>
+                        <p className="w-[672px] text-gray-800/80 text-[20px]">Instantly concept, generate, mix, and localize entire audio campaigns.</p>
 
-                        <Button className="bg-[#7076E3] w-[152px] h-[56px] text-white font-[600] mt-6 text-[16px]">Learn More</Button>
+                        <Button className="bg-white hover:bg-gray-50 w-[152px] h-[56px] text-gray-900 font-[600] mt-6 text-[16px]">Learn More</Button>
                     </div>
                     
 

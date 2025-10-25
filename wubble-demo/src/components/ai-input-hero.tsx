@@ -135,6 +135,9 @@ export function HeroWave({ className, style, extendLeftPx = 320, title = "Build 
   }, [prompt]);
 
   useEffect(() => {
+    // DISABLED: Wave animation removed for clean white theme
+    return;
+    // eslint-disable-next-line no-unreachable
     if (!containerRef.current || !waveRef.current) return;
 
     // --- Shaders ---
@@ -311,8 +314,8 @@ export function HeroWave({ className, style, extendLeftPx = 320, title = "Build 
     }
 
     function createInstancedMaterial() {
-      const baseCol = new THREE.Color("hsl(220,100%,50%)");
-      const emisCol = new THREE.Color("#1f3dbc");
+      const baseCol = new THREE.Color("#a855f7"); // Vibrant purple base color (Canva-like)
+      const emisCol = new THREE.Color("#c084fc"); // Lighter purple emissive color
 
       return new THREE.ShaderMaterial({
         defines: { USE_INSTANCING: "" },
@@ -334,7 +337,7 @@ export function HeroWave({ className, style, extendLeftPx = 320, title = "Build 
           uMinBottomWidthPx: { value: 0 },
           uColor: { value: baseCol },
           uEmissive: { value: emisCol },
-          uBaseEmissive: { value: 0.05 },
+          uBaseEmissive: { value: 0.8 },
           uRotationAngle: { value: THREE.MathUtils.degToRad(23.4) },
         },
         vertexShader: `
@@ -640,7 +643,7 @@ export function HeroWave({ className, style, extendLeftPx = 320, title = "Build 
       waveRenderPass = new RenderPass(waveScene, waveCamera);
       waveComposer.addPass(waveRenderPass);
 
-      waveBloomPass = new UnrealBloomPass(new THREE.Vector2(cameraWidth, cameraHeight), 1.0, 0.68, 0.0);
+      waveBloomPass = new UnrealBloomPass(new THREE.Vector2(cameraWidth, cameraHeight), 1.5, 0.4, 0.85);
       (waveBloomPass as any).resolution.set(cameraWidth * 0.5, cameraHeight * 0.5);
       waveComposer.addPass(waveBloomPass);
 
@@ -822,17 +825,17 @@ export function HeroWave({ className, style, extendLeftPx = 320, title = "Build 
       aria-label="Animated hero"
     >
       {/* <Navbar /> */}
-      {/* Wave Canvas Container (Background Layer) */}
-      <div
+      {/* Wave Canvas Container (Background Layer) - DISABLED */}
+      {/* <div
         ref={waveRef}
         id="waveCanvas"
         style={{
           position: "absolute",
           inset: 0,
-          zIndex: 1, // Z-Index 1: Background
+          zIndex: 1,
           opacity: 0.8
         }}
-      />
+      /> */}
       {/* Content overlay (Foreground Layer) */}
       <div
         style={{
@@ -843,24 +846,21 @@ export function HeroWave({ className, style, extendLeftPx = 320, title = "Build 
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          // REMOVED: pointerEvents: "none", 👈 Fix applied
           padding: "24px",
-          color: "white",
           textAlign: "center",
-          background: "radial-gradient(ellipse at center, rgba(17,24,39,0.1) 0%, rgba(17,24,39,1) 85%)",
         }}
       >
         <div
           className="w-full flex flex-col gap-4 "
         >
-          <div className="flex flex-col gap-[1rem] items-center ">
+          <div className="flex flex-col gap-[2rem] items-center ">
             <h1
-              className="text-[96px] leading-[90%] font-[500] w-[820px] tracking-[-3%] mb-4">
-              <p>Your entire audio production </p>
+              className="text-[84px] leading-[100%] font-[500] tracking-[-3%] text-center max-w-[1200px] text-foreground">
+              <p className="mb-4 whitespace-nowrap">Your entire <span className="bg-gradient-to-r from-[#a855f7] via-[#c084fc] to-[#e879f9] bg-clip-text text-transparent">audio</span> production</p>
               <p>In one chat.</p>
             </h1>
             <p
-              className="mx-auto  text-[24px] text-gray-300 font-[600] h-[56px] leading-[100%] tracking-[-3%] w-[830px]">
+              className="mx-auto text-[20px] text-muted-foreground font-[400] leading-[150%] tracking-[-1%] max-w-[900px] text-center mt-4">
               Wubble ideates, generates, and performs granular, DAW-level engineering for your project, from concept to final mix.
             </p>
           </div>

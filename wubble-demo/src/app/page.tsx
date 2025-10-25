@@ -62,18 +62,18 @@ export default function Home() {
       <Header />
 
       {/* Main content */}
-      <main className={`flex-1 w-full flex flex-col items-center space-y-[5.3rem]`}>
+      <main className={`flex-1 w-full flex flex-col items-center`}>
         {/* Hero Section */}
 
         <AnimatedGroup className="w-full">
 
-          <div className="w-full left-0 bg-black/50 backdrop-blur-sm  flex flex-col items-center">
+          <div className="w-full left-0 bg-white/95 backdrop-blur-sm flex flex-col items-center">
             {/* <HeroSection /> */}
             <HeroWave />
           </div>
 
         </AnimatedGroup>
-        <div className="w-full absolute  h-[5rem] bg-gradient-to-b from-transparent to-black/80 top-[42rem] " />
+        <div className="w-full absolute h-[5rem] bg-gradient-to-b from-transparent to-background top-[42rem]" />
         {/* Client Companies */}
         <AnimatedGroup
           variants={{
@@ -84,19 +84,19 @@ export default function Home() {
             },
             ...transitionVariants,
           }}
-          className="w-full -mt-[5.3rem]  ">
+          className="w-full mt-[8rem]">
           <Testimonial1 />
         </AnimatedGroup>
 
         {/* Used By Millions of Creators */}
-        <div className=" w-full overflow-hidden flex flex-col justify-center items-center space-y-10 ">
-          <h1 className="text-white text-4xl font-bold">Powering the World's Best Story Tellers</h1>
+        <div className="w-full overflow-hidden flex flex-col justify-center items-center space-y-10 mt-[5.3rem]">
+          <h1 className="text-foreground text-4xl font-bold">Powering the World's Best Story Tellers</h1>
           <CreatorCarousel />
         </div>
 
 
         {/* Features Section */}
-        <section className="flex flex-col items-center w-full space-y-10">
+        <section className="flex flex-col items-center w-full space-y-10 mt-[5.3rem] py-16 bg-gradient-to-b from-purple-50/30 via-transparent to-transparent">
           <div className="text-center w-full space-y-4">
             <h1 className="text-4xl font-bold">One agent. Total audio production </h1>
             <p className="text-lg text-muted-foreground">
@@ -132,12 +132,12 @@ export default function Home() {
 
             </div>
           </Card>
-          <div className=" flex-col flex gap-[30px] w-[590px]">
-            <h1 className="font-[600] text-[40px] leading-[100%] tracking-[-3%]">Direct your audio, together.</h1>
-            <p className="text-[20px] text-white/75 font-[500]">
+          <div className="flex-col flex gap-[30px] w-[590px]">
+            <h1 className="font-[600] text-[40px] leading-[100%] tracking-[-3%] text-foreground">Direct your audio, together.</h1>
+            <p className="text-[20px] text-muted-foreground font-[500]">
               Invite directors, producers, clients, and editors to review, comment, and guide your AI agent—all in one place, all in real-time.
             </p>
-            <Button className="bg-[#7076E3] text-[16px] font-[600] text-white leading-[150%] tracking-[0%] w-[230px] h-[56px]">Start Free Teams Trial</Button>
+            <Button className="bg-primary text-[16px] font-[600] text-primary-foreground leading-[150%] tracking-[0%] w-[230px] h-[56px]">Start Free Teams Trial</Button>
 
           </div>
 

@@ -44,7 +44,7 @@ export const Tabs = ({
           containerClassName
         )}
       >
-        <div className="py-[11px] px-[12px] rounded-full bg-[#CCCFEE33] w-[986px] flex gap-[10px] justify-evenly font-[600] text-[16px] ">
+        <div className="py-[11px] px-[12px] rounded-full bg-gradient-to-r from-purple-50/80 via-purple-50/60 to-purple-50/80 w-[986px] flex gap-[10px] justify-evenly font-[600] text-[16px] ">
           {propTabs.map((tab, idx) => (
             <button
               key={tab.title}
@@ -63,7 +63,7 @@ export const Tabs = ({
                   layoutId="clickedbutton"
                   transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
                   className={cn(
-                    "absolute inset-0  bg-white  rounded-full  ",
+                    "absolute inset-0  bg-[#00A8E8]  rounded-full  ",
                     activeTabClassName
                   )}
                 />
@@ -72,7 +72,7 @@ export const Tabs = ({
               <span
                 className={cn(
                   "relative block font-medium transition-colors duration-200",
-                  active.value === tab.value ? "text-black" : "text-white" // <-- ADDED CONDITIONAL TEXT COLOR
+                  active.value === tab.value ? "text-white" : "text-gray-700" // <-- ADDED CONDITIONAL TEXT COLOR
                 )}
               >
                 {tab.title}

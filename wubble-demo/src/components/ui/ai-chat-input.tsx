@@ -6,12 +6,7 @@ import { Lightbulb, Mic, Globe, Paperclip, Send } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
  
 const PLACEHOLDERS = [
-  "Generate website with HextaUI",
-  "Create a new project with Next.js",
-  "What is the meaning of life?",
-  "What is the best way to learn React?",
-  "How to cook a delicious meal?",
-  "Summarize this article",
+  "Create a 30-second ad for a new sci-fi movie, with an epic score, a deep male voiceover, and a spaceship fly-by SFX at the end.",
 ];
  
 const AIChatInput = () => {
@@ -103,10 +98,10 @@ const AIChatInput = () => {
   };
  
   return (
-    <div className="w-full mt-[5rem] flex justify-center items-center text-black">
+    <div className="w-full mt-[5rem] flex justify-center items-center text-black px-4">
       <motion.div
         ref={wrapperRef}
-        className="w-full max-w-3xl"
+        className="w-full max-w-4xl"
         variants={containerVariants}
         animate={isActive || inputValue ? "expanded" : "collapsed"}
         initial="collapsed"
@@ -115,7 +110,7 @@ const AIChatInput = () => {
       >
         <div className="flex flex-col items-stretch w-full h-full">
           {/* Input Row */}
-          <div className="flex items-center gap-2 p-3 rounded-full bg-white max-w-3xl w-full">
+          <div className="flex items-center gap-2 p-3 rounded-full bg-white w-full">
             <button
               className="p-3 rounded-full hover:bg-gray-100 transition"
               title="Attach file"
@@ -178,7 +173,7 @@ const AIChatInput = () => {
               <Mic size={20} />
             </button>
             <button
-              className="flex items-center gap-1 bg-black hover:bg-zinc-700 text-white p-3 rounded-full font-medium justify-center"
+              className="flex items-center gap-1 bg-gradient-to-r from-[#a855f7] to-[#c084fc] hover:from-[#9333ea] hover:to-[#a855f7] text-white p-3 rounded-full font-medium justify-center transition-all"
               title="Send"
               type="button"
               tabIndex={-1}

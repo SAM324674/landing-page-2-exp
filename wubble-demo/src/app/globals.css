@@ -99,73 +99,89 @@
 
 :root {
   --radius: 0.625rem;
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
+  /* Canva-inspired White Theme */
+  --background: oklch(0.99 0 0); /* Off-white background */
+  --foreground: oklch(0.2 0 0); /* Dark text */
+  
+  --card: oklch(1 0 0); /* Pure white cards */
+  --card-foreground: oklch(0.2 0 0);
+  
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.2 0 0);
+  
+  /* Canva Purple - Primary Brand Color */
+  --primary: oklch(0.54 0.24 285); /* #7D2AE8 purple */
+  --primary-foreground: oklch(1 0 0);
+  
+  /* Light gray secondary */
+  --secondary: oklch(0.96 0 0);
+  --secondary-foreground: oklch(0.2 0 0);
+  
+  --muted: oklch(0.96 0 0);
+  --muted-foreground: oklch(0.5 0 0);
+  
+  /* Canva Teal - Accent Color */
+  --accent: oklch(0.75 0.12 200); /* #00C4CC teal */
+  --accent-foreground: oklch(1 0 0);
+  
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
   --destructive-foreground: oklch(1 0 0);
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
+  
+  --border: oklch(0.92 0 0);
+  --input: oklch(0.95 0 0);
+  --ring: oklch(0.54 0.24 285);
+  
+  /* Canva Brand Colors for Charts */
+  --chart-1: oklch(0.54 0.24 285); /* Purple */
+  --chart-2: oklch(0.75 0.12 200); /* Teal */
+  --chart-3: oklch(0.75 0.15 140); /* Green */
+  --chart-4: oklch(0.70 0.18 50); /* Orange */
+  --chart-5: oklch(0.65 0.22 340); /* Pink */
+  
+  --sidebar: oklch(1 0 0);
+  --sidebar-foreground: oklch(0.2 0 0);
+  --sidebar-primary: oklch(0.54 0.24 285);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.96 0 0);
+  --sidebar-accent-foreground: oklch(0.2 0 0);
+  --sidebar-border: oklch(0.92 0 0);
+  --sidebar-ring: oklch(0.54 0.24 285);
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  /* Keep light theme even in dark mode preference for consistency */
+  --background: oklch(0.99 0 0);
+  --foreground: oklch(0.2 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.2 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.2 0 0);
+  --primary: oklch(0.54 0.24 285);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.96 0 0);
+  --secondary-foreground: oklch(0.2 0 0);
+  --muted: oklch(0.96 0 0);
+  --muted-foreground: oklch(0.5 0 0);
+  --accent: oklch(0.75 0.12 200);
+  --accent-foreground: oklch(1 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.92 0 0);
+  --input: oklch(0.95 0 0);
+  --ring: oklch(0.54 0.24 285);
+  --chart-1: oklch(0.54 0.24 285);
+  --chart-2: oklch(0.75 0.12 200);
+  --chart-3: oklch(0.75 0.15 140);
+  --chart-4: oklch(0.70 0.18 50);
+  --chart-5: oklch(0.65 0.22 340);
+  --sidebar: oklch(1 0 0);
+  --sidebar-foreground: oklch(0.2 0 0);
+  --sidebar-primary: oklch(0.54 0.24 285);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.96 0 0);
+  --sidebar-accent-foreground: oklch(0.2 0 0);
+  --sidebar-border: oklch(0.92 0 0);
+  --sidebar-ring: oklch(0.54 0.24 285);
 }
 
 @layer base {
@@ -174,5 +190,34 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  /* Canva-inspired gradient utilities */
+  .gradient-purple {
+    background: linear-gradient(135deg, oklch(0.54 0.24 285), oklch(0.65 0.22 340));
+  }
+  
+  .gradient-teal {
+    background: linear-gradient(135deg, oklch(0.75 0.12 200), oklch(0.75 0.15 140));
+  }
+  
+  .gradient-sunset {
+    background: linear-gradient(135deg, oklch(0.70 0.18 50), oklch(0.65 0.22 340));
+  }
+  
+  /* Canva-style card shadows */
+  .card-shadow {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 1px 4px rgba(0, 0, 0, 0.04);
+  }
+  
+  .card-shadow-hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+  
+  /* Smooth transitions */
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }

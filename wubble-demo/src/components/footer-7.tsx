@@ -84,7 +84,7 @@ function HoverFooter() {
   const Underline = `hover:-translate-y-1 border border-dotted rounded-xl p-2.5 transition-transform bg-[#9598B5]/30 backdrop-blur-md `;
 
   return (
-    <footer className="bg-[#0F0F11]/10 relative h-fit rounded-3xl overflow-hidden m-8">
+    <footer className="bg-secondary/30 relative h-fit rounded-3xl overflow-hidden m-8 border border-border">
       <div className="max-w-7xl mx-auto p-14 z-50 relative">
         {/* Adjusted grid to accommodate 7 columns (Brand + 6 new columns) */}
         <div className="flex gap-10 md:gap-8 lg:gap-16 pb-12">

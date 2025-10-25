@@ -74,8 +74,8 @@ function NavigationMenuTrigger({
 		<NavigationMenuPrimitive.Trigger
 			data-slot="navigation-menu-trigger"
 			className={cn(
-				' group hover:bg-[#CCCFEE] hover:text-black focus:bg-[#CCCFEE] focus:text-black data-[state=open]:hover:bg-[#CCCFEE] data-[state=open]:text-black data-[state=open]:focus:bg-[#CCCFEE] data-[state=open]:bg-black focus-visible:ring-ring/50 inline-flex w-max items-center justify-center rounded-md px-4 py-1 text-sm font-medium transition-[color,box-shadow] outline-none focus-visible:ring-[3px] focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50',
-				'data-[active=true]:focus:bg-[#CCCFEE] data-[active=true]:focus:font-[600] data-[active=true]:hover:bg-[#CCCFEE] data-[active=true]:hover:font-[600] data-[active=true]:bg-[#CCCFEE]/50 data-[active=true]:font-[600] data-[active=true]:text-black hover:bg-[#CCCFEE] hover:font-[600] focus:font-[600] hover:text-black focus:bg-[#CCCFEE] focus:text-black focus-visible:ring-ring/50 ',
+				'group hover:bg-primary/10 hover:text-foreground focus:bg-primary/10 focus:text-foreground data-[state=open]:hover:bg-primary/10 data-[state=open]:text-foreground data-[state=open]:focus:bg-primary/10 data-[state=open]:bg-primary/10 focus-visible:ring-ring/50 inline-flex w-max items-center justify-center rounded-md px-4 py-1 text-sm font-medium transition-[color,box-shadow] outline-none focus-visible:ring-[3px] focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50',
+				'data-[active=true]:focus:bg-primary/10 data-[active=true]:focus:font-[600] data-[active=true]:hover:bg-primary/10 data-[active=true]:hover:font-[600] data-[active=true]:bg-primary/10 data-[active=true]:font-[600] data-[active=true]:text-foreground hover:bg-primary/10 hover:font-[600] focus:font-[600] hover:text-foreground focus:bg-primary/10 focus:text-foreground focus-visible:ring-ring/50',
 				className,
 			)}
 			{...props}
@@ -132,7 +132,7 @@ function NavigationMenuLink({
 		<NavigationMenuPrimitive.Link
 			data-slot="navigation-menu-link"
 			className={cn(
-				"data-[active=true]:focus:bg-[#CCCFEE] data-[active=true]:focus:font-[600] data-[active=true]:hover:bg-[#CCCFEE] data-[active=true]:hover:font-[600] data-[active=true]:bg-[#CCCFEE]/50 data-[active=true]:font-[600] data-[active=true]:text-black hover:bg-[#CCCFEE] hover:font-[600] focus:font-[600] hover:text-black focus:bg-[#CCCFEE] focus:text-black focus-visible:ring-ring/50 [&_svg:not([class*='text-'])]:text-muted-foreground flex flex-col justify-center gap-1 rounded-sm px-4 py-1 text-sm transition-all outline-none focus-visible:ring-[3px] focus-visible:outline-1 [&_svg:not([class*='size-'])]:size-4",
+				"data-[active=true]:focus:bg-primary/10 data-[active=true]:focus:font-[600] data-[active=true]:hover:bg-primary/10 data-[active=true]:hover:font-[600] data-[active=true]:bg-primary/10 data-[active=true]:font-[600] data-[active=true]:text-foreground hover:bg-primary/10 hover:font-[600] focus:font-[600] hover:text-foreground focus:bg-primary/10 focus:text-foreground focus-visible:ring-ring/50 [&_svg:not([class*='text-'])]:text-muted-foreground flex flex-col justify-center gap-1 rounded-sm px-4 py-1 text-sm transition-all outline-none focus-visible:ring-[3px] focus-visible:outline-1 [&_svg:not([class*='size-'])]:size-4",
 				className,
 			)}
 			{...props}
@@ -168,14 +168,14 @@ function NavGridCard({
 		<NavigationMenuPrimitive.Link asChild>
 			<GridCard {...props}>
 				{link.icon && (
-					<link.icon className="text-foreground/80 relative size-5 " />
+					<link.icon className="text-foreground/80 group-hover:text-primary relative size-5 transition-colors duration-300" />
 				)}
 				<div className="relative">
-					<span className="text-foreground/80 text-sm font-medium">
+					<span className="text-foreground/80 group-hover:text-primary text-sm font-medium transition-colors duration-300">
 						{link.title}
 					</span>
 					{link.description && (
-						<p className="text-muted-foreground mt-2 text-xs">
+						<p className="text-muted-foreground group-hover:text-foreground mt-2 text-xs transition-colors duration-300">
 							{link.description}
 						</p>
 					)}

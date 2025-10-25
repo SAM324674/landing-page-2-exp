@@ -86,7 +86,7 @@ const PlanCard = ({
         </h3> */}
         <div className="flex justify-between w-full">
 
-          <div className="px-3 text-xs p-1 rounded-full bg-gray-700">{plan.badge}</div>
+          <div className="px-3 text-xs p-1 rounded-full bg-primary/10 text-primary font-medium">{plan.badge}</div>
           {plan.name == "Wubble Free" ?
             <></> :
             <Crown fill="white" size={18} />}
@@ -130,7 +130,7 @@ export default function PricingSection() {
   const [users, setUsers] = useState(1);
 
   return (
-    <section className="py-10 bg-black  w-full ">
+    <section className="py-10 bg-background w-full">
       <div className="w-full  mx-auto px-6">
         {/* Controls */}
         

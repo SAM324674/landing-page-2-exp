@@ -30,9 +30,9 @@ export default function RootLayout({
     <html lang="en">
       
         <body
-          className={`${raleway.className}  antialiased bg-black`}
+          className={`${raleway.className} antialiased`}
         >
-          <ThemeProvider >{children}</ThemeProvider>
+          <ThemeProvider>{children}</ThemeProvider>
         </body>
       
     </html>
