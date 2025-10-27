@@ -116,8 +116,8 @@ function FAQ1() {
     }
     return "light";
   };
-
-  const [theme, setTheme] = useState(getRootTheme);
+type ThemeKey = keyof typeof palettes;
+const [theme, setTheme] = useState<ThemeKey>(() => getRootTheme() as ThemeKey);
   const [introReady, setIntroReady] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const [hasEntered, setHasEntered] = useState(false);
@@ -303,7 +303,7 @@ function FAQ1() {
       /* ignore */
     }
   };
-  const toggleQuestion = (index) => setActiveIndex((prev) => (prev === index ? -1 : index));
+  const toggleQuestion = (index:any) => setActiveIndex((prev) => (prev === index ? -1 : index));
 
   useEffect(() => {
     if (typeof window === "undefined") {
@@ -311,7 +311,7 @@ function FAQ1() {
       return;
     }
 
-    let timeout;
+    let timeout:any;
     const onLoad = () => {
       timeout = window.setTimeout(() => setHasEntered(true), 120);
     };
@@ -328,14 +328,14 @@ function FAQ1() {
     };
   }, []);
 
-  const setCardGlow = (event) => {
+  const setCardGlow = (event:any) => {
     const target = event.currentTarget;
     const rect = target.getBoundingClientRect();
     target.style.setProperty("--faq-x", `${event.clientX - rect.left}px`);
     target.style.setProperty("--faq-y", `${event.clientY - rect.top}px`);
   };
 
-  const clearCardGlow = (event) => {
+  const clearCardGlow = (event:any) => {
     const target = event.currentTarget;
     target.style.removeProperty("--faq-x");
     target.style.removeProperty("--faq-y");
@@ -427,8 +427,8 @@ function FAQ1() {
                   aria-controls={panelId}
                   aria-expanded={open}
                   onClick={() => toggleQuestion(index)}
-                  style={{ "--faq-outline": theme === "dark" ? "rgba(255,255,255,0.35)" : "rgba(17,17,17,0.25)" }}
-                  className="relative flex w-full items-start gap-6 px-8 py-7 text-left transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--faq-outline)]"
+                  style={{ "--faq-outline": theme === "dark" ? "rgba(255,255,255,0.35)" : "rgba(17,17,17,0.25)" } as React.CSSProperties}
+                  className="relative flex w-full items-start gap-6 px-8 py-7 text-left transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--faq-outline)]"
                 >
                   <span
                     className={`relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full border transition-all duration-500 group-hover:scale-105 ${palette.iconRing} ${palette.iconSurface}`}

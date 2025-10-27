@@ -34,6 +34,10 @@ import {
 	LifeBuoy,
 	Building,
 	Heart,
+	BadgeDollarSign,
+	Microscope,
+	BookOpenTextIcon,
+	Newspaper,
 } from 'lucide-react';
 import {
 	Sheet,
@@ -189,46 +193,10 @@ export const pricingLinks: NavItemType[] = [
 
 export const companyLinks: NavItemType[] = [
 	{
-		title: 'About Us',
+		title: 'Pricing',
 		href: '#',
 		description: 'Learn more about our story and team',
-		icon: Users,
-	},
-	{
-		title: 'Customer Stories',
-		href: '#',
-		description: 'See how we’ve helped our clients succeed',
-		icon: Star,
-	},
-	{
-		title: 'Terms of Service',
-		href: '#',
-		description: 'Understand how we operate',
-		icon: FileText,
-	},
-	{
-		title: 'Privacy Policy',
-		href: '#',
-		description: 'How we protect your information',
-		icon: Shield,
-	},
-	{
-		title: 'Refund Policy',
-		href: '#',
-		description: 'Details about refunds and cancellations',
-		icon: RotateCcw,
-	},
-	{
-		title: 'Partnerships',
-		href: '#',
-		icon: Handshake,
-		description: 'Collaborate with us for mutual growth',
-	},
-	{
-		title: 'Blog',
-		href: '#',
-		icon: Leaf,
-		description: 'Insights, tutorials, and company news',
+		icon: DollarSign,
 	},
 	{
 		title: 'Help Center',
@@ -236,11 +204,32 @@ export const companyLinks: NavItemType[] = [
 		icon: HelpCircle,
 		description: 'Find answers to your questions',
 	},
+	{
+		title: 'Blog',
+		href: '#',
+		description: 'Understand how we operate',
+		icon: BookOpenTextIcon,
+	},
+	{
+		title: 'Case Studies',
+		href: '#',
+		description: 'How we protect your information',
+		icon: Microscope,
+	},
+	{
+		title: 'News Room',
+		href: '#',
+		description: 'Details about refunds and cancellations',
+		icon:Newspaper,
+	},
+	
+	
+	
 ];
 
 export default function Header() {
 	return (
-		<div className="fixed z-40 top-3 w-full px-4">
+		<div className="fixed z-50 top-3 w-full px-4">
 			{/* <div
 				aria-hidden="true"
 				className={cn(
@@ -352,9 +341,9 @@ function DesktopMenu() {
 						Resources
 					</NavigationMenuTrigger>
 					<NavigationMenuContent>
-						<div className="grid w-4xl md:grid-cols-[1fr_.40fr]">
-							<ul className="grid grow grid-cols-2 gap-4 p-4 md:border-r">
-								{companyLinks.slice(0, 2).map((link) => (
+						<div className="w-3xl md:grid-cols-[1fr_.40fr]">
+							<ul className="grid grid-cols-2 gap-4 p-4 md:border-r">
+								{companyLinks.slice(0,2).map((link) => (
 									<li key={link.href}>
 										<NavGridCard link={link} className="min-h-36" />
 									</li>

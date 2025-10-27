@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Carousel,
-  CarouselApi,
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
@@ -71,23 +70,22 @@ const Gallery6 = ({
     },
   ],
 }: Gallery6Props) => {
-  const [carouselApi, setCarouselApi] = useState<CarouselApi>();
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(false);
-  useEffect(() => {
-    if (!carouselApi) {
-      return;
-    }
-    const updateSelection = () => {
-      setCanScrollPrev(carouselApi.canScrollPrev());
-      setCanScrollNext(carouselApi.canScrollNext());
-    };
-    updateSelection();
-    carouselApi.on("select", updateSelection);
-    return () => {
-      carouselApi.off("select", updateSelection);
-    };
-  }, [carouselApi]);
+  // useEffect(() => {
+  //   if (!carouselApi) {
+  //     return;
+  //   }
+  //   const updateSelection = () => {
+  //     setCanScrollPrev(carouselApi.canScrollPrev());
+  //     setCanScrollNext(carouselApi.canScrollNext());
+  //   };
+  //   updateSelection();
+  //   carouselApi.on("select", updateSelection);
+  //   return () => {
+  //     carouselApi.off("select", updateSelection);
+  //   };
+  // }, [carouselApi]);
   return (
     <section className="py-32">
       <div className="container">
@@ -105,7 +103,7 @@ const Gallery6 = ({
             </a>
           </div>
           <div className="mt-8 flex shrink-0 items-center justify-start gap-2">
-            <Button
+            {/* <Button
               size="icon"
               variant="outline"
               onClick={() => {
@@ -126,20 +124,14 @@ const Gallery6 = ({
               className="disabled:pointer-events-auto"
             >
               <ArrowRight className="size-5" />
-            </Button>
+            </Button> */}
           </div>
         </div>
       </div>
       <div className="w-full">
         <Carousel
-          setApi={setCarouselApi}
-          opts={{
-            breakpoints: {
-              "(max-width: 768px)": {
-                dragFree: true,
-              },
-            },
-          }}
+          
+          
           className="relative left-[-1rem]"
         >
           <CarouselContent className="-mr-4 ml-8 2xl:ml-[max(8rem,calc(50vw-700px+1rem))] 2xl:mr-[max(0rem,calc(50vw-700px-1rem))]">

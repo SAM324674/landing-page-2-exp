@@ -27,7 +27,7 @@ export const discoverMoreProducts = [
     buttonText: "Open Studio",
     url: "#",
     image: '/Waveform.jpg',
-      Caption: "Reel generator"
+    Caption: "Reel generator"
   },
   {
     id: 2,
@@ -47,7 +47,7 @@ export const discoverMoreProducts = [
     buttonText: "Explore Library",
     url: "#",
     image: '/Waveform.jpg',
-     Caption: "A/B Audio tester"
+    Caption: "A/B Audio tester"
   },
   {
     id: 4,
@@ -67,7 +67,7 @@ export const discoverMoreProducts = [
     buttonText: "Try VoiceSync",
     url: "#",
     image: '/Waveform.jpg',
-     Caption: "A/B Audio tester"
+    Caption: "A/B Audio tester"
   },
   {
     id: 6,
@@ -88,7 +88,7 @@ export const discoverMoreProducts = [
     buttonText: "Start Team Trial",
     url: "#",
     image: '/Waveform.jpg',
-     Caption: "AI Audio cleaner"
+    Caption: "AI Audio cleaner"
   },
   {
     id: 8,
@@ -108,7 +108,8 @@ export const discoverMoreProducts = [
       "Track how your sound performs across videos, campaigns, and platforms — understand what resonates.",
     buttonText: "View Insights",
     url: "#",
-    image: '/Waveform.jpg'
+    image: '/Waveform.jpg',
+    Caption: "Auto - captioning "
   },
   {
     id: 10,
@@ -117,7 +118,8 @@ export const discoverMoreProducts = [
       "Connect your favorite tools — YouTube, Notion, Canva, or Adobe. Import visuals, export sound.",
     buttonText: "Explore Integrations",
     url: "#",
-    image: '/Waveform.jpg'
+    image: '/Waveform.jpg',
+    Caption: "AI Audio cleaner"
   },
   {
     id: 11,
@@ -126,7 +128,8 @@ export const discoverMoreProducts = [
       "Handle your usage rights effortlessly. Access all your royalty-free licenses in one secure dashboard.",
     buttonText: "Open Hub",
     url: "#",
-    image: '/Waveform.jpg'
+    image: '/Waveform.jpg',
+    Caption: "A/B Audio tester"
   },
   {
     id: 12,
@@ -135,7 +138,8 @@ export const discoverMoreProducts = [
       "Create music on the go. Voice ideas, describe moods, and generate sound from your phone.",
     buttonText: "Get the App",
     url: "#",
-    image: '/Waveform.jpg'
+    image: '/Waveform.jpg',
+    Caption: "AI Audio cleaner"
   },
 ];
 

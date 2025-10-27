@@ -3,7 +3,7 @@
 import * as React from "react"
 import { useState, useEffect, useRef } from "react";
 import { Lightbulb, Mic, Globe, Paperclip, Send } from "lucide-react";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion, Variants } from "motion/react";
  
 const PLACEHOLDERS = [
   "Create a 30-second ad for a new sci-fi movie, with an epic score, a deep male voiceover, and a spaceship fly-by SFX at the end.",
@@ -50,7 +50,7 @@ const AIChatInput = () => {
  
   const handleActivate = () => setIsActive(true);
  
-  const containerVariants = {
+  const containerVariants:Variants = {
     collapsed: {
       height: 68,
       boxShadow: "0 2px 8px 0 rgba(0,0,0,0.08)",
@@ -69,7 +69,7 @@ const AIChatInput = () => {
     exit: { transition: { staggerChildren: 0.015, staggerDirection: -1 } },
   };
  
-  const letterVariants = {
+  const letterVariants:Variants = {
     initial: {
       opacity: 0,
       filter: "blur(12px)",

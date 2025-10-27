@@ -84,8 +84,8 @@ function HoverFooter() {
   const Underline = `hover:-translate-y-1 border border-dotted rounded-xl p-2.5 transition-transform bg-[#9598B5]/30 backdrop-blur-md `;
 
   return (
-    <footer className="bg-background/30 relative h-fit rounded-3xl overflow-hidden m-8 border border-border">
-      <div className="max-w-7xl mx-auto p-14 z-50 relative">
+    <footer className="bg-background/30 relative  rounded-3xl overflow-hidden m-8 border w-full border-border ">
+      <div className="w-full mx-auto p-14 z-50 relative">
         {/* Adjusted grid to accommodate 7 columns (Brand + 6 new columns) */}
         <div className="flex gap-10 md:gap-8 lg:gap-16 pb-12">
 
@@ -122,7 +122,7 @@ function HoverFooter() {
           because all content is now driven by 'wubbleFooterData'. */}
         </div>
 
-        <hr className="border-t border-gray-700 my-8" />
+        <hr className="border-t border-gray-400 my-8" />
 
         {/* Footer bottom (Social icons and Copyright) - kept original social icons for now */}
         <div className="relative z-30 flex flex-col md:flex-row justify-between items-center text-sm space-y-4 md:space-y-0">

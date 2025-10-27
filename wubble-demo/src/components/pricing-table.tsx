@@ -92,12 +92,12 @@ export function PricingTable({
           <div className="overflow-x-auto">
             <div className="min-w-[640px] divide-y divide-zinc-200 dark:divide-zinc-800">
               <div className="flex items-center p-4 bg-zinc-50 dark:bg-zinc-900">
-                <div className="flex-1 text-sm font-medium">Features</div>
+                <div className="flex-1 text-sm font-[600]">Features</div>
                 <div className="flex items-center gap-8 text-sm">
                   {plans.map((plan) => (
                     <div
                       key={plan.level}
-                      className="w-16 text-center font-medium"
+                      className="w-16 text-center font-[600]"
                     >
                       {plan.name}
                     </div>
@@ -142,7 +142,7 @@ export function PricingTable({
         <div className="mt-8 text-center">
           <Button
             className={cn(
-              "w-full sm:w-auto bg-primary  hover:bg-[#7076E30]/80 px-8 py-2 rounded-[10px] text-white font-[600] ",
+              " sm:w-auto bg-primary text-[16px] font-[600] leading-[150%] tracking-[0%] w-[230px] h-[56px]  hover:bg-[#7076E30]/80 px-8 py-2 rounded-[10px] text-white ",
               buttonClassName,
             )}
           >

@@ -1,37 +1,25 @@
-import { PromptInputBox } from "@/components/ai-prompt-box";
-import { HeroSection } from "@/components/hero-section-1";
 import { AnimatedGroup } from "@/components/ui/animated-group";
-import { MusicCard } from "@/components/card-6";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/tabs";
 import HoverFooter from "@/components/footer-7";
-import { FeaturesCard } from "@/components/card-21";
 import PricingSection from "@/components/pricing-section";
-import { Montserrat } from "next/font/google";
 // import { Accordion } from "@/components/ui/accordion";
-import { Accordion, AccordionContent, AccordionItem } from "@/components/ui/accordion";
-import * as AccordionPrimitive from "@radix-ui/react-accordion";
 
-import { Plus } from "lucide-react";
-import ClientCompany from "@/components/LandingPage/ClientCompany";
+
 import { Button } from "@/components/ui/button";
-import ShaderCanvas from "@/components/kaleidoscopic-orb-mesh-1";
-import LiquidCrystalBackground from "@/components/liquid-neon-shader";
-import MusicSectionCarousel from "@/components/MusicSectionCarousel";
-import AuroraWaves from "@/components/aurora-waves";
-import FeaturesCarousel from "@/components/FeaturesCarousel2";
+
+
 import CreatorCarousel from "@/components/LandingPage/CreatorCarousel";
 import { Card } from "@/components/ui/card";
 import DiscoverMore from "@/components/DiscoverMore";
 import FeaturesCarousel2 from "@/components/FeaturesCarousel2";
-import FeaturesCarousel1 from "@/components/FeaturesCarousel1";
+
 import Header from "@/components/navbar";
 import { HeroWave } from "@/components/ai-input-hero";
 import Testimonial1 from "@/components/testimonial-1";
 import { PillsTabs } from "@/components/PillTabs";
-import CircularGalleryDemo from "@/components/FeaturesCarousel1";
+
 import FeatureCircularGallery from "@/components/FeaturesCarousel1";
 import { FeatureSection } from "@/components/LandingPage/FeatureSection";
-import { PricingTable } from "@/components/pricing-table";
+
 import LatestUpdates from "@/components/LatestUpdates";
 import FAQ1 from "@/components/faq-monocrhome";
 import { WavePath } from "@/components/wave-path";
@@ -57,7 +45,7 @@ const transitionVariants = {
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen w-full bg-background">
+    <div className="flex flex-col min-h-screen bg-background w-full">
       {/* Header */}
       <Header />
 
@@ -167,27 +155,21 @@ export default function Home() {
           <h1 className="text-[40px]  font-[400] text-center">Frequently asked questions</h1>
           <FAQ1 />
         </section>
-        <AnimatedGroup className="w-full flex flex-col items-center h-[25rem]">
+        <div className="w-full flex flex-col items-center h-[30rem] relative bg-gradient-to-bl from-[#a855f7] via-[#c084fc] to-[#e879f9] justify-center space-y-[2rem] ">
 
           {/* <WavePath /> */}
-          <div className="flex w-[70vw] flex-col items-center space-y-10">
-            <WavePath className="mb-10" />
-            <div className="flex w-full flex-col items-end">
-              <div className="flex ">
-                <p className="text-muted-foreground mt-2 text-sm">World of Art</p>
-                <p className="text-foreground/80 ml-8 w-3/4 text-2xl md:text-4xl">
-                  Experience the emotions of artists through their works. Let the
-                  beauty of art inspire you and fill your soul.
-                </p>
-              </div>
-            </div>
-            <Button>Get Started for Free</Button>
-          </div>
-        </AnimatedGroup>
+          {/* <div className="flex max-w-full flex-col justify-center items-center space-y-10  h-[20rem] mt-[10rem] bg-gradient-to-l  from-[#a855f7] via-[#c084fc] to-[#e879f9]"> */}
+            <WavePath className="" />
+              <p className="text-2xl md:text-4xl text-background">
+                Start Creating with Wubble
+              </p>
+            <Button className="bg-background text-[16px] font-[600] text-foreground leading-[150%] tracking-[0%] w-[230px] h-[56px]">Get Started for Free</Button>
+          {/* </div> */}
+        </div>
       </main>
 
       {/* Footer */}
-      <div className="p-3">
+      <div className="flex justify-center w-full items-center">
         <HoverFooter />
       </div>
 

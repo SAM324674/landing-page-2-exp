@@ -10,12 +10,12 @@ import {
   CarouselItem,
   CarouselNavigation,
 } from "@/components/ui/carousel";
-import type { CarouselApi } from "@/components/ui/carousel";
+// import type { CarouselApi } from "@/components/ui/carousel";
 import Image from "next/image";
 import Link from "next/link";
 
 interface GalleryHoverCarouselItem {
-  id: string;
+  id: number;
   title: string;
   summary: string;
   url: string;
@@ -28,53 +28,53 @@ export default function GalleryHoverCarousel({
   demoUrl = "#",
   items = [
     {
-      id: "item-1",
+      id: 1,
       title: "Build Modern UIs",
       summary:
         "Create stunning user interfaces with our comprehensive design system.",
       url: "#",
       image:
-        "https://pub-940ccf6255b54fa799a9b01050e6c227.r2.dev/dashboard-02.png",
+        "./Discover.png",
       Caption: "Reel generator"
     },
     {
-      id: "item-2",
+      id: 2,
       title: "Computer Vision Technology",
       summary:
         "Powerful image recognition and processing capabilities that allow AI systems to analyze, understand, and interpret visual information from the world.",
       url: "#",
       image:
-        "https://pub-940ccf6255b54fa799a9b01050e6c227.r2.dev/dashboard-gradient.png",
+        "./Discover.png",
       Caption: "Auto - captioning "
     },
     {
-      id: "item-3",
+      id: 3,
       title: "Machine Learning Automation",
       summary:
         "Self-improving algorithms that learn from data patterns to automate complex tasks and make intelligent decisions with minimal human intervention.",
       url: "#",
       image:
-        "https://pub-940ccf6255b54fa799a9b01050e6c227.r2.dev/featured-01.png",
+        "./Discover.png",
       Caption: "A/B Audio tester"
     },
     {
-      id: "item-4",
+      id: 4,
       title: "Predictive Analytics",
       summary:
         "Advanced forecasting capabilities that analyze historical data to predict future trends and outcomes, helping businesses make data-driven decisions.",
       url: "#",
       image:
-        "https://pub-940ccf6255b54fa799a9b01050e6c227.r2.dev/featured-06.png",
+        "./Discover.png",
       Caption: "AI Audio cleaner"
     },
     {
-      id: "item-5",
+      id: 5,
       title: "Neural Network Architecture",
       summary:
         "Sophisticated AI models inspired by human brain structure, capable of solving complex problems through deep learning and pattern recognition.",
       url: "#",
       image:
-        "https://pub-940ccf6255b54fa799a9b01050e6c227.r2.dev/Screenshot%202025-08-05%20at%2021-15-55%20Ruixen%20-%20Beautifully%20crafted%20UI%20components%20to%20elevate%20your%20web%20projects.png",
+        "./Discover.png",
       Caption: "A/B Audio tester"
     }
   ],
@@ -83,23 +83,23 @@ export default function GalleryHoverCarousel({
   demoUrl?: string;
   items?: GalleryHoverCarouselItem[];
 }) {
-  const [carouselApi, setCarouselApi] = useState<CarouselApi>();
+  // const [carouselApi, setCarouselApi] = useState<CarouselApi>();
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(false);
 
   // Carousel scroll tracking
-  useEffect(() => {
-    if (!carouselApi) return;
-    const update = () => {
-      setCanScrollPrev(carouselApi.canScrollPrev());
-      setCanScrollNext(carouselApi.canScrollNext());
-    };
-    update();
-    carouselApi.on("select", update);
-    return () => {
-      carouselApi.off("select", update);
-    };
-  }, [carouselApi]);
+  // useEffect(() => {
+  //   if (!carouselApi) return;
+  //   const update = () => {
+  //     setCanScrollPrev(carouselApi.canScrollPrev());
+  //     setCanScrollNext(carouselApi.canScrollNext());
+  //   };
+  //   update();
+  //   carouselApi.on("select", update);
+  //   return () => {
+  //     carouselApi.off("select", update);
+  //   };
+  // }, [carouselApi]);
 
   return (
     <section className="py-2 bg-background">

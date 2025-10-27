@@ -26,7 +26,6 @@ export type StoriesProps = ComponentProps<typeof Carousel> & {
 
 export const Stories = ({
   className,
-  opts,
   showNavigation = true,
   children,
   ...props
@@ -34,12 +33,12 @@ export const Stories = ({
   <div className="relative w-full flex justify-center items-center">
     <Carousel
       className={cn('w-full', className)}
-      opts={{
-        align: 'start',
-        loop: false,
-        dragFree: true,
-        ...opts,
-      }}
+      // opts={{
+      //   align: 'start',
+      //   loop: false,
+      //   dragFree: true,
+      //   ...opts,
+      // }}
       {...props}
     >
       {children}

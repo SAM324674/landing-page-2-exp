@@ -28,9 +28,8 @@ const plans = [
   },
   {
     name: "Wubble Pro",
-    description: [
-      "For professionals growing their brand or studio with premium audio features."
-    ],
+    description: 
+      "For professionals growing their brand or studio with premium audio features.",
     buttonText: "Start free Pro trial",
     level:"pro",
     badge: "For one person "

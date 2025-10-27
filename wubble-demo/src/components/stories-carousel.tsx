@@ -21,15 +21,15 @@ export function cn(...inputs: ClassValue[]) {
 
 export type StoriesProps = ComponentProps<typeof Carousel>;
 
-export const Stories = ({ className, opts, ...props }: StoriesProps) => (
+export const Stories = ({ className, ...props }: StoriesProps) => (
   <Carousel
     className={cn('w-full', className)}
-    opts={{
-      align: 'start',
-      loop: false,
-      dragFree: true,
-      ...opts,
-    }}
+    // opts={{
+    //   align: 'start',
+    //   loop: false,
+    //   dragFree: true,
+    //   ...opts,
+    // }}
     {...props}
   />
 );

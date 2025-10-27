@@ -68,15 +68,15 @@ export function WavePath({ className, ...props }: WWavePathProps) {
 	};
 
 	return (
-		<div className={cn('relative h-px w-full ', className)} {...props}>
+		<div className={cn('relative h-px w-full  ', className)} {...props}>
 			<div
 				onMouseEnter={manageMouseEnter}
 				onMouseMove={manageMouseMove}
 				onMouseLeave={manageMouseLeave}
-				className="relative -top-5 z-10 h-10 w-full hover:-top-[150px] hover:h-[300px] "
+				className="relative -top-5 z-10 h-10  hover:-top-[150px] hover:h-[300px] "
 			/>
-			<svg className="absolute -top-[100px] h-[300px] w-full">
-				<path ref={path} className="fill-none stroke-current" strokeWidth={2} />
+			<svg className="absolute -top-[100px] h-[300px] w-full pl-[15rem] ">
+				<path ref={path} className="fill-none  stroke-white" strokeWidth={2} />
 			</svg>
 		</div>
 	);
