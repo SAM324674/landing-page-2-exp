@@ -23,6 +23,7 @@ import { FeatureSection } from "@/components/LandingPage/FeatureSection";
 import LatestUpdates from "@/components/LatestUpdates";
 import FAQ1 from "@/components/faq-monocrhome";
 import { WavePath } from "@/components/wave-path";
+import { SplashCursor } from "@/components/ui/splash-cursor";
 const transitionVariants = {
   item: {
     hidden: {
@@ -50,16 +51,18 @@ export default function Home() {
       <Header />
 
       {/* Main content */}
-      <main className={`flex-1 w-full flex flex-col items-center`}>
+      <main className={`flex-1 w-full flex flex-col items-center overflow-hidden`}>
         {/* Hero Section */}
 
         <AnimatedGroup className="w-full">
 
-          <div className="w-full left-0 bg-background backdrop-blur-sm flex flex-col items-center">
+          <div className="relative  z-40 w-full left-0 bg-background backdrop-blur-sm flex flex-col items-center border-black h-[40rem] pt-[5rem]">
             {/* <HeroSection /> */}
             <HeroWave />
-          </div>
+            <SplashCursor/>
+          <div className="absolute bg-gradient-to-t from-background via-white to-transparent  w-full h-[6rem]  border-red-300 -bottom-[6rem] z-50 "/>
 
+          </div>
         </AnimatedGroup>
         <div className="w-full absolute h-[5rem] bg-gradient-to-b from-transparent to-background top-[42rem]" />
         {/* Client Companies */}
@@ -72,7 +75,7 @@ export default function Home() {
             },
             ...transitionVariants,
           }}
-          className="w-full mt-[8rem]">
+          className="w-full mt-[5rem]">
           <Testimonial1 />
         </AnimatedGroup>
 
