@@ -7,7 +7,7 @@ import PricingSection from "@/components/pricing-section";
 import { Button } from "@/components/ui/button";
 
 
-import CreatorCarousel from "@/components/LandingPage/CreatorCarousel";
+import CreatorCarousel from "@/components/CreatorCarousel";
 import { Card } from "@/components/ui/card";
 import DiscoverMore from "@/components/DiscoverMore";
 import FeaturesCarousel2 from "@/components/FeaturesCarousel2";
@@ -18,7 +18,7 @@ import Testimonial1 from "@/components/testimonial-1";
 import { PillsTabs } from "@/components/PillTabs";
 
 import FeatureCircularGallery from "@/components/FeaturesCarousel1";
-import { FeatureSection } from "@/components/LandingPage/FeatureSection";
+import { FeatureSection } from "@/components/FeatureSection";
 
 import LatestUpdates from "@/components/LatestUpdates";
 import FAQ1 from "@/components/faq-monocrhome";

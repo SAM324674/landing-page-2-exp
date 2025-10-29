@@ -117,15 +117,19 @@ export type CarouselNavigationProps = {
   className?: string;
   classNameButton?: string;
   alwaysShow?: boolean;
+  LastdisableLimit?:number;
 };
 
 function CarouselNavigation({
   className,
   classNameButton,
   alwaysShow,
+  LastdisableLimit
 }: CarouselNavigationProps) {
   const { index, setIndex, itemsCount } = useCarousel();
-
+  if(!LastdisableLimit){
+    LastdisableLimit=1;
+  }
   return (
     <div
       className={cn(
@@ -142,8 +146,8 @@ function CarouselNavigation({
             ? 'opacity-100'
             : 'opacity-0 group-hover/hover:opacity-100',
           alwaysShow
-            ? 'disabled:opacity-40'
-            : 'group-hover/hover:disabled:opacity-40',
+            ? 'disabled:opacity-0'
+            : 'group-hover/hover:disabled:opacity-0',
           classNameButton
         )}
         disabled={index === 0}
@@ -171,7 +175,7 @@ function CarouselNavigation({
           classNameButton
         )}
         aria-label='Next slide'
-        disabled={index + 1 === itemsCount}
+        disabled={index + LastdisableLimit === itemsCount}
         onClick={() => {
           if (index < itemsCount - 1) {
             setIndex(index + 1);

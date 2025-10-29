@@ -2,14 +2,18 @@ import * as React from "react";
 import { cn } from "@/lib/utils"; // Your utility for merging class names
 import { ArrowRight } from "lucide-react";
 
-// Define the props for the BlogCard component
-interface DestinationCardProps extends React.HTMLAttributes<HTMLDivElement> {
+// Define the props for the PotraitCard component
+interface PotraitCardProps extends React.HTMLAttributes<HTMLDivElement> {
   imageUrl: string;
-   // e.g., "150 50% 25%" for a deep green
+  // location: string;
+  // flag: string;
+  // stats: string;
+  // href: string;
+  // themeColor: string; // e.g., "150 50% 25%" for a deep green
 }
 
-const FeaturesCard = React.forwardRef<HTMLDivElement, DestinationCardProps>(
-  ({ className, imageUrl, ...props }, ref) => {
+const PotraitCard = React.forwardRef<HTMLDivElement, PotraitCardProps>(
+  ({ className, imageUrl,...props }, ref) => {
     return (
       // The 'group' class enables hover effects on child elements
       <div
@@ -18,15 +22,15 @@ const FeaturesCard = React.forwardRef<HTMLDivElement, DestinationCardProps>(
           // @ts-ignore - CSS custom properties are valid
           // "--theme-color": themeColor,
         } as React.CSSProperties}
-        className={cn("group w-full h-[25rem]", className)}
+        className={cn("group w-full h-full", className)}
         {...props}
       >
         <a
-          // href={href}
+          href="#"
           className="relative block w-full h-full rounded-2xl overflow-hidden shadow-lg 
                      transition-all duration-500 ease-in-out 
                      group-hover:scale-105 group-hover:shadow-[0_0_60px_-15px_hsl(var(--theme-color)/0.6)]"
-          aria-label={`Explore details`}
+          // aria-label={`Explore details for ${location}`}
           style={{
              boxShadow: `0 0 40px -15px hsl(var(--theme-color) / 0.5)`
           }}
@@ -47,26 +51,26 @@ const FeaturesCard = React.forwardRef<HTMLDivElement, DestinationCardProps>(
           />
           
           {/* Content */}
-          <div className="relative flex flex-col justify-end h-full p-6 text-white">
+          {/* <div className="relative flex flex-col justify-end h-full p-6 text-white">
             <h3 className="text-3xl font-bold tracking-tight">
-              {} <span className="text-2xl ml-1">{}</span>
+              {location} <span className="text-2xl ml-1">{flag}</span>
             </h3>
-            <p className="text-sm text-white/80 mt-1 font-medium">{}</p>
+            <p className="text-sm text-white/80 mt-1 font-medium">{stats}</p> */}
 
             {/* Explore Button */}
-            <div className="mt-8 flex items-center justify-between bg-[hsl(var(--theme-color)/0.2)] backdrop-blur-md border border-[hsl(var(--theme-color)/0.3)] 
+            {/* <div className="mt-8 flex items-center justify-between bg-[hsl(var(--theme-color)/0.2)] backdrop-blur-md border border-[hsl(var(--theme-color)/0.3)] 
                            rounded-lg px-4 py-3 
                            transition-all duration-300 
                            group-hover:bg-[hsl(var(--theme-color)/0.4)] group-hover:border-[hsl(var(--theme-color)/0.5)]">
               <span className="text-sm font-semibold tracking-wide">Explore Now</span>
               <ArrowRight className="h-4 w-4 transform transition-transform duration-300 group-hover:translate-x-1" />
             </div>
-          </div>
+          </div> */}
         </a>
       </div>
     );
   }
 );
-FeaturesCard.displayName = "Features";
+PotraitCard.displayName = "PotraitCard";
 
-export { FeaturesCard };
+export { PotraitCard };

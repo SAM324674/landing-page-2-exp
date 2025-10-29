@@ -1,7 +1,6 @@
-"use client"
 import * as React from "react";
-import { motion } from "framer-motion";
-import { Download, Play } from "lucide-react";
+import { HTMLMotionProps, motion, Variants } from "framer-motion";
+import { Play } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
@@ -13,25 +12,26 @@ import { cn } from "@/lib/utils";
  * @property {string} songTitle - The title of the song.
  * @property {() => void} [onPlay] - Optional callback for the play button's click event.
  */
-interface MusicCardProps extends React.HTMLAttributes<HTMLDivElement> {
+interface MusicCardProps extends HTMLMotionProps<"div"> {
   imageUrl: string;
-
+  title: string;
+  artist: string;
   songTitle: string;
   onPlay?: () => void;
 }
 
 const MusicCard = React.forwardRef<HTMLDivElement, MusicCardProps>(
-  ({ className, imageUrl, songTitle, onPlay, ...props }, ref) => {
+  ({ className, imageUrl, title, artist, songTitle, onPlay, ...props }, ref) => {
     // Animation variants for the main card container
-    const cardVariants = {
+    const cardVariants:Variants = {
       initial: { scale: 1 },
-      hover: { scale: 1.03, transition: { type: "spring" as const, stiffness: 300, damping: 20 } },
+      hover: { scale: 1.03, transition: { type: "spring", stiffness: 300, damping: 20 } },
     };
 
     // Parallax effect for the background image
-    const imageVariants = {
+    const imageVariants:Variants= {
       initial: { scale: 1.1 },
-      hover: { scale: 1, transition: { type: "spring" as const, stiffness: 300, damping: 20 } },
+      hover: { scale: 1, transition: { type: "spring", stiffness: 300, damping: 20 } },
     };
 
     // Fade-in and scale animation for the play button
@@ -45,18 +45,18 @@ const MusicCard = React.forwardRef<HTMLDivElement, MusicCardProps>(
       <motion.div
         ref={ref}
         className={cn(
-          "relative h-64 w-full max-w-xs cursor-pointer overflow-hidden rounded-2xl  bg-card shadow-lg",
+          "relative h-64 w-full max-w-xs cursor-pointer overflow-hidden rounded-2xl border bg-card shadow-lg",
           className
         )}
         variants={cardVariants}
         initial="initial"
-        whileHover="hover"
-        {...Object.fromEntries(Object.entries(props).filter(([key]) => key !== "onDrag"))}
+       whileHover={{ scale: 1.01, boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)" }}
+        {...props}
       >
         {/* Background Image */}
         <motion.img
           src={imageUrl}
-          alt={` ${songTitle}`}
+          alt={`${artist} - ${songTitle}`}
           className="absolute inset-0 h-full w-full object-cover"
           variants={imageVariants}
         />
@@ -68,8 +68,8 @@ const MusicCard = React.forwardRef<HTMLDivElement, MusicCardProps>(
         <div className="relative z-10 flex h-full flex-col justify-end p-5">
           <div className="flex items-end justify-between gap-4">
             <div className="flex flex-col">
-              {/* <h3 className="text-lg font-bold text-primary-foreground">{title}</h3> */}
-              <p className="text-sm text-primary-foreground/80">{` ${songTitle}`}</p>
+              <h3 className="text-lg font-bold text-primary-foreground">{title}</h3>
+              <p className="text-sm text-primary-foreground/80">{`${artist} - ${songTitle}`}</p>
             </div>
             <motion.button
               onClick={(e) => {
@@ -82,21 +82,6 @@ const MusicCard = React.forwardRef<HTMLDivElement, MusicCardProps>(
               whileTap="tap"
             >
               <Play className="h-6 w-6 translate-x-px fill-current" />
-             
-            </motion.button>
-             <motion.button
-              onClick={(e) => {
-                e.stopPropagation(); // Prevent card's onClick if button is clicked
-                onPlay?.();
-              }}
-              
-              className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg"
-            
-              whileTap="tap"
-            >
-              
-             <Download className="h-6 w-6 translate-x-px"/>
-             
             </motion.button>
           </div>
         </div>
