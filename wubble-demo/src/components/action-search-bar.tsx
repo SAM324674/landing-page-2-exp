@@ -96,7 +96,7 @@ function ActionSearchBar({ actions = allActions }: { actions?: Action[] }) {
     // const [searchTerm, setSearchTerm] = useState('');
 
     const handleSelectChip = (label: string) => {
-        setSearchTerm(label);
+        // setSearchTerm(label);
         setIsExpanded(false);
     }
     const [query, setQuery] = useState("");
