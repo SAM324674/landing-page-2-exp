@@ -33,7 +33,8 @@ import {
   Integration,
 } from "@carbon/icons-react";
 import Link from "next/link";
-import { LayoutTemplateIcon } from "lucide-react";
+import { ChevronLeft, ChevronRight, GraduationCap, Home, icons, LayoutTemplateIcon, LibrarySquare, Lightbulb, Menu, Settings } from "lucide-react";
+import { FolderClosed } from "dicons";
 
 /** ======================= Local SVG paths (inline) ======================= */
 const svgPaths = {
@@ -126,21 +127,18 @@ function SearchContainer({ isCollapsed = false }: { isCollapsed?: boolean }) {
 
   return (
     <div
-      className={`relative shrink-0 transition-all duration-500 ${
-        isCollapsed ? "w-full flex justify-center" : "w-full"
-      }`}
+      className={`relative shrink-0 transition-all duration-500 ${isCollapsed ? "hidden justify-center" : "w-full"
+        }`}
       style={{ transitionTimingFunction: softSpringEasing }}
     >
       <div
-        className={`bg-background h-10 relative rounded-lg flex items-center transition-all duration-500 ${
-          isCollapsed ? "w-10 min-w-10 justify-center" : "w-full"
-        }`}
+        className={`bg-background h-10 relative rounded-lg flex items-center transition-all duration-500 ${isCollapsed ? "w-10 min-w-10 justify-center" : "w-full"
+          }`}
         style={{ transitionTimingFunction: softSpringEasing }}
       >
         <div
-          className={`flex items-center justify-center shrink-0 transition-all duration-500 ${
-            isCollapsed ? "p-1" : "px-1"
-          }`}
+          className={`flex items-center justify-center shrink-0 transition-all duration-500  ${isCollapsed ? "p-1" : "px-1"
+            }`}
           style={{ transitionTimingFunction: softSpringEasing }}
         >
           <div className="size-8 flex items-center justify-center">
@@ -149,9 +147,8 @@ function SearchContainer({ isCollapsed = false }: { isCollapsed?: boolean }) {
         </div>
 
         <div
-          className={`flex-1 relative transition-opacity duration-500 overflow-hidden ${
-            isCollapsed ? "opacity-0 w-0" : "opacity-100"
-          }`}
+          className={`flex-1 relative transition-opacity duration-500 overflow-hidden ${isCollapsed ? "opacity-0 w-0" : "opacity-100"
+            }`}
           style={{ transitionTimingFunction: softSpringEasing }}
         >
           <div className="flex flex-col justify-center size-full">
@@ -197,8 +194,8 @@ interface SidebarContent {
 
 function getSidebarContent(activeSection: string): SidebarContent {
   const contentMap: Record<string, SidebarContent> = {
-    dashboard: {
-      title: "Dashboard",
+    home: {
+      title: "Home",
       sections: [
         {
           title: "Dashboard Types",
@@ -306,9 +303,8 @@ function getSidebarContent(activeSection: string): SidebarContent {
         },
       ],
     },
-
-    tasks: {
-      title: "Tasks",
+    projects: {
+      title: "Projects",
       sections: [
         {
           title: "Quick Actions",
@@ -369,8 +365,70 @@ function getSidebarContent(activeSection: string): SidebarContent {
       ],
     },
 
-    projects: {
-      title: "Projects",
+    templates: {
+      title: "Templates",
+      sections: [
+        {
+          title: "Quick Actions",
+          items: [
+            { icon: <AddLarge size={16} className="text-foreground" />, label: "New task" },
+            { icon: <Filter size={16} className="text-foreground" />, label: "Filter tasks" },
+          ],
+        },
+        {
+          title: "My Tasks",
+          items: [
+            {
+              icon: <Time size={16} className="text-foreground" />,
+              label: "Due today",
+              hasDropdown: true,
+              children: [
+                { icon: <Flag size={14} className="text-neutral-300" />, label: "Review design mockups" },
+                { icon: <CheckmarkOutline size={14} className="text-neutral-300" />, label: "Update documentation" },
+                { icon: <InProgress size={14} className="text-neutral-300" />, label: "Test new feature" },
+              ],
+            },
+            {
+              icon: <InProgress size={16} className="text-foreground" />,
+              label: "In progress",
+              hasDropdown: true,
+              children: [
+                { icon: <Task size={14} className="text-neutral-300" />, label: "Implement user auth" },
+                { icon: <Task size={14} className="text-neutral-300" />, label: "Database migration" },
+              ],
+            },
+            {
+              icon: <CheckmarkOutline size={16} className="text-foreground" />,
+              label: "Completed",
+              hasDropdown: true,
+              children: [
+                { icon: <CheckmarkOutline size={14} className="text-neutral-300" />, label: "Fixed login bug" },
+                { icon: <CheckmarkOutline size={14} className="text-neutral-300" />, label: "Updated dependencies" },
+                { icon: <CheckmarkOutline size={14} className="text-neutral-300" />, label: "Code review completed" },
+              ],
+            },
+          ],
+        },
+        {
+          title: "Other",
+          items: [
+            {
+              icon: <Flag size={16} className="text-foreground" />,
+              label: "Priority tasks",
+              hasDropdown: true,
+              children: [
+                { icon: <Flag size={14} className="text-red-400" />, label: "Security update" },
+                { icon: <Flag size={14} className="text-orange-400" />, label: "Client presentation" },
+              ],
+            },
+            { icon: <Archive size={16} className="text-foreground" />, label: "Archived" },
+          ],
+        },
+      ],
+    },
+
+    brandKits: {
+      title: "Brand Kits",
       sections: [
         {
           title: "Quick Actions",
@@ -413,8 +471,8 @@ function getSidebarContent(activeSection: string): SidebarContent {
       ],
     },
 
-    calendar: {
-      title: "Calendar",
+    library: {
+      title: "Library",
       sections: [
         {
           title: "Views",
@@ -450,45 +508,45 @@ function getSidebarContent(activeSection: string): SidebarContent {
       ],
     },
 
-    teams: {
-      title: "Teams",
-      sections: [
-        {
-          title: "My Teams",
-          items: [
-            {
-              icon: <Group size={16} className="text-foreground" />,
-              label: "Development Team",
-              hasDropdown: true,
-              children: [
-                { icon: <UserIcon size={14} className="text-neutral-300" />, label: "John Doe (Lead)" },
-                { icon: <UserIcon size={14} className="text-neutral-300" />, label: "Jane Smith" },
-                { icon: <UserIcon size={14} className="text-neutral-300" />, label: "Mike Johnson" },
-              ],
-            },
-            {
-              icon: <Group size={16} className="text-foreground" />,
-              label: "Design Team",
-              hasDropdown: true,
-              children: [
-                { icon: <UserIcon size={14} className="text-neutral-300" />, label: "Sarah Wilson" },
-                { icon: <UserIcon size={14} className="text-neutral-300" />, label: "Tom Brown" },
-              ],
-            },
-          ],
-        },
-        {
-          title: "Quick Actions",
-          items: [
-            { icon: <AddLarge size={16} className="text-foreground" />, label: "Invite member" },
-            { icon: <UserMultiple size={16} className="text-foreground" />, label: "Manage teams" },
-          ],
-        },
-      ],
-    },
+    // teams: {
+    //   title: "Teams",
+    //   sections: [
+    //     {
+    //       title: "My Teams",
+    //       items: [
+    //         {
+    //           icon: <Group size={16} className="text-foreground" />,
+    //           label: "Development Team",
+    //           hasDropdown: true,
+    //           children: [
+    //             { icon: <UserIcon size={14} className="text-neutral-300" />, label: "John Doe (Lead)" },
+    //             { icon: <UserIcon size={14} className="text-neutral-300" />, label: "Jane Smith" },
+    //             { icon: <UserIcon size={14} className="text-neutral-300" />, label: "Mike Johnson" },
+    //           ],
+    //         },
+    //         {
+    //           icon: <Group size={16} className="text-foreground" />,
+    //           label: "Design Team",
+    //           hasDropdown: true,
+    //           children: [
+    //             { icon: <UserIcon size={14} className="text-neutral-300" />, label: "Sarah Wilson" },
+    //             { icon: <UserIcon size={14} className="text-neutral-300" />, label: "Tom Brown" },
+    //           ],
+    //         },
+    //       ],
+    //     },
+    //     {
+    //       title: "Quick Actions",
+    //       items: [
+    //         { icon: <AddLarge size={16} className="text-foreground" />, label: "Invite member" },
+    //         { icon: <UserMultiple size={16} className="text-foreground" />, label: "Manage teams" },
+    //       ],
+    //     },
+    //   ],
+    // },
 
-    analytics: {
-      title: "Analytics",
+    learn: {
+      title: "Learn",
       sections: [
         {
           title: "Reports",
@@ -515,43 +573,6 @@ function getSidebarContent(activeSection: string): SidebarContent {
         },
       ],
     },
-
-    files: {
-      title: "Files",
-      sections: [
-        {
-          title: "Quick Actions",
-          items: [
-            { icon: <CloudUpload size={16} className="text-foreground" />, label: "Upload file" },
-            { icon: <AddLarge size={16} className="text-foreground" />, label: "New folder" },
-          ],
-        },
-        {
-          title: "Recent Files",
-          items: [
-            {
-              icon: <DocumentAdd size={16} className="text-foreground" />,
-              label: "Recent documents",
-              hasDropdown: true,
-              children: [
-                { icon: <DocumentAdd size={14} className="text-neutral-300" />, label: "Project proposal.pdf" },
-                { icon: <DocumentAdd size={14} className="text-neutral-300" />, label: "Meeting notes.docx" },
-                { icon: <DocumentAdd size={14} className="text-neutral-300" />, label: "Design specs.figma" },
-              ],
-            },
-            { icon: <Share size={16} className="text-foreground" />, label: "Shared with me" },
-          ],
-        },
-        {
-          title: "Organization",
-          items: [
-            { icon: <Folder size={16} className="text-foreground" />, label: "All folders" },
-            { icon: <Archive size={16} className="text-foreground" />, label: "Archived files" },
-          ],
-        },
-      ],
-    },
-
     settings: {
       title: "Settings",
       sections: [
@@ -583,7 +604,7 @@ function getSidebarContent(activeSection: string): SidebarContent {
     },
   };
 
-  return contentMap[activeSection] || contentMap.tasks;
+  return contentMap[activeSection] || contentMap.templates;
 }
 
 /* ---------------------------- Left Icon Nav Rail -------------------------- */
@@ -601,7 +622,7 @@ function IconNavButton({
     <button
       type="button"
       className={`flex items-center justify-center rounded-lg size-10 min-w-10 transition-colors duration-500
-        ${isActive ? "bg-neutral-800 text-foreground" : "hover:bg-primary/50 text-primary hover:text-white font-bold"}`}
+        ${isActive ? "bg-primary/40 text-violet-800" : "hover:bg-primary/10 text-[#6c5599] hover:text-primary font-bold "}`}
       style={{ transitionTimingFunction: softSpringEasing }}
       onClick={onClick}
     >
@@ -613,51 +634,78 @@ function IconNavButton({
 function IconNavigation({
   activeSection,
   onSectionChange,
+  onToggleCollapse,
+  isCollapsed
 }: {
   activeSection: string;
   onSectionChange: (section: string) => void;
+  onToggleCollapse: () => void;
+  isCollapsed: boolean;
 }) {
   const navItems = [
-    { id: "Home", icon: <Dashboard size={16} />, label: "Templates",href:"/home"},
-    { id: "Templates", icon: <LayoutTemplateIcon size={16} />, label: "Tasks", href:"/explore" },
-    { id: "projects", icon: <Folder size={16} />, label: "Projects", href:"/projects" },
-    { id: "brank kit", icon: <CalendarIcon size={16} />, label: "brandkit", href:"/brandkit"},
-    { id: "library", icon: <UserMultiple size={16} />, label: "Library", href:"/library" },
-    { id: "analytics", icon: <Analytics size={16} />, label: "Analytics",href:"/library" },
-    { id: "files", icon: <DocumentAdd size={16} />, label: "Files",href:"/library" },
+    { id: "Home", icon: <Home size={25} strokeWidth={2} />, label: "Home", href: "/home" },
+    { id: "Templates", icon: <LayoutTemplateIcon size={25} strokeWidth={2} />, label: "Templates", href: "/explore" },
+    { id: "projects", icon: <FolderClosed size={25} strokeWidth={2} />, label: "Projects", href: "/projects" },
+    { id: "brand kit", icon: <Lightbulb size={25} strokeWidth={2} />, label: "Brandkit", href: "/brandkit" },
+    { id: "library", icon: <LibrarySquare size={25} strokeWidth={2} />, label: "Library", href: "/library" },
+    { id: "learn", icon: <GraduationCap size={25} strokeWidth={2} />, label: "Learn", href: "/library" },
   ];
 
   return (
-    <aside className="bg-[#f3ebfb] flex flex-col gap-2 items-center p-4 w-16 h-[800px] border-r border-neutral-800 ">
+    <aside className="bg-[#f3ebfb] flex flex-col gap-2 items-center p-4 w-16 h-[800px] border-r border-[#6c5599]/20 ">
       {/* Logo */}
-      <div className="mb-2 size-10 flex items-center justify-center">
+      {/* <div className="mb-2 size-10 flex items-center justify-center">
         <div className="size-7">
           <InterfacesLogoSquare />
         </div>
-      </div>
+      </div> */}
 
       {/* Navigation Icons */}
       <div className="flex flex-col gap-2 w-full items-center">
+        {/* Menu Collapsible */}
+        <button
+          type="button"
+          onClick={onToggleCollapse}
+          className="flex items-center justify-center rounded-lg size-10 min-w-10 transition-all duration-500 hover:bg-primary/40 text-[#6c5599] hover:text-background"
+          style={{ transitionTimingFunction: softSpringEasing }}
+          aria-label="Expand sidebar"
+        >
+          {isCollapsed ?
+            <span className="inline-block rotate-180">
+              <Menu size={20} strokeWidth={2} />
+            </span>
+            :
+            <span className="flex items-center justify-center gap- relative w-[3rem]">
+              <Menu className="w-4 h-6" />
+              <ChevronLeft size={20} className="absolute right-0 " />
+            </span>
+          }
+        </button>
         {navItems.map((item) => (
-         <Link href={item.href}  key={item.id}>
-           <IconNavButton
-           
-            isActive={activeSection === item.id}
-            onClick={() => {onSectionChange(item.id)}}
-          >
-            {item.icon}
-          </IconNavButton>
-         </Link>
+          <Link href={item.href} key={item.id}>
+            <div className="flex-col flex gap-1 justify-center items-center">
+              <IconNavButton
+
+                isActive={activeSection === item.id}
+                onClick={() => { onSectionChange(item.id) }}
+              >
+                {item.icon}
+              </IconNavButton>
+              <span className="text-[0.7rem] text-[#6c5599] font-semibold">{item.label}</span>
+            </div>
+          </Link>
         ))}
       </div>
 
       <div className="flex-1" />
 
       {/* Bottom section */}
-      <div className="flex flex-col gap-2 w-full items-center mb-[5rem]">
-        <IconNavButton isActive={activeSection === "settings"} onClick={() => onSectionChange("settings")}>
-          <SettingsIcon size={16} />
-        </IconNavButton>
+      <div className="flex flex-col gap-2 w-full border items-center mb-[5rem]">
+        <Link href='/settings'>
+          <IconNavButton isActive={activeSection === "settings"} onClick={() => onSectionChange("settings")}>
+            <Settings size={20} strokeWidth={2} />
+          </IconNavButton>
+        </Link>
         <div className="size-8">
           <AvatarCircle />
         </div>
@@ -677,24 +725,8 @@ function SectionTitle({
   onToggleCollapse: () => void;
   isCollapsed: boolean;
 }) {
-  if (isCollapsed) {
-    return (
-      <div className="w-full flex justify-center transition-all duration-500" style={{ transitionTimingFunction: softSpringEasing }}>
-        <button
-          type="button"
-          onClick={onToggleCollapse}
-          className="flex items-center justify-center rounded-lg size-10 min-w-10 transition-all duration-500 hover:bg-neutral-800 text-foreground hover:text-muted-background"
-          style={{ transitionTimingFunction: softSpringEasing }}
-          aria-label="Expand sidebar"
-        >
-          <span className="inline-block rotate-180">
-            <ChevronDownIcon size={16} />
-          </span>
-        </button>
-      </div>
-    );
-  }
 
+  // expanded state
   return (
     <div className="w-full overflow-hidden transition-all duration-500" style={{ transitionTimingFunction: softSpringEasing }}>
       <div className="flex items-center justify-between">
@@ -705,7 +737,7 @@ function SectionTitle({
             </div>
           </div>
         </div>
-        <div className="pr-1">
+        {/* <div className="pr-1">
           <button
             type="button"
             onClick={onToggleCollapse}
@@ -715,15 +747,15 @@ function SectionTitle({
           >
             <ChevronDownIcon size={16} className="-rotate-90" />
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );
 }
 
-function DetailSidebar({ activeSection }: { activeSection: string }) {
+function DetailSidebar({ activeSection, toggleCollapse, isCollapsed }: { activeSection: string, toggleCollapse: () => void, isCollapsed: boolean }) {
   const [expandedItems, setExpandedItems] = useState<Set<string>>(new Set());
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  // const [isCollapsed, setIsCollapsed] = useState(false);
   const content = getSidebarContent(activeSection);
 
   const toggleExpanded = (itemKey: string) => {
@@ -735,24 +767,21 @@ function DetailSidebar({ activeSection }: { activeSection: string }) {
     });
   };
 
-  const toggleCollapse = () => setIsCollapsed((s) => !s);
 
   return (
     <aside
-      className={`bg-[#f3ebfb] text-foreground flex flex-col gap-4 items-start p-4 transition-all duration-500 h-[800px]  ${
-        isCollapsed ? "w-16 min-w-16 !px-0 justify-center" : "w-80"
-      }`}
+      className={`bg-[#f3ebfb] text-foreground flex flex-col gap-4 items-start p-4 transition-all duration-500 h-[800px]  ${isCollapsed ? "w-0 !px-0 justify-center" : "w-80"
+        }`}
       style={{ transitionTimingFunction: softSpringEasing }}
     >
-      {!isCollapsed && <BrandBadge />}
+      {/* {!isCollapsed && <BrandBadge />} */}
 
       <SectionTitle title={content.title} onToggleCollapse={toggleCollapse} isCollapsed={isCollapsed} />
       <SearchContainer isCollapsed={isCollapsed} />
 
       <div
-        className={`flex flex-col w-full overflow-y-auto transition-all duration-500 ${
-          isCollapsed ? "gap-2 items-center" : "gap-4 items-start"
-        }`}
+        className={`flex flex-col  w-full overflow-y-auto transition-all duration-500 ${isCollapsed ? "gap-2 items-center" : "gap-4 items-start"
+          }`}
         style={{ transitionTimingFunction: softSpringEasing }}
       >
         {content.sections.map((section, index) => (
@@ -767,7 +796,7 @@ function DetailSidebar({ activeSection }: { activeSection: string }) {
       </div>
 
       {!isCollapsed && (
-        <div className="w-full mt-auto pt-2 border-t border-primary/50">
+        <div className="w-full  pt-2 border-t border-primary/50  mt-20">
           <div className="flex items-center gap-2 px-2 py-2">
             <AvatarCircle />
             <div className="font-['Lexend:Regular',_sans-serif] text-[14px] text-foreground">Text content</div>
@@ -811,15 +840,13 @@ function MenuItem({
 
   return (
     <div
-      className={`relative shrink-0 transition-all duration-500 ${
-        isCollapsed ? "w-full flex justify-center" : "w-full"
-      }`}
+      className={`relative shrink-0 transition-all duration-500 ${isCollapsed ? "w-full flex justify-center" : "w-full"
+        }`}
       style={{ transitionTimingFunction: softSpringEasing }}
     >
       <div
-        className={`rounded-lg cursor-pointer transition-all duration-500 flex items-center relative ${
-          item.isActive ? "bg-background" : "hover:bg-primary/50  "
-        } ${isCollapsed ? "w-10 min-w-10 h-10 justify-center p-4" : "w-full h-10 px-4 py-2"}`}
+        className={`rounded-lg cursor-pointer transition-all duration-500 flex items-center relative ${item.isActive ? "bg-background" : "hover:bg-primary/50  "
+          } ${isCollapsed ? "w-10 min-w-10 h-10 justify-center p-4" : "w-full h-10 px-4 py-2"}`}
         style={{ transitionTimingFunction: softSpringEasing }}
         onClick={handleClick}
         title={isCollapsed ? item.label : undefined}
@@ -827,9 +854,8 @@ function MenuItem({
         <div className="flex items-center justify-center shrink-0">{item.icon}</div>
 
         <div
-          className={`flex-1 relative transition-opacity duration-500 overflow-hidden ${
-            isCollapsed ? "opacity-0 w-0" : "opacity-100 ml-3"
-          }`}
+          className={`flex-1 relative transition-opacity duration-500 overflow-hidden ${isCollapsed ? "opacity-0 w-0" : "opacity-100 ml-3"
+            }`}
           style={{ transitionTimingFunction: softSpringEasing }}
         >
           <div className="font-['Lexend:Regular',_sans-serif] text-[14px] text-foreground leading-[20px] truncate">
@@ -839,9 +865,8 @@ function MenuItem({
 
         {item.hasDropdown && (
           <div
-            className={`flex items-center justify-center shrink-0 transition-opacity duration-500 ${
-              isCollapsed ? "opacity-0 w-0" : "opacity-100 ml-2"
-            }`}
+            className={`flex items-center justify-center shrink-0 transition-opacity duration-500 ${isCollapsed ? "opacity-0 w-0" : "opacity-100 ml-2"
+              }`}
             style={{ transitionTimingFunction: softSpringEasing }}
           >
             <ChevronDownIcon
@@ -890,9 +915,8 @@ function MenuSection({
   return (
     <div className="flex flex-col w-full">
       <div
-        className={`relative shrink-0 w-full transition-all duration-500 overflow-hidden ${
-          isCollapsed ? "h-0 opacity-0" : "h-10 opacity-100"
-        }`}
+        className={`relative shrink-0 w-full transition-all  duration-500 overflow-hidden ${isCollapsed ? "h-0 opacity-0" : "h-10 opacity-100"
+          }`}
         style={{ transitionTimingFunction: softSpringEasing }}
       >
         <div className="flex items-center h-10 px-4">
@@ -906,7 +930,7 @@ function MenuSection({
         const itemKey = `${section.title}-${index}`;
         const isExpanded = expandedItems.has(itemKey);
         return (
-          <div key={itemKey} className="w-full flex flex-col">
+          <div key={itemKey} className="w-full flex flex-col ">
             <MenuItem
               item={item}
               isExpanded={isExpanded}
@@ -936,11 +960,14 @@ function MenuSection({
 
 function TwoLevelSidebar() {
   const [activeSection, setActiveSection] = useState("dashboard");
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  // const content = getSidebarContent(activeSection);
+  const toggleCollapse = () => setIsCollapsed((s) => !s);
 
   return (
     <div className="flex flex-row">
-      <IconNavigation activeSection={activeSection} onSectionChange={setActiveSection} />
-      <DetailSidebar activeSection={activeSection} />
+      <IconNavigation activeSection={activeSection} onSectionChange={setActiveSection} isCollapsed={isCollapsed} onToggleCollapse={toggleCollapse} />
+      <DetailSidebar activeSection={activeSection} toggleCollapse={toggleCollapse} isCollapsed={isCollapsed} />
     </div>
   );
 }

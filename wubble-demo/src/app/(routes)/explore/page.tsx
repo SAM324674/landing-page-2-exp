@@ -12,6 +12,7 @@ import { BentoGrid, BentoGridItem } from '@/components/bento-grid'
 import { Carousel, CarouselContent, CarouselItem, CarouselNavigation } from '@/components/ui/carousel'
 import { CarouselGridSlide } from '@/components/CarouselGridSlide'
 import { ActionSearchBar } from '@/components/action-search-bar'
+import { ExpandableCard } from '@/components/expandable-card'
 
 
 const chunkArray = (arr: any[], size: number) => {
@@ -359,11 +360,11 @@ const ExplorePage = () => {
   return (
     <div>
       <SideBarLayout>
-        <main className='border border-black '>
+        <main className=''>
 
           <div className='flex flex-col space-y-10 py-4'>
             <div className='h-[5rem] mt-6 flex justify-center items-center text-4xl font-bold'><h1>Step Into The World of Audio</h1></div>
-          {/* ----------------------------search Bar----------------------------------------- */}
+            {/* ----------------------------search Bar----------------------------------------- */}
             <div className='w-full '>
               <ActionSearchBar actions={allActions} />
             </div>
@@ -381,7 +382,7 @@ const ExplorePage = () => {
             {/*---------------- Explore Templates------------------ */}
             <div className='px-8 space-y-4'>
               <h1 className='text-xl font-bold'>Explore Templates</h1>
-              <Carousel className='w-[82.5rem]'>                      {/*to be corrected*/}
+              <Carousel className='w-[87rem]'>                      {/*to be corrected*/}
                 <CarouselContent>
 
                   {soundEffectChunks.map((chunk, index) => (
@@ -406,12 +407,14 @@ const ExplorePage = () => {
             <div className='px-8 space-y-4'>
               <h1 className='text-xl font-bold'>Based on your recent projects</h1>
               <div className='flex'>
-                <Carousel className='w-[82.5rem]'>
+                <Carousel className='w-[87rem]'>
                   <CarouselContent className='w-full gap-4'>
                     {Array.from({ length: 5 }).map((_, index) => (
                       <CarouselItem className='basis-1/3'>
+                        <ExpandableCard component={
+                       <WideContentCard key={index} imageUrl='https://plus.unsplash.com/premium_photo-1672046217997-4e40a3d7987d?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzN8fHJ1bnxlbnwwfHwwfHx8MA%3D%3D?q=80&w=2542&auto=format&fit=crop' />
 
-                        <WideContentCard key={index} imageUrl='https://plus.unsplash.com/premium_photo-1672046217997-4e40a3d7987d?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzN8fHJ1bnxlbnwwfHwwfHx8MA%3D%3D?q=80&w=2542&auto=format&fit=crop' />
+                        }><div className='h-[40rem]'></div></ExpandableCard>
 
 
                       </CarouselItem>
@@ -427,7 +430,7 @@ const ExplorePage = () => {
             <div className='px-8 space-y-4'>
               <h1 className='text-xl font-bold'>New To Wubble? Start Here</h1>
               <div className='flex'>
-                <Carousel className='w-[82.5rem]'>
+                <Carousel className='w-[87rem]'>
                   <CarouselContent className='w-full gap-4'>
                     {Array.from({ length: 5 }).map((_, index) => (
                       <CarouselItem className='basis-1/3'>
@@ -457,7 +460,7 @@ const ExplorePage = () => {
             <div className='px-8 space-y-4 py-2'>
               <h1 className='text-xl font-bold'>Trending in Market</h1>
               <div className='flex'>
-                <Carousel className='w-[82.5rem]'>
+                <Carousel className='w-[87rem]'>
                   <CarouselContent className='w-full gap-4'>
                     {/* <div> */}
                     {Array.from({ length: 5 }).map((_, index) => (
@@ -499,7 +502,7 @@ const ExplorePage = () => {
                 " gap-3 "
 
               >
-                <Carousel className='w-[82.5rem] '>
+                <Carousel className='w-[87rem] '>
                   <CarouselContent>
                     {/* <motion.div
                       variants={containerVariants}
@@ -528,7 +531,7 @@ const ExplorePage = () => {
             <div className='px-8 space-y-4'>
               <h1 className='text-xl font-bold'>Music to match your vibe</h1>
               <div className='flex gap-3'>
-                <Carousel className='w-[82.5rem]'>
+                <Carousel className='w-[87rem]'>
                   <CarouselContent className='w-full gap-4'>
                     {Array.from({ length: 5 }).map((_, index) => (
                       <CarouselItem className='basis-1/5'>
@@ -553,7 +556,7 @@ const ExplorePage = () => {
             {/*---------------------------------- Sound Effects for you---------------------------------------------- */}
             <div className='px-8 space-y-4'>
               <h1 className='text-xl font-bold'>Sound Effects for you</h1>
-              <Carousel className='w-[82.5rem]'>
+              <Carousel className='w-[87rem]'>
                 <CarouselContent>
 
                   {soundEffectChunks.map((chunk, index) => (
@@ -575,7 +578,7 @@ const ExplorePage = () => {
             {/*--------- Just Added -------------------*/}
             <div className='px-8 space-y-4'>
               <h1 className='text-xl font-bold'>Just added</h1>
-              <Carousel className='w-[82.5rem]'>
+              <Carousel className='w-[87rem]'>
                 <CarouselContent>
                   {/* <motion.div
                     variants={containerVariants}
@@ -610,6 +613,55 @@ const ExplorePage = () => {
                   />
                 ))}
               </BentoGrid>
+              {/* <ExpandableCard
+                title="Digital Revolution"
+                src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=600&fit=crop"
+                description="The Future of Technology"
+                classNameExpanded="[&_h4]:text-black dark:[&_h4]:text-white [&_h4]:font-medium"
+              >
+                <h4>The Rise of Artificial Intelligence</h4>
+                <p>
+                  In the heart of Silicon Valley, a revolution is quietly unfolding.
+                  Artificial Intelligence, once the stuff of science fiction, has become
+                  the driving force behind the most transformative technologies of our
+                  time. From autonomous vehicles navigating city streets to AI-powered
+                  medical diagnostics saving lives, the boundaries between human and
+                  machine intelligence are blurring in ways we never imagined possible.
+                </p>
+                <h4>The Quantum Computing Breakthrough</h4>
+                <p>
+                  Deep within the research labs of tech giants and universities,
+                  scientists are racing to harness the power of quantum mechanics.
+                  Quantum computers, with their ability to process information in
+                  multiple states simultaneously, promise to solve problems that
+                  would take classical computers millennia to crack. From drug
+                  discovery to climate modeling, the applications are limitless.
+                  The first commercially viable quantum computer could revolutionize
+                  cryptography, financial modeling, and our understanding of the
+                  universe itself.
+                </p>
+                <h4>The Internet of Everything</h4>
+                <p>
+                  Our world is becoming increasingly connected. Smart cities are
+                  emerging, where traffic lights communicate with cars, streetlights
+                  adjust based on pedestrian flow, and waste management systems
+                  optimize collection routes in real-time. The Internet of Things
+                  (IoT) is evolving into the Internet of Everything, creating a
+                  seamless network of devices, sensors, and systems that work
+                  together to make our lives more efficient and sustainable.
+                </p>
+                <h4>The Future of Human-Machine Collaboration</h4>
+                <p>
+                  As we stand on the precipice of this technological revolution,
+                  the question isn't whether machines will replace humans, but
+                  how we can best collaborate with them. Augmented reality is
+                  enhancing our perception of the world, while brain-computer
+                  interfaces are creating new ways for us to interact with
+                  technology. The future belongs to those who can harness the
+                  power of human creativity and machine precision, working
+                  together to solve the greatest challenges facing humanity.
+                </p>
+              </ExpandableCard> */}
             </div>
           </div>
         </main>

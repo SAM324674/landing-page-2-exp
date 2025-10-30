@@ -5,13 +5,14 @@ import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface ExpandableCardProps {
-  title: string;
-  src: string;
-  description: string;
+  title?: string;
+  src?: string;
+  description?: string;
   children?: React.ReactNode;
   className?: string;
   classNameExpanded?: string;
   [key: string]: any;
+  component:React.ReactNode;
 }
 
 export function ExpandableCard({
@@ -21,6 +22,7 @@ export function ExpandableCard({
   children,
   className,
   classNameExpanded,
+  component,
   ...props
 }: ExpandableCardProps) {
   const [active, setActive] = React.useState(false);
@@ -59,7 +61,7 @@ export function ExpandableCard({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-white/50 dark:bg-black/50 backdrop-blur-md h-full w-full z-10"
+            className="fixed inset-0 bg-white/50 dark:bg-black/50  backdrop-blur-md min-h-screen min-w-screen "
           />
         )}
       </AnimatePresence>
@@ -67,11 +69,11 @@ export function ExpandableCard({
         {active && (
           <div
             className={cn(
-              "fixed inset-0 grid place-items-center z-[100] sm:mt-16 before:pointer-events-none",
+              "fixed inset-0 grid min-w-screen min-h-screen place-items-center z-[100] sm:mt-16 before:pointer-events-none ",
             )}
           >
             <motion.div
-              layoutId={`card-${title}-${id}`}
+              layoutId={`card-${id}`}
               ref={cardRef}
               className={cn(
                 "w-full max-w-[850px] h-full flex flex-col overflow-auto [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] sm:rounded-t-3xl bg-zinc-50 shadow-sm dark:shadow-none dark:bg-zinc-950 relative",
@@ -79,7 +81,7 @@ export function ExpandableCard({
               )}
               {...props}
             >
-              <motion.div layoutId={`image-${title}-${id}`}>
+              <motion.div layoutId={`image-${id}`}>
                 <div className="relative before:absolute before:inset-x-0 before:bottom-[-1px] before:h-[70px] before:z-50 before:bg-gradient-to-t dark:before:from-zinc-950 before:from-zinc-50">
                   <img
                     src={src}
@@ -90,7 +92,7 @@ export function ExpandableCard({
               </motion.div>
               <div className="relative h-full before:fixed before:inset-x-0 before:bottom-0 before:h-[70px] before:z-50 before:bg-gradient-to-t dark:before:from-zinc-950 before:from-zinc-50">
                 <div className="flex justify-between items-start p-8 h-auto">
-                  <div>
+                  {/* <div>
                     <motion.p
                       layoutId={`description-${description}-${id}`}
                       className="text-zinc-500 dark:text-zinc-400 text-lg"
@@ -103,11 +105,11 @@ export function ExpandableCard({
                     >
                       {title}
                     </motion.h3>
-                  </div>
+                  </div> */}
                   <motion.button
                     aria-label="Close card"
-                    layoutId={`button-${title}-${id}`}
-                    className="h-10 w-10 shrink-0 flex items-center justify-center rounded-full bg-zinc-50 dark:bg-zinc-950 text-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-950 dark:text-white/70 text-black/70 border border-gray-200/90 dark:border-zinc-900 hover:border-gray-300/90 hover:text-black dark:hover:text-white dark:hover:border-zinc-800 transition-colors duration-300 focus:outline-none"
+                    layoutId={`button-${id}`}
+                    className="h-10 w-10 shrink-0 flex items-center justify-center rounded-full bg-zinc-50 dark:bg-zinc-950  hover:bg-neutral-50 dark:hover:bg-neutral-950 dark:text-white/70 text-black/70 border border-gray-200/90 dark:border-zinc-900 hover:border-gray-300/90 hover:text-black dark:hover:text-white dark:hover:border-zinc-800 transition-colors duration-300 focus:outline-none"
                     onClick={() => setActive(false)}
                   >
                     <motion.div
@@ -137,7 +139,7 @@ export function ExpandableCard({
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="text-zinc-500 dark:text-zinc-400 text-base pb-10 flex flex-col items-start gap-4 overflow-auto "
+                    className="text-zinc-500 border  dark:text-zinc-400 text-base pb-10 flex flex-col items-start gap-4 overflow-auto "
                   >
                     {children}
                   </motion.div>
@@ -147,28 +149,37 @@ export function ExpandableCard({
           </div>
         )}
       </AnimatePresence>
-
-      <motion.div
+      {/* Actual card */}
+      {/* <motion.div
         role="dialog"
         aria-labelledby={`card-title-${id}`}
         aria-modal="true"
         layoutId={`card-${title}-${id}`}
         onClick={() => setActive(true)}
         className={cn(
-          "p-3 flex flex-col justify-between items-center bg-zinc-50 shadow-sm dark:shadow-none dark:bg-zinc-950 rounded-2xl cursor-pointer border border-gray-200/70 dark:border-zinc-900",
+          "p-3 flex flex-col w-[30rem] bg-red-400 justify-between items-center  shadow-sm dark:shadow-none dark:bg-zinc-950 rounded-2xl cursor-pointer border border-gray-200/70 dark:border-zinc-900",
           className,
         )}
-      >
+      > */}
         <div className="flex gap-4 flex-col">
-          <motion.div layoutId={`image-${title}-${id}`}>
-            <img
+          <motion.div role="dialog"
+            aria-labelledby={`card-title-${id}`}
+            aria-modal="true"
+            layoutId={`card-${id}`}
+            onClick={() => setActive(true)}
+            className={cn(
+              "p-3 flex flex-col justify-between items-center  shadow-sm dark:shadow-none dark:bg-zinc-950 rounded-2xl cursor-pointer border border-gray-200/70 dark:border-zinc-900",
+              className,
+            )}>
+            {/* <img
               src={src}
               alt={title}
               className="w-64 h-56 rounded-lg object-cover object-center"
-            />
+            /> */}
+            {component}
           </motion.div>
           <div className="flex justify-between items-center">
-            <div className="flex flex-col">
+            {/* <div className="flex flex-col">
               <motion.p
                 layoutId={`description-${description}-${id}`}
                 className="text-zinc-500 dark:text-zinc-400 md:text-left text-sm font-medium"
@@ -181,8 +192,8 @@ export function ExpandableCard({
               >
                 {title}
               </motion.h3>
-            </div>
-            <motion.button
+            </div> */}
+            {/* <motion.button
               aria-label="Open card"
               layoutId={`button-${title}-${id}`}
               className={cn(
@@ -209,10 +220,10 @@ export function ExpandableCard({
                   <path d="M12 5v14" />
                 </svg>
               </motion.div>
-            </motion.button>
+            </motion.button> */}
           </div>
         </div>
-      </motion.div>
+      {/* </motion.div> */}
     </>
   );
 }
