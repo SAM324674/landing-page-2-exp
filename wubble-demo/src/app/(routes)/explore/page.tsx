@@ -11,7 +11,7 @@ import { MusicCard } from '@/components/MusicCard'
 import { BentoGrid, BentoGridItem } from '@/components/bento-grid'
 import { Carousel, CarouselContent, CarouselItem, CarouselNavigation } from '@/components/ui/carousel'
 import { CarouselGridSlide } from '@/components/CarouselGridSlide'
-import { ActionSearchBar } from '@/components/action-search-bar'
+import { AnimatedSearchBar } from '@/components/animated-search-bar'
 import { ExpandableCard } from '@/components/expandable-card'
 
 
@@ -366,7 +366,7 @@ const ExplorePage = () => {
             <div className='h-[5rem] mt-6 flex justify-center items-center text-4xl font-bold'><h1>Step Into The World of Audio</h1></div>
             {/* ----------------------------search Bar----------------------------------------- */}
             <div className='w-full '>
-              <ActionSearchBar actions={allActions} />
+              <AnimatedSearchBar actions={allActions} />
             </div>
             {/*----------------Icon Buttons------------------------*/}
             <div className=' w-full flex justify-evenly'>

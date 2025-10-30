@@ -88,7 +88,7 @@ const allActions = [
 ];
 
 
-function ActionSearchBar({ actions = allActions }: { actions?: Action[] }) {
+function AnimatedSearchBar({ actions = allActions }: { actions?: Action[] }) {
     const id = useId();
 
     // for animation
@@ -329,4 +329,4 @@ function ActionSearchBar({ actions = allActions }: { actions?: Action[] }) {
     );
 }
 
-export { ActionSearchBar };
+export { AnimatedSearchBar };

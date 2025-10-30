@@ -27,13 +27,12 @@ import {
   ChartBar,
   FolderOpen,
   Share,
-  CloudUpload,
   Security,
   Notification,
   Integration,
 } from "@carbon/icons-react";
 import Link from "next/link";
-import { ChevronLeft, ChevronRight, GraduationCap, Home, icons, LayoutTemplateIcon, LibrarySquare, Lightbulb, Menu, Settings } from "lucide-react";
+import { Accessibility, CheckCircle2, ChevronLeft, ChevronRight, CloudUpload, CreditCard, Database, GraduationCap, Home, icons, KeyRound, LayoutTemplateIcon, LibrarySquare, Lightbulb, LineChart, LogIn, Menu, Receipt, Settings, User, Users, Wrench } from "lucide-react";
 import { FolderClosed } from "dicons";
 
 /** ======================= Local SVG paths (inline) ======================= */
@@ -577,27 +576,48 @@ function getSidebarContent(activeSection: string): SidebarContent {
       title: "Settings",
       sections: [
         {
-          title: "Account",
+          title: "Personal Account",
           items: [
-            { icon: <UserIcon size={16} className="text-foreground" />, label: "Profile settings" },
-            { icon: <Security size={16} className="text-foreground" />, label: "Security" },
-            { icon: <Notification size={16} className="text-foreground" />, label: "Notifications" },
+            { icon: <UserIcon size={16} className="text-foreground" />, label: "Your Profile" },
+            { icon: <LogIn size={16} className="text-foreground" />, label: "Login" },
+            { icon: <KeyRound size={16} className="text-foreground" />, label: "Accessibility" },
+            { icon: <Database size={16} className="text-foreground" />, label: "Data Storage" },
+            { icon: <Users size={16} className="text-foreground" />, label: "Users" },
+            { icon: <Wrench size={16} className="text-foreground" />, label: "AI Personalization" },
           ],
         },
         {
-          title: "Workspace",
+          title: "People management",
           items: [
-            {
-              icon: <SettingsIcon size={16} className="text-foreground" />,
-              label: "Preferences",
-              hasDropdown: true,
-              children: [
-                { icon: <View size={14} className="text-neutral-300" />, label: "Theme settings" },
-                { icon: <Time size={14} className="text-neutral-300" />, label: "Time zone" },
-                { icon: <Notification size={14} className="text-neutral-300" />, label: "Default notifications" },
-              ],
-            },
-            { icon: <Integration size={16} className="text-foreground" />, label: "Integrations" },
+            { icon: <User size={16} className="text-foreground" />, label: "People" },
+            { icon: <Users size={16} className="text-foreground" />, label: "Team Profile" },
+
+          ],
+        },
+        {
+          title: "Payments and Billing",
+          items: [
+            { icon: <CreditCard size={16} className="text-foreground" />, label: "Billing" },
+            { icon: <Receipt size={16} className="text-foreground" />, label: "Orders and invoices" },
+
+          ],
+        },
+        {
+          title: "Controls and permissions",
+          items: [
+            { icon: <CheckCircle2 size={16} className="text-foreground" />, label: "Permission" },
+          ],
+        },
+        {
+          title: "Reporting",
+          items: [
+            { icon: <LineChart size={16} className="text-foreground" />, label: "Usage report" },
+          ],
+        },
+        {
+          title: "SSO and provisioning",
+          items: [
+            { icon: <CloudUpload size={16} className="text-foreground" />, label: "Usage report" },
           ],
         },
       ],
@@ -757,7 +777,7 @@ function DetailSidebar({ activeSection, toggleCollapse, isCollapsed }: { activeS
   const [expandedItems, setExpandedItems] = useState<Set<string>>(new Set());
   // const [isCollapsed, setIsCollapsed] = useState(false);
   const content = getSidebarContent(activeSection);
-
+  
   const toggleExpanded = (itemKey: string) => {
     setExpandedItems((prev) => {
       const next = new Set(prev);
@@ -777,7 +797,7 @@ function DetailSidebar({ activeSection, toggleCollapse, isCollapsed }: { activeS
       {/* {!isCollapsed && <BrandBadge />} */}
 
       <SectionTitle title={content.title} onToggleCollapse={toggleCollapse} isCollapsed={isCollapsed} />
-      <SearchContainer isCollapsed={isCollapsed} />
+      {/* <SearchContainer isCollapsed={isCollapsed} /> */}
 
       <div
         className={`flex flex-col  w-full overflow-y-auto transition-all duration-500 ${isCollapsed ? "gap-2 items-center" : "gap-4 items-start"
