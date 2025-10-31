@@ -17,6 +17,8 @@ export type MagneticProps = {
   actionArea?: 'self' | 'parent' | 'global';
   springOptions?: SpringOptions;
 };
+
+
 function MagneticLink({
   children,
   link,

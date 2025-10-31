@@ -17,6 +17,7 @@ import {
 import { cn } from "@/lib/utils";
 import AvatarUpload from "@/components/ImageUploader";
 import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/card";
+import Image from "next/image";
 interface EditableFieldProps {
     label: string;
     value: string;
@@ -233,7 +234,7 @@ const ProfilePage = () => {
                     <div className="flex justify-between items-center">
                         <Card className="w-full flex items-center justify-start p-4 h-[6rem] gap-4">
                             <div className="w-[4rem] h-[3rem]  bg-background rounded-md border">
-
+                                <Image src='./GoogleIcon.svg' width={16} height={16} alt="GoogleLogo"/>
                             </div>
                             <div className="flex flex-col items-start justify-center h-[3rem] w-full px-2">
                                 <h1 className="font-bold text-sm">

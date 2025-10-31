@@ -361,7 +361,7 @@ const ExplorePage = () => {
     <div>
       <SideBarLayout>
         <main className=''>
-
+          
           <div className='flex flex-col space-y-10 py-4'>
             <div className='h-[5rem] mt-6 flex justify-center items-center text-4xl font-bold'><h1>Step Into The World of Audio</h1></div>
             {/* ----------------------------search Bar----------------------------------------- */}

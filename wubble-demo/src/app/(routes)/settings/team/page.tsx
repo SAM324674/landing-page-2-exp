@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input'
 import { MultiSelectDropdown } from '@/components/checkbox-droopdown'
 import { WorkflowBuilderCard } from '@/components/workflow-builder-card'
 
-const TeamsPage = () => {
+const TeamPage = () => {
   const[roles,setRoles]=useState<string[]>([])
   const TeamsCardData = {
     imageUrl: "https://images.unsplash.com/photo-1752154344437-44bd7480e8ee?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDY1fENEd3V3WEpBYkV3fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&q=60&w=900?q=80&w=2940&auto=format&fit=crop",
@@ -59,4 +59,4 @@ const TeamsPage = () => {
   )
 }
 
-export default TeamsPage
+export default TeamPage

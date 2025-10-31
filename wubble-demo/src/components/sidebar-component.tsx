@@ -32,8 +32,8 @@ import {
   Integration,
 } from "@carbon/icons-react";
 import Link from "next/link";
-import { Accessibility, CheckCircle2, ChevronLeft, ChevronRight, CloudUpload, CreditCard, Database, GraduationCap, Home, icons, KeyRound, LayoutTemplateIcon, LibrarySquare, Lightbulb, LineChart, LogIn, Menu, Receipt, Settings, User, Users, Wrench } from "lucide-react";
-import { FolderClosed } from "dicons";
+import { Accessibility, ChartNoAxesGantt, CheckCircle2, ChevronLeft, ChevronRight, CloudUpload, CreditCard, Database, File, FolderClosed, GraduationCap, Home, icons, KeyRound, KeyRoundIcon, LayoutTemplateIcon, LibrarySquare, Lightbulb, LineChart, LoaderCircleIcon, LogIn, Menu, Receipt, Settings, Tag, User, Users, Wrench } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 /** ======================= Local SVG paths (inline) ======================= */
 const svgPaths = {
@@ -181,14 +181,22 @@ interface MenuItemT {
   hasDropdown?: boolean;
   isActive?: boolean;
   children?: MenuItemT[];
+  link?: string;
+}
+interface MenuButtonT {
+  label: string;
+  link?: string;
+  icon?: React.ReactNode;
 }
 interface MenuSectionT {
   title: string;
   items: MenuItemT[];
+  // link?: string;
 }
 interface SidebarContent {
-  title: string;
+  title?: string;
   sections: MenuSectionT[];
+  button?:MenuButtonT;
 }
 
 function getSidebarContent(activeSection: string): SidebarContent {
@@ -544,32 +552,36 @@ function getSidebarContent(activeSection: string): SidebarContent {
     //   ],
     // },
 
-    learn: {
-      title: "Learn",
+    developers: {
+      title: "",
       sections: [
         {
-          title: "Reports",
+          title: "",
+
           items: [
-            { icon: <Report size={16} className="text-foreground" />, label: "Performance report" },
-            { icon: <ChartBar size={16} className="text-foreground" />, label: "Task completion" },
-            { icon: <Analytics size={16} className="text-foreground" />, label: "Team productivity" },
+            { icon: <ChartNoAxesGantt  size={16} className="text-foreground" />, label: "Developer overview", link: "/developers"},
+            { icon: <KeyRoundIcon size={16} className="text-foreground" />, label: "API keys", link: "/developers/api-key" },
+            { icon: <Analytics size={16} className="text-foreground" />, label: "Webhooks" },
+            { icon: <LoaderCircleIcon size={16} className="text-foreground" />, label: "Usage" },
+            { icon: <Tag size={16} className="text-foreground" />, label: "Billing" },
+            { icon: <File size={16} className="text-foreground" />, label: "Documentation" },
           ],
         },
-        {
-          title: "Insights",
-          items: [
-            {
-              icon: <StarFilled size={16} className="text-foreground" />,
-              label: "Key metrics",
-              hasDropdown: true,
-              children: [
-                { icon: <CheckmarkOutline size={14} className="text-neutral-300" />, label: "Tasks completed: 24" },
-                { icon: <Time size={14} className="text-neutral-300" />, label: "Avg. completion time: 2.5d" },
-                { icon: <UserMultiple size={14} className="text-neutral-300" />, label: "Team efficiency: 87%" },
-              ],
-            },
-          ],
-        },
+        // {
+        //   title: "Insights",
+        //   items: [
+        //     {
+        //       icon: <StarFilled size={16} className="text-foreground" />,
+        //       label: "Key metrics",
+        //       hasDropdown: true,
+        //       children: [
+        //         { icon: <CheckmarkOutline size={14} className="text-neutral-300" />, label: "Tasks completed: 24" },
+        //         { icon: <Time size={14} className="text-neutral-300" />, label: "Avg. completion time: 2.5d" },
+        //         { icon: <UserMultiple size={14} className="text-neutral-300" />, label: "Team efficiency: 87%" },
+        //       ],
+        //     },
+        //   ],
+        // },
       ],
     },
     settings: {
@@ -578,11 +590,11 @@ function getSidebarContent(activeSection: string): SidebarContent {
         {
           title: "Personal Account",
           items: [
-            { icon: <UserIcon size={16} className="text-foreground" />, label: "Your Profile" },
-            { icon: <LogIn size={16} className="text-foreground" />, label: "Login" },
-            { icon: <KeyRound size={16} className="text-foreground" />, label: "Accessibility" },
-            { icon: <Database size={16} className="text-foreground" />, label: "Data Storage" },
-            { icon: <Users size={16} className="text-foreground" />, label: "Users" },
+            { icon: <UserIcon size={16} className="text-foreground" />, label: "Your Profile", link: "/settings/profile" },
+            { icon: <LogIn size={16} className="text-foreground" />, label: "Login", link: "/settings/login" },
+            { icon: <KeyRound size={16} className="text-foreground" />, label: "Accessibility", link: "/settings/accessibility" },
+            { icon: <Database size={16} className="text-foreground" />, label: "Data Storage", link: "/settings/data-storage" },
+            { icon: <Users size={16} className="text-foreground" />, label: "Team", link: "/settings/team" },
             { icon: <Wrench size={16} className="text-foreground" />, label: "AI Personalization" },
           ],
         },
@@ -590,7 +602,7 @@ function getSidebarContent(activeSection: string): SidebarContent {
           title: "People management",
           items: [
             { icon: <User size={16} className="text-foreground" />, label: "People" },
-            { icon: <Users size={16} className="text-foreground" />, label: "Team Profile" },
+            { icon: <Users size={16} className="text-foreground" />, label: "Team Profile", link: "/settings/team-profile" },
 
           ],
         },
@@ -662,13 +674,15 @@ function IconNavigation({
   onToggleCollapse: () => void;
   isCollapsed: boolean;
 }) {
+
+  const currentPath = usePathname();
   const navItems = [
     { id: "Home", icon: <Home size={25} strokeWidth={2} />, label: "Home", href: "/home" },
     { id: "Templates", icon: <LayoutTemplateIcon size={25} strokeWidth={2} />, label: "Templates", href: "/explore" },
     { id: "projects", icon: <FolderClosed size={25} strokeWidth={2} />, label: "Projects", href: "/projects" },
     { id: "brand kit", icon: <Lightbulb size={25} strokeWidth={2} />, label: "Brandkit", href: "/brandkit" },
     { id: "library", icon: <LibrarySquare size={25} strokeWidth={2} />, label: "Library", href: "/library" },
-    { id: "learn", icon: <GraduationCap size={25} strokeWidth={2} />, label: "Learn", href: "/library" },
+    { id: "developers", icon: <GraduationCap size={25} strokeWidth={2} />, label: "Learn", href: "/developers" },
   ];
 
   return (
@@ -701,12 +715,15 @@ function IconNavigation({
             </span>
           }
         </button>
-        {navItems.map((item) => (
+        {navItems.map((item) => {
+          const isActive = currentPath.startsWith(item.href);
+          return(
+            (
           <Link href={item.href} key={item.id}>
             <div className="flex-col flex gap-1 justify-center items-center">
               <IconNavButton
 
-                isActive={activeSection === item.id}
+                isActive={isActive}
                 onClick={() => { onSectionChange(item.id) }}
               >
                 {item.icon}
@@ -714,15 +731,17 @@ function IconNavigation({
               <span className="text-[0.7rem] text-[#6c5599] font-semibold">{item.label}</span>
             </div>
           </Link>
-        ))}
+        )
+          )
+        })}
       </div>
 
       <div className="flex-1" />
 
       {/* Bottom section */}
       <div className="flex flex-col gap-2 w-full border items-center mb-[5rem]">
-        <Link href='/settings'>
-          <IconNavButton isActive={activeSection === "settings"} onClick={() => onSectionChange("settings")}>
+        <Link href='/settings/profile'>
+          <IconNavButton isActive={currentPath.startsWith("/settings")} onClick={() => onSectionChange("settings")}>
             <Settings size={20} strokeWidth={2} />
           </IconNavButton>
         </Link>
@@ -777,7 +796,7 @@ function DetailSidebar({ activeSection, toggleCollapse, isCollapsed }: { activeS
   const [expandedItems, setExpandedItems] = useState<Set<string>>(new Set());
   // const [isCollapsed, setIsCollapsed] = useState(false);
   const content = getSidebarContent(activeSection);
-  
+
   const toggleExpanded = (itemKey: string) => {
     setExpandedItems((prev) => {
       const next = new Set(prev);
@@ -796,7 +815,7 @@ function DetailSidebar({ activeSection, toggleCollapse, isCollapsed }: { activeS
     >
       {/* {!isCollapsed && <BrandBadge />} */}
 
-      <SectionTitle title={content.title} onToggleCollapse={toggleCollapse} isCollapsed={isCollapsed} />
+      <SectionTitle title={content.title||''} onToggleCollapse={toggleCollapse} isCollapsed={isCollapsed} />
       {/* <SearchContainer isCollapsed={isCollapsed} /> */}
 
       <div
@@ -859,48 +878,50 @@ function MenuItem({
   };
 
   return (
-    <div
-      className={`relative shrink-0 transition-all duration-500 ${isCollapsed ? "w-full flex justify-center" : "w-full"
-        }`}
-      style={{ transitionTimingFunction: softSpringEasing }}
-    >
+    <Link href={item.link||'#'}>
       <div
-        className={`rounded-lg cursor-pointer transition-all duration-500 flex items-center relative ${item.isActive ? "bg-background" : "hover:bg-primary/50  "
-          } ${isCollapsed ? "w-10 min-w-10 h-10 justify-center p-4" : "w-full h-10 px-4 py-2"}`}
+        className={`relative shrink-0 transition-all duration-500 ${isCollapsed ? "w-full flex justify-center" : "w-full"
+          }`}
         style={{ transitionTimingFunction: softSpringEasing }}
-        onClick={handleClick}
-        title={isCollapsed ? item.label : undefined}
       >
-        <div className="flex items-center justify-center shrink-0">{item.icon}</div>
-
         <div
-          className={`flex-1 relative transition-opacity duration-500 overflow-hidden ${isCollapsed ? "opacity-0 w-0" : "opacity-100 ml-3"
-            }`}
+          className={`rounded-lg cursor-pointer transition-all duration-500 flex items-center relative ${item.isActive ? "bg-background" : "hover:bg-primary/50  "
+            } ${isCollapsed ? "w-10 min-w-10 h-10 justify-center p-4" : "w-full h-10 px-4 py-2"}`}
           style={{ transitionTimingFunction: softSpringEasing }}
+          onClick={handleClick}
+          title={isCollapsed ? item.label : undefined}
         >
-          <div className="font-['Lexend:Regular',_sans-serif] text-[14px] text-foreground leading-[20px] truncate">
-            {item.label}
-          </div>
-        </div>
+          <div className="flex items-center justify-center shrink-0">{item.icon}</div>
 
-        {item.hasDropdown && (
           <div
-            className={`flex items-center justify-center shrink-0 transition-opacity duration-500 ${isCollapsed ? "opacity-0 w-0" : "opacity-100 ml-2"
+            className={`flex-1 relative transition-opacity duration-500 overflow-hidden ${isCollapsed ? "opacity-0 w-0" : "opacity-100 ml-3"
               }`}
             style={{ transitionTimingFunction: softSpringEasing }}
           >
-            <ChevronDownIcon
-              size={16}
-              className="text-foreground transition-transform duration-500"
-              style={{
-                transitionTimingFunction: softSpringEasing,
-                transform: isExpanded ? "rotate(180deg)" : "rotate(0deg)",
-              }}
-            />
+            <div className="font-['Lexend:Regular',_sans-serif]  text-[14px] text-foreground leading-[20px] truncate">
+              {item.label}
+            </div>
           </div>
-        )}
+
+          {item.hasDropdown && (
+            <div
+              className={`flex items-center justify-center shrink-0 transition-opacity duration-500 ${isCollapsed ? "opacity-0 w-0" : "opacity-100 ml-2"
+                }`}
+              style={{ transitionTimingFunction: softSpringEasing }}
+            >
+              <ChevronDownIcon
+                size={16}
+                className="text-foreground transition-transform duration-500"
+                style={{
+                  transitionTimingFunction: softSpringEasing,
+                  transform: isExpanded ? "rotate(180deg)" : "rotate(0deg)",
+                }}
+              />
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+    </Link>
   );
 }
 
@@ -978,8 +999,20 @@ function MenuSection({
 
 /* --------------------------------- Layout -------------------------------- */
 
+function getSectionIdFromPath(path:any) {
+  if (path.startsWith("/explore")) return "Templates";
+  if (path.startsWith("/projects")) return "projects";
+  if (path.startsWith("/brandkit")) return "brand kit";
+  if (path.startsWith("/library")) return "library";
+  if (path.startsWith("/home")) return "Home"; // or whatever your default is
+  if (path.startsWith("/settings")) return "settings";
+  if (path.startsWith("/developers")) return "developers";
+  return "Home"; // Default to Home if no match
+}
 function TwoLevelSidebar() {
-  const [activeSection, setActiveSection] = useState("dashboard");
+  const currentPath = usePathname();
+  
+  const [activeSection, setActiveSection] = useState(getSectionIdFromPath(currentPath));
   const [isCollapsed, setIsCollapsed] = useState(false);
   // const content = getSidebarContent(activeSection);
   const toggleCollapse = () => setIsCollapsed((s) => !s);
