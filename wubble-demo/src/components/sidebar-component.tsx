@@ -593,9 +593,9 @@ function getSidebarContent(activeSection: string): SidebarContent {
             { icon: <UserIcon size={16} className="text-foreground" />, label: "Your Profile", link: "/settings/profile" },
             { icon: <LogIn size={16} className="text-foreground" />, label: "Login", link: "/settings/login" },
             { icon: <KeyRound size={16} className="text-foreground" />, label: "Accessibility", link: "/settings/accessibility" },
-            { icon: <Database size={16} className="text-foreground" />, label: "Data Storage", link: "/settings/data-storage" },
+            { icon: <Database size={16} className="text-foreground" />, label: "Data and Storage", link: "/settings/data-and-storage" },
             { icon: <Users size={16} className="text-foreground" />, label: "Team", link: "/settings/team" },
-            { icon: <Wrench size={16} className="text-foreground" />, label: "AI Personalization" },
+            { icon: <Wrench size={16} className="text-foreground" />, label: "AI Personalization" , link: "/settings/ai-personalization"},
           ],
         },
         {
